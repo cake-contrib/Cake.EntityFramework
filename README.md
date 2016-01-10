@@ -35,7 +35,7 @@ Alternatively, add directly to a cake script via the `#addin` directive.
 
 ## Usage
 
-```
+```cake
 #addin "Cake.EntityFramework"
 
 var migrationSettings = new EfMigratorSettings {
@@ -61,7 +61,7 @@ Task("Migrate-To_Latest")
 
 Run migrations in trasactions. Keep in mind that this only works with supported providers (e.g. basiclly everyone except MySQL and Oracle). For example in PostgreSQL (Npgsql) you would do:
 
-```
+```c#
 public class AtomicMigrationScriptBuilder : NpgsqlMigrationSqlGenerator
 {
     public override IEnumerable<MigrationStatement> Generate(IEnumerable<MigrationOperation> migrationOperations, string providerManifestToken)
