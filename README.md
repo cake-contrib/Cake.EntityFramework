@@ -1,5 +1,7 @@
 # Cake.EntityFramework
 
+[![AppVeyor](https://img.shields.io/appveyor/ci/Silvenga/cake-entityframework.svg)](https://ci.appveyor.com/project/Silvenga/cake-entityframework)
+
 > This is considered alpha quality, use at your own risk.
 
 A set of Cake aliases for Entity Framework code-first migrations.
@@ -86,11 +88,12 @@ This will allow for more reliable rollbacks.
 
 ## TODO
 
-* Add documentation (e.g. XML-Docs, Cakedocs)
-* Handle errors better
-* Test with more EF providers
-* More tests in general
-* EF 7 support
-* Add a build server
-* Add nuget packages
-* Refactor repository
+- [ ] Add documentation (e.g. XML-Docs, Cakedocs)
+- [ ] Handle errors better
+- [ ] Test with more EF providers
+- [ ] More tests in general
+- [ ] EF 7 support
+- [X] Add a build server
+- [ ] Add nuget packages
+- [ ] Refactor repository
+- [ ] Create unit tests
