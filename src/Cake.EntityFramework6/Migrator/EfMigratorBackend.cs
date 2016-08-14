@@ -1,4 +1,4 @@
-﻿namespace Cake.EntityFramework6.Actors
+﻿namespace Cake.EntityFramework6.Migrator
 {
     using System;
     using System.Collections.Generic;

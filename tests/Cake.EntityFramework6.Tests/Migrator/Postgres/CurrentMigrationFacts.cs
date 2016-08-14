@@ -2,8 +2,8 @@
 {
     using System.Linq;
 
-    using Cake.EntityFramework6.Actors;
     using Cake.EntityFramework6.Interfaces;
+    using Cake.EntityFramework6.Migrator;
 
     using FluentAssertions;
 

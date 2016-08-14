@@ -81,7 +81,6 @@
     <Otherwise />
   </Choose>
   <ItemGroup>
-    <Compile Include="EfMigratorTests.cs" />
     <Compile Include="Migrator\GenericMigratorFacts.cs" />
     <Compile Include="Migrator\Postgres\CurrentMigrationFacts.cs" />
     <Compile Include="Migrator\Postgres\LocalMigrationFacts.cs" />
