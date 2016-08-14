@@ -74,10 +74,15 @@
   </Choose>
   <ItemGroup>
     <Compile Include="EfMigratorTests.cs" />
+    <Compile Include="Migrator\LocalMigrationFacts.cs" />
     <Compile Include="MockLogger.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="..\TestProjects\Cake.EntityFramework.TestProject.Postgres\bin\Debug\Cake.EntityFramework.TestProject.Postgres.exe.config">
+      <Link>Postgres\Cake.EntityFramework.TestProject.Postgres.exe.config</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
@@ -86,6 +91,49 @@
       <Project>{2e0dbe40-69a0-4295-802e-96d8852df25c}</Project>
       <Name>Cake.EntityFramework6</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="..\TestProjects\Cake.EntityFramework.TestProject.Postgres\bin\Debug\Cake.EntityFramework.TestProject.Postgres.exe">
+      <Link>Postgres\Cake.EntityFramework.TestProject.Postgres.exe</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\TestProjects\Cake.EntityFramework.TestProject.Postgres\bin\Debug\Cake.EntityFramework.TestProject.Postgres.pdb">
+      <Link>Postgres\Cake.EntityFramework.TestProject.Postgres.pdb</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\TestProjects\Cake.EntityFramework.TestProject.Postgres\bin\Debug\EntityFramework.dll">
+      <Link>Postgres\EntityFramework.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\TestProjects\Cake.EntityFramework.TestProject.Postgres\bin\Debug\EntityFramework.SqlServer.dll">
+      <Link>Postgres\EntityFramework.SqlServer.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\TestProjects\Cake.EntityFramework.TestProject.Postgres\bin\Debug\EntityFramework.SqlServer.xml">
+      <Link>Postgres\EntityFramework.SqlServer.xml</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\TestProjects\Cake.EntityFramework.TestProject.Postgres\bin\Debug\EntityFramework.xml">
+      <Link>Postgres\EntityFramework.xml</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\TestProjects\Cake.EntityFramework.TestProject.Postgres\bin\Debug\EntityFramework6.Npgsql.dll">
+      <Link>Postgres\EntityFramework6.Npgsql.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\TestProjects\Cake.EntityFramework.TestProject.Postgres\bin\Debug\EntityFramework6.Npgsql.xml">
+      <Link>Postgres\EntityFramework6.Npgsql.xml</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\TestProjects\Cake.EntityFramework.TestProject.Postgres\bin\Debug\Npgsql.dll">
+      <Link>Postgres\Npgsql.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\TestProjects\Cake.EntityFramework.TestProject.Postgres\bin\Debug\Npgsql.xml">
+      <Link>Postgres\Npgsql.xml</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
