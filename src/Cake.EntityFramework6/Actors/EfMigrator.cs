@@ -37,10 +37,10 @@
             var migrator = (EfMigratorBackend) _domain.CreateInstanceAndUnwrap(type.Assembly.FullName, type.FullName);
             migrator.Initialize(assemblyPath, qualifiedDbConfigName, connectionString, connectionProvider);
 
-            _logger.Debug($"Initialized new {nameof(EfMigratorBackend)} within AppDomain.");
+            _logger.Debug($"Initialized new {nameof(EfMigratorBackend)} within {domainName}.");
 
             CurrentMigration = migrator.GetCurrentMigration();
-            _logger.Information($"Current Migration is {CurrentMigration}.");
+            _logger.Information($"Current Migration is {CurrentMigration ?? "Unknown"}.");
 
             _migratorBackend = migrator;
         }
@@ -65,6 +65,12 @@
             if (Commited)
             {
                 throw new Exception("Can't rollback when the migrations have been commited.");
+            }
+
+            if (CurrentMigration == null)
+            {
+                _logger.Information("Not at any known migration level, no rollback needed.");
+                return;
             }
 
             _logger.Information($"Rollingback to {CurrentMigration}.");

@@ -74,7 +74,8 @@
   </Choose>
   <ItemGroup>
     <Compile Include="EfMigratorTests.cs" />
-    <Compile Include="Migrator\LocalMigrationFacts.cs" />
+    <Compile Include="Migrator\Postgres\LocalMigrationFacts.cs" />
+    <Compile Include="Migrator\Postgres\PostgresFactConstants.cs" />
     <Compile Include="MockLogger.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

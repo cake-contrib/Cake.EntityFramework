@@ -18,6 +18,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cake.EntityFramework6.Tests
 		{4D8203A9-0969-4EDD-B50D-6DDB766E3584} = {4D8203A9-0969-4EDD-B50D-6DDB766E3584}
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docker", "docker", "{D787C48E-330E-43A5-8B4B-F34B4D556305}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Postgres", "Postgres", "{B7CCFDF1-3CBA-4388-89E5-B0A746AB8488}"
+	ProjectSection(SolutionItems) = preProject
+		docker\postgres\docker-compose.yml = docker\postgres\docker-compose.yml
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,5 +52,6 @@ Global
 		{2E0DBE40-69A0-4295-802E-96D8852DF25C} = {52F43204-A1F2-44E6-97FC-3095D889ABE9}
 		{4D8203A9-0969-4EDD-B50D-6DDB766E3584} = {AFB8B12C-1821-4F49-AEF0-5374E00231B3}
 		{EC98D5C7-B0DF-4CD5-A39F-7B9600E9F71C} = {29AF1EAC-C902-483B-B5BC-DF533312ACB9}
+		{B7CCFDF1-3CBA-4388-89E5-B0A746AB8488} = {D787C48E-330E-43A5-8B4B-F34B4D556305}
 	EndGlobalSection
 EndGlobal

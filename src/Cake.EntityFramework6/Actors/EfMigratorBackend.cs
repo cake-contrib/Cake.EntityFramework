@@ -19,21 +19,25 @@
 
         public IEnumerable<string> GetLocalMigrations()
         {
+            AssertForReady();
             return _dbMigrator.GetLocalMigrations();
         }
 
         public IEnumerable<string> GetRemoteMigrations()
         {
+            AssertForReady();
             return _dbMigrator.GetDatabaseMigrations();
         }
 
         public IEnumerable<string> GetPendingMigrations()
         {
+            AssertForReady();
             return _dbMigrator.GetPendingMigrations();
         }
 
         public string GetCurrentMigration()
         {
+            AssertForReady();
             return _dbMigrator.GetDatabaseMigrations().FirstOrDefault();
         }
 
@@ -44,11 +48,13 @@
 
         public bool HasPendingMigrations()
         {
+            AssertForReady();
             return GetPendingMigrations().Any();
         }
 
         public bool MigrateTo(string version)
         {
+            AssertForReady();
             try
             {
                 _dbMigrator.Update(version);
@@ -62,6 +68,7 @@
 
         public bool MigrateToLatest()
         {
+            AssertForReady();
             var last = GetLatestMigration();
             if (last != null)
             {
@@ -75,13 +82,13 @@
         {
             if (Ready)
             {
-                throw new Exception("EfMigrator is already initialize.");
+                throw new Exception("EfMigrator is already initialize and cannot be re-initialize.");
             }
 
             var assemblyLocation = Path.GetFullPath(assemblyPath);
             if (!File.Exists(assemblyLocation))
             {
-                throw new Exception($"The assemblyPath '{assemblyPath}' must exist.");
+                throw new Exception($"The assemblyPath '{assemblyPath}' must exist, it currently doesn't.");
             }
 
             _parrentPath = Path.GetDirectoryName(assemblyLocation);
@@ -90,7 +97,8 @@
             var dbMigrationsConfiguration = LoadConfiguration(assemblyLocation, qualifiedDbConfigName);
             if (dbMigrationsConfiguration == null)
             {
-                throw new Exception($"The qualifiedDbConfigName {qualifiedDbConfigName} must exist within {assemblyPath} and implement type {typeof(DbMigrationsConfiguration).FullName}.");
+                throw new Exception(
+                    $"The qualifiedDbConfigName {qualifiedDbConfigName} must exist within {assemblyPath} and implement type {nameof(DbMigrationsConfiguration)}. Make sure this class exists or that this class is a Migration Configuration.");
             }
             dbMigrationsConfiguration.TargetDatabase = new DbConnectionInfo(connectionString, connectionProvider);
             _dbMigrator = new DbMigrator(dbMigrationsConfiguration);
@@ -102,11 +110,11 @@
         {
             var dll = Assembly.LoadFrom(assemblyLocation);
             return dll.DefinedTypes
-                    .Where(x => typeof(DbMigrationsConfiguration).IsAssignableFrom(x))
-                    .Where(x => !x.IsAbstract)
-                    .Select(x => Activator.CreateInstance(x) as DbMigrationsConfiguration)
-                    .Where(x => x != null)
-                    .SingleOrDefault(x => x.GetType().FullName == qualifiedDbConfigName);
+                      .Where(x => typeof(DbMigrationsConfiguration).IsAssignableFrom(x))
+                      .Where(x => !x.IsAbstract)
+                      .Select(x => Activator.CreateInstance(x) as DbMigrationsConfiguration)
+                      .Where(x => x != null)
+                      .SingleOrDefault(x => x.GetType().FullName == qualifiedDbConfigName);
         }
 
         private Assembly CurrentDomainOnAssemblyResolve(object sender, ResolveEventArgs args)
@@ -117,6 +125,14 @@
                     .FirstOrDefault(x => x.Name == $"{args.Name}.dll");
 
             return assemblyPath != null ? Assembly.LoadFrom(assemblyPath.FullName) : null;
+        }
+
+        private void AssertForReady()
+        {
+            if (!Ready)
+            {
+                throw new Exception("Safety assert failed, improbable code reached. EfMigrator is not ready.");
+            }
         }
     }
 }
