@@ -9,6 +9,7 @@
     using System.Reflection;
 
     using Cake.EntityFramework6.Interfaces;
+    using Cake.EntityFramework6.Models;
 
     public class EfMigratorBackend : MarshalByRefObject, IEfMigratorBackend
     {
@@ -82,13 +83,13 @@
         {
             if (Ready)
             {
-                throw new Exception("EfMigrator is already initialize and cannot be re-initialize.");
+                throw new EfMigrationException("EfMigrator is already initialize and cannot be re-initialize.");
             }
 
             var assemblyLocation = Path.GetFullPath(assemblyPath);
             if (!File.Exists(assemblyLocation))
             {
-                throw new Exception($"The assemblyPath '{assemblyPath}' must exist, it currently doesn't.");
+                throw new EfMigrationException($"The assemblyPath '{assemblyPath}' must exist, it currently doesn't.");
             }
 
             _parrentPath = Path.GetDirectoryName(assemblyLocation);
@@ -97,7 +98,7 @@
             var dbMigrationsConfiguration = LoadConfiguration(assemblyLocation, qualifiedDbConfigName);
             if (dbMigrationsConfiguration == null)
             {
-                throw new Exception(
+                throw new EfMigrationException(
                     $"The qualifiedDbConfigName {qualifiedDbConfigName} must exist within {assemblyPath} and implement type {nameof(DbMigrationsConfiguration)}. Make sure this class exists or that this class is a Migration Configuration.");
             }
             dbMigrationsConfiguration.TargetDatabase = new DbConnectionInfo(connectionString, connectionProvider);

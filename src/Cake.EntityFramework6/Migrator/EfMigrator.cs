@@ -5,12 +5,15 @@
     using System.IO;
 
     using Cake.EntityFramework6.Interfaces;
+    using Cake.EntityFramework6.Models;
 
     public class EfMigrator : IEfMigrator
     {
         private readonly ILogger _logger;
         private AppDomain _domain;
         private readonly IEfMigratorBackend _migratorBackend;
+
+        private const string InitialDatabase = "0";
 
         public bool Commited { get; private set; }
         public string CurrentMigration { get; private set; }
@@ -22,7 +25,7 @@
             appConfigPath = Path.GetFullPath(appConfigPath);
             if (!File.Exists(appConfigPath))
             {
-                throw new Exception($"The appConfigPath '{appConfigPath}' must exist.");
+                throw new EfMigrationException($"The appConfigPath '{appConfigPath}' must exist.");
             }
 
             var domainSetup = AppDomain.CurrentDomain.SetupInformation;
@@ -39,8 +42,9 @@
 
             _logger.Debug($"Initialized new {nameof(EfMigratorBackend)} within {domainName}.");
 
-            CurrentMigration = migrator.GetCurrentMigration();
-            _logger.Information($"Current Migration is {CurrentMigration ?? "Unknown"}.");
+            CurrentMigration = migrator.GetCurrentMigration() ?? InitialDatabase;
+            var currentMigrationStr = CurrentMigration == InitialDatabase ? "$InitialDatabase" : CurrentMigration;
+            _logger.Information($"Current Migration is {currentMigrationStr}.");
 
             _migratorBackend = migrator;
         }
@@ -69,7 +73,7 @@
 
             if (CurrentMigration == null)
             {
-                _logger.Information("Not at any known migration level, no rollback needed.");
+                _logger.Error("Unknown last migration level, rollback not possible.");
                 return;
             }
 

@@ -56,10 +56,11 @@
   <ItemGroup>
     <Compile Include="Interfaces\IEfMigratorBackend.cs" />
     <Compile Include="CakeTranslation\Aliases.cs" />
-    <Compile Include="Actors\EfMigratorBackend.cs" />
-    <Compile Include="Actors\EfMigrator.cs" />
+    <Compile Include="Migrator\EfMigratorBackend.cs" />
+    <Compile Include="Migrator\EfMigrator.cs" />
     <Compile Include="CakeTranslation\CakeLogger.cs" />
     <Compile Include="Interfaces\ILogger.cs" />
+    <Compile Include="Models\EfMigratorException.cs" />
     <Compile Include="Models\EfMigratorSettings.cs" />
     <Compile Include="Interfaces\IEfMigrator.cs" />
     <Compile Include="Models\Migration.cs" />

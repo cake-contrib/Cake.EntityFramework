@@ -43,6 +43,14 @@
       <HintPath>..\..\packages\FluentAssertions.4.2.0\lib\net45\FluentAssertions.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="NSubstitute, Version=1.10.0.0, Culture=neutral, PublicKeyToken=92dd2e9066daa5ca, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\NSubstitute.1.10.0.0\lib\net45\NSubstitute.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Ploeh.AutoFixture, Version=3.50.1.0, Culture=neutral, PublicKeyToken=b24654c590009d4f, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\AutoFixture.3.50.1\lib\net40\Ploeh.AutoFixture.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Xml" />
@@ -74,8 +82,12 @@
   </Choose>
   <ItemGroup>
     <Compile Include="EfMigratorTests.cs" />
+    <Compile Include="Migrator\GenericMigratorFacts.cs" />
+    <Compile Include="Migrator\Postgres\CurrentMigrationFacts.cs" />
     <Compile Include="Migrator\Postgres\LocalMigrationFacts.cs" />
+    <Compile Include="Migrator\Postgres\MigratorFacts.cs" />
     <Compile Include="Migrator\Postgres\PostgresFactConstants.cs" />
+    <Compile Include="Migrator\Postgres\RemoteMigrationsFacts.cs" />
     <Compile Include="MockLogger.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
