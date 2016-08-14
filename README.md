@@ -1,3 +1,5 @@
+![icon](docs/images/icon.png)
+
 # Cake.EntityFramework
 
 [![AppVeyor](https://img.shields.io/appveyor/ci/Silvenga/cake-entityframework.svg)](https://ci.appveyor.com/project/Silvenga/cake-entityframework)

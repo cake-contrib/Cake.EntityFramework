@@ -5,4 +5,4 @@ PostgreSQL:
   environment:
     - DEBUG=false
     - PG_TRUST_LOCALNET=true
-    - PG_PASSWORD=silverlight
+    - PG_PASSWORD=Password12! # Match CI DB config - https://www.appveyor.com/docs/services-databases
