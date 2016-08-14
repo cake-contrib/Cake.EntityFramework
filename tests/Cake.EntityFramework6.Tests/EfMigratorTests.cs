@@ -8,7 +8,7 @@
     using Xunit;
     using Xunit.Abstractions;
 
-    public class EfMigratorTests
+    class EfMigratorTests
     {
         private readonly ILogger _mockLogger;
 
