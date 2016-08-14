@@ -18,7 +18,8 @@
         public bool Commited { get; private set; }
         public string CurrentMigration { get; private set; }
 
-        public EfMigrator(string assemblyPath, string qualifiedDbConfigName, string appConfigPath, string connectionString, string connectionProvider, ILogger logger)
+        public EfMigrator(string assemblyPath, string qualifiedDbConfigName, string appConfigPath, string connectionString, string connectionProvider,
+                          ILogger logger)
         {
             _logger = logger;
 
@@ -109,12 +110,22 @@
 
         public bool MigrateTo(string version)
         {
-            return _migratorBackend.MigrateTo(version);
+            var result = _migratorBackend.MigrateTo(version);
+            if (!result.IsSuccess)
+            {
+                throw new Exception("Error when migrating.", result.Exception);
+            }
+            return result.IsSuccess;
         }
 
         public bool MigrateToLatest()
         {
-            return _migratorBackend.MigrateToLatest();
+            var result = _migratorBackend.MigrateToLatest();
+            if (!result.IsSuccess)
+            {
+                throw new EfMigrationException("Error when migrating.", result.Exception);
+            }
+            return result.IsSuccess;
         }
 
         public string GetLatestMigration()

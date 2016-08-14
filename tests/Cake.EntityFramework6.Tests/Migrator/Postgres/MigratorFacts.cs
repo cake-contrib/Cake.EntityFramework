@@ -5,6 +5,7 @@
 
     using Cake.EntityFramework6.Interfaces;
     using Cake.EntityFramework6.Migrator;
+    using Cake.EntityFramework6.Models;
 
     using FluentAssertions;
 
@@ -45,9 +46,10 @@
         public void When_migrating_from_InitialDatabase_to_latest_rollback_should_rollback_to_InitialDatabase()
         {
             var migrator = Migrator;
+            var lastGoodMigration = migrator.GetLocalMigrations().Skip(1).First();
 
             // Act
-            migrator.MigrateToLatest();
+            migrator.MigrateTo(lastGoodMigration);
             migrator.Rollback();
 
             // Assert
@@ -61,10 +63,10 @@
             var migrator = Migrator;
 
             // Act
-            var success = migrator.MigrateToLatest();
+            Action action = () => migrator.MigrateToLatest();
 
             // Assert
-            success.Should().BeFalse();
+            action.ShouldThrow<EfMigrationException>();
         }
 
         [Fact]
@@ -85,9 +87,10 @@
         public void When_committed_rollback_should_throw()
         {
             var migrator = Migrator;
+            var lastGoodMigration = migrator.GetLocalMigrations().Skip(1).First();
 
             // Act
-            migrator.MigrateToLatest();
+            migrator.MigrateTo(lastGoodMigration);
             migrator.Commit();
 
             Action action = () => migrator.Rollback();

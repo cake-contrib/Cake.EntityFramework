@@ -2,6 +2,8 @@
 {
     using System.Collections.Generic;
 
+    using Cake.EntityFramework6.Models;
+
     public interface IEfMigratorBackend
     {
         bool Ready { get; }
@@ -10,8 +12,8 @@
         IEnumerable<string> GetPendingMigrations();
         string GetCurrentMigration();
         bool HasPendingMigrations();
-        bool MigrateTo(string version);
-        bool MigrateToLatest();
+        MigrationResult MigrateTo(string version);
+        MigrationResult MigrateToLatest();
         string GetLatestMigration();
     }
 }

@@ -53,21 +53,21 @@
             return GetPendingMigrations().Any();
         }
 
-        public bool MigrateTo(string version)
+        public MigrationResult MigrateTo(string version)
         {
             AssertForReady();
             try
             {
                 _dbMigrator.Update(version);
-                return true;
+                return new MigrationResult(true);
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                return false;
+                return new MigrationResult(false, e);
             }
         }
 
-        public bool MigrateToLatest()
+        public MigrationResult MigrateToLatest()
         {
             AssertForReady();
             var last = GetLatestMigration();
@@ -76,7 +76,7 @@
                 return MigrateTo(last);
             }
 
-            return true;
+            return new MigrationResult(true);
         }
 
         public void Initialize(string assemblyPath, string qualifiedDbConfigName, string connectionString, string connectionProvider)

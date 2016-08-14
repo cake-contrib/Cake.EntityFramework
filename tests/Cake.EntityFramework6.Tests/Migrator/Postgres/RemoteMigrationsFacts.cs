@@ -53,7 +53,8 @@
         [Fact]
         public void Remote_migrations_should_be_in_descending_order()
         {
-            _migrator.MigrateToLatest();
+            var lastGoodMigration = _migrator.GetLocalMigrations().Skip(1).First();
+            _migrator.MigrateTo(lastGoodMigration);
 
             // Act
             var migrations = _migrator.GetRemoteMigrations()

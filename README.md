@@ -10,23 +10,36 @@ A set of Cake aliases for Entity Framework code-first migrations.
 
 ## Implemented functionality
 
-* Get local migrations
-* Get remote migrations
-* Get pending migrations (local - remote migrations)
-* Current migration
-* Latest possible migration
-* Migrate to version (up or down)
-* Migrate to latest
-* Basic transactional support (rollback on error)
+### EF6
+
+- [X] Get local migrations
+- [X] Get remote migrations
+- [X] Get pending migrations (local - remote migrations)
+- [X] Get current migration
+- [X] Get latest pending migration
+- [X] Migrate to version (up or down)
+- [X] Migrate to latest version pending
+- [X] Basic transactional support (rollback on error)
+
+### EFCore1
+
+- [ ] Get local migrations
+- [ ] Get remote migrations
+- [ ] Get pending migrations (local - remote migrations)
+- [ ] Get current migration
+- [ ] Get latest pending migration
+- [ ] Migrate to version (up or down)
+- [ ] Migrate to latest version pending
+- [ ] Basic transactional support (rollback on error)
 
 ## Using
 
-`Cake.EntityFramework` is available as a Nuget package. Install from the Package Management Console.
+`Cake.EntityFramework6` is available as a Nuget package. Install from the Package Management Console.
 
 > TODO make a Nuget package. 
 
 ```
-Install-Package Cake.EntityFramework
+Install-Package Cake.EntityFramework6
 ```
 
 Alternatively, add directly to a cake script via the `#addin` directive.
@@ -34,13 +47,13 @@ Alternatively, add directly to a cake script via the `#addin` directive.
 > TODO see above.
 
 ```
-#addin "Cake.EntityFramework"
+#addin "Cake.EntityFramework6"
 ```
 
 ## Usage
 
 ```cake
-#addin "Cake.EntityFramework"
+#addin "Cake.EntityFramework6"
 
 var migrationSettings = new EfMigratorSettings {
   AssemblyPath = "path/to/example.data.dll",
@@ -91,11 +104,11 @@ This will allow for more reliable rollbacks.
 ## TODO
 
 - [ ] Add documentation (e.g. XML-Docs, Cakedocs)
-- [ ] Handle errors better
+- [X] Handle errors better
 - [ ] Test with more EF providers
-- [ ] More tests in general
+- [X] More tests in general
 - [ ] EF 7 support
 - [X] Add a build server
 - [ ] Add nuget packages
-- [ ] Refactor repository
-- [ ] Create unit tests
+- [X] Refactor repository
+- [X] Create unit tests
