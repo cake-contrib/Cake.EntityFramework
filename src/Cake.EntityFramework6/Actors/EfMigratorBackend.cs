@@ -8,6 +8,8 @@
     using System.Linq;
     using System.Reflection;
 
+    using Cake.EntityFramework6.Interfaces;
+
     public class EfMigratorBackend : MarshalByRefObject, IEfMigratorBackend
     {
         private string _parrentPath;

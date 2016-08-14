@@ -1,4 +1,4 @@
-﻿namespace Cake.EntityFramework6.Contracts
+﻿namespace Cake.EntityFramework6.Interfaces
 {
     public interface ILogger
     {

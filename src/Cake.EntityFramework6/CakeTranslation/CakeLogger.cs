@@ -1,7 +1,7 @@
 ﻿namespace Cake.EntityFramework6.CakeTranslation
 {
     using Cake.Core.Diagnostics;
-    using Cake.EntityFramework6.Contracts;
+    using Cake.EntityFramework6.Interfaces;
 
     public class CakeLogger : ILogger
     {

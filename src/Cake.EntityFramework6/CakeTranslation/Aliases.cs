@@ -1,12 +1,12 @@
 ﻿namespace Cake.EntityFramework6.CakeTranslation
 {
     using System;
-    using System.Runtime.InteropServices;
 
     using Cake.Core;
     using Cake.Core.Annotations;
     using Cake.Core.Diagnostics;
     using Cake.EntityFramework6.Actors;
+    using Cake.EntityFramework6.Interfaces;
     using Cake.EntityFramework6.Models;
 
     public static class Aliases

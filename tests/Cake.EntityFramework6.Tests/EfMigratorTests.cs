@@ -1,7 +1,7 @@
-﻿namespace Cake.EntityFramework.Tests
+﻿namespace Cake.EntityFramework6.Tests
 {
     using Cake.EntityFramework6.Actors;
-    using Cake.EntityFramework6.Contracts;
+    using Cake.EntityFramework6.Interfaces;
 
     using FluentAssertions;
 

@@ -4,7 +4,7 @@
     using System.Collections.Generic;
     using System.IO;
 
-    using Cake.EntityFramework6.Contracts;
+    using Cake.EntityFramework6.Interfaces;
 
     public class EfMigrator : IEfMigrator
     {

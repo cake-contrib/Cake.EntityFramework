@@ -31,15 +31,15 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Cake.Core, Version=0.7.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Cake.Core.0.7.0\lib\net45\Cake.Core.dll</HintPath>
+      <HintPath>..\..\packages\Cake.Core.0.7.0\lib\net45\Cake.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <HintPath>..\..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <HintPath>..\..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
@@ -54,14 +54,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Actors\IEfMigratorBackend.cs" />
+    <Compile Include="Interfaces\IEfMigratorBackend.cs" />
     <Compile Include="CakeTranslation\Aliases.cs" />
     <Compile Include="Actors\EfMigratorBackend.cs" />
     <Compile Include="Actors\EfMigrator.cs" />
     <Compile Include="CakeTranslation\CakeLogger.cs" />
-    <Compile Include="Contracts\ILogger.cs" />
+    <Compile Include="Interfaces\ILogger.cs" />
     <Compile Include="Models\EfMigratorSettings.cs" />
-    <Compile Include="Actors\IEfMigrator.cs" />
+    <Compile Include="Interfaces\IEfMigrator.cs" />
     <Compile Include="Models\Migration.cs" />
     <Compile Include="Models\MigrationResult.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

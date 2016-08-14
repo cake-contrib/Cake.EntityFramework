@@ -1,7 +1,5 @@
-﻿namespace Cake.EntityFramework.TestProject.Postgres.Actors
+﻿namespace Cake.EntityFramework.TestProject.Postgres
 {
-    using System;
-    using System.Collections;
     using System.Collections.Generic;
     using System.Data.Entity;
     using System.Data.Entity.Migrations.Model;
