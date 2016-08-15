@@ -67,5 +67,22 @@
             var exception = action.ShouldThrow<EfMigrationException>().Which;
             _logHelper.WriteLine(exception.Message);
         }
+
+        [Fact]
+        public void When_connection_string_is_incorrect_throw()
+        {
+            var appPath = PostgresFactConstants.AppConfig;
+            var assemblyPath = PostgresFactConstants.DdlPath;
+            var dbConfig = PostgresFactConstants.ConfigName;
+            var connectionString = AutoFixture.Create<string>();
+            var providerName = PostgresFactConstants.ConnectionProvider;
+            Action action = () => new EfMigrator(assemblyPath, dbConfig, appPath, connectionString, providerName, _mockLogger);
+
+            // Act
+
+            // Assert
+            var exception = action.ShouldThrow<Exception>().Which;
+            _logHelper.WriteLine(exception.Message);
+        }
     }
 }

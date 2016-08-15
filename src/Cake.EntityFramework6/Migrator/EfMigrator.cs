@@ -26,7 +26,7 @@
             appConfigPath = Path.GetFullPath(appConfigPath);
             if (!File.Exists(appConfigPath))
             {
-                throw new EfMigrationException($"The appConfigPath '{appConfigPath}' must exist.");
+                throw new EfMigrationException($"The {nameof(appConfigPath)} '{appConfigPath}' must exist.");
             }
 
             var domainSetup = AppDomain.CurrentDomain.SetupInformation;
