@@ -52,16 +52,18 @@ Alternatively, add directly to a cake script via the `#addin` directive.
 
 ## Usage
 
+Example: [Link](tests/TestProjects/Cake.EntityFramework.TestProject.Postgres/build.cake)
+
 ```cake
 #addin "Cake.EntityFramework6"
 
 var migrationSettings = new EfMigratorSettings {
-  AssemblyPath = "path/to/example.data.dll",
+  AssemblyPath = @"path/to/example.data.dll",
   ConfigurationClass = "Example.Migrations.Configuation",
-  AppConfigPath = "path/to/example.data.dll.config",
-  ConnectionString = "Host=127.0.0.1; Database=cake_dev; Username=dev; Password=dev;",
+  AppConfigPath = @"path/to/example.data.dll.config",
+  ConnectionString = "Host=127.0.0.1; Database=cake_dev; Username=postgres; Password=Password12!;",
   ConnectionProvider = "Npgsql" // <- using PostgreSQL here
-}
+};
 
 Task("Migrate-To_Latest")
   .Description("Migrate database to latest.")
