@@ -6,7 +6,6 @@
     using Cake.Core.Annotations;
     using Cake.EntityFramework6.Interfaces;
     using Cake.EntityFramework6.Migrator;
-    using Cake.EntityFramework6.Models;
 
     public static class Aliases
     {
