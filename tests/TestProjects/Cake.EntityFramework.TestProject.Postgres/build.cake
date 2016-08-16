@@ -13,7 +13,9 @@ Task("Default")
   .Does(() =>
 {
   using(var migrator = CreateEfMigrator(migrationSettings)){
-    migrator.MigrateToLatest();
+    var localMigrations = migrator.GetLocalMigrations();
+    var lastGoodMigration = localMigrations.OrderByDescending(x => x).Skip(1).First();
+    migrator.MigrateTo(lastGoodMigration);
     migrator.Commit();
   }
 });
