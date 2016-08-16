@@ -62,7 +62,7 @@
     <Compile Include="CakeTranslation\CakeLogger.cs" />
     <Compile Include="Interfaces\ILogger.cs" />
     <Compile Include="Models\EfMigratorException.cs" />
-    <Compile Include="Models\EfMigratorSettings.cs" />
+    <Compile Include="CakeTranslation\EfMigratorSettings.cs" />
     <Compile Include="Interfaces\IEfMigrator.cs" />
     <Compile Include="Models\Migration.cs" />
     <Compile Include="Models\MigrationResult.cs" />

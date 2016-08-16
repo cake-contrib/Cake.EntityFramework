@@ -1,4 +1,4 @@
-﻿namespace Cake.EntityFramework6.Models
+﻿namespace Cake.EntityFramework6.CakeTranslation
 {
     using Cake.Core.IO;
 

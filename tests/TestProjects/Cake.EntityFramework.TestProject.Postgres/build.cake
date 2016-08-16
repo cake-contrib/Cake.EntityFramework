@@ -1,14 +1,14 @@
-#addin "Newtonsoft.json"
+#addin nuget:?package=Cake.EntityFramework6
 
 var migrationSettings = new EfMigratorSettings {
-  AssemblyPath = "bin\debug\Cake.EntityFramework.TestProject.Postgres.exe",
+  AssemblyPath = @"bin\debug\Cake.EntityFramework.TestProject.Postgres.exe",
   ConfigurationClass = "Cake.EntityFramework.TestProject.Postgres.Migrations.Configuration",
-  AppConfigPath = "bin\debug\Cake.EntityFramework.TestProject.Postgres.exe.config",
+  AppConfigPath = @"bin\debug\Cake.EntityFramework.TestProject.Postgres.exe.config",
   ConnectionString = "Host=127.0.0.1; Database=cake_dev; Username=postgres; Password=Password12!;",
   ConnectionProvider = "Npgsql" // <- using PostgreSQL here
-}
+};
 
-Task("Migrate-To-Latest")
+Task("Default")
   .Description("Migrate database to latest.")
   .Does(() =>
 {
@@ -17,3 +17,6 @@ Task("Migrate-To-Latest")
     migrator.Commit();
   }
 });
+
+var target = Argument("target", "Default");
+RunTarget(target);
