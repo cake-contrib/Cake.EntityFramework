@@ -210,3 +210,4 @@ FakesAssemblies/
 GeneratedArtifacts/
 _Pvt_Extensions/
 ModelManifest.xml
+/tests/TestProjects/Cake.EntityFramework.TestProject.Postgres/tools
