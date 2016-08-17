@@ -4,7 +4,7 @@
 
 [![AppVeyor](https://img.shields.io/appveyor/ci/Silvenga/cake-entityframework.svg)](https://ci.appveyor.com/project/Silvenga/cake-entityframework)
 
-> This is considered alpha quality, use at your own risk.
+> This is considered beta quality, use at your own risk.
 
 A set of Cake aliases for Entity Framework code-first migrations.
 
