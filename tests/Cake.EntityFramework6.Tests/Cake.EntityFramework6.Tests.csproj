@@ -86,6 +86,7 @@
     <Otherwise />
   </Choose>
   <ItemGroup>
+    <Compile Include="CakeAliases\CakeLoggerFacts.cs" />
     <Compile Include="CakeAliases\Ef6AliasesFacts.cs" />
     <Compile Include="Migrator\GenericMigratorFacts.cs" />
     <Compile Include="Migrator\Postgres\CurrentMigrationFacts.cs" />
