@@ -13,6 +13,7 @@
 
     public class MigratorFacts
     {
+        // ReSharper disable once PrivateFieldCanBeConvertedToLocalVariable
         private readonly ITestOutputHelper _logHelper;
         private readonly ILogger _mockLogger;
 

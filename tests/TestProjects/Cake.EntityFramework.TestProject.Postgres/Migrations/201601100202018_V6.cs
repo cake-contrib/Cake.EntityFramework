@@ -1,6 +1,5 @@
 namespace Cake.EntityFramework.TestProject.Postgres.Migrations
 {
-    using System;
     using System.Data.Entity.Migrations;
     
     public partial class V6 : DbMigration

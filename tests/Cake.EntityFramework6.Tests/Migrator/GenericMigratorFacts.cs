@@ -1,6 +1,7 @@
 ﻿namespace Cake.EntityFramework6.Tests.Migrator
 {
     using System;
+    using System.Diagnostics.CodeAnalysis;
 
     using Cake.EntityFramework6.Interfaces;
     using Cake.EntityFramework6.Migrator;
@@ -14,6 +15,7 @@
     using Xunit;
     using Xunit.Abstractions;
 
+    [SuppressMessage("ReSharper", "ObjectCreationAsStatement")]
     public class GenericMigratorFacts
     {
         private readonly ITestOutputHelper _logHelper;

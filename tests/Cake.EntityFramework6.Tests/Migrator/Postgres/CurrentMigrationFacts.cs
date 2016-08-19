@@ -12,6 +12,7 @@
 
     public class CurrentMigrationFacts
     {
+        // ReSharper disable once PrivateFieldCanBeConvertedToLocalVariable
         private readonly ITestOutputHelper _logHelper;
         private readonly ILogger _mockLogger;
 

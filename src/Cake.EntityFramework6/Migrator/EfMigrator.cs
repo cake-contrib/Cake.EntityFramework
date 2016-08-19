@@ -2,8 +2,8 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Diagnostics;
     using System.IO;
-    using System.Linq;
     using System.Reflection;
 
     using Cake.EntityFramework6.Interfaces;
@@ -41,15 +41,17 @@
 
             var type = typeof(EfMigratorBackend);
 
-            string fullPath = Assembly.GetAssembly(typeof(EfMigratorBackend)).Location;
-            var domain = AppDomain.CurrentDomain.GetAssemblies()
-                                  .Where(x => !x.IsDynamic)
-                                  .Where(x => !x.GlobalAssemblyCache)
-                                  .Select(x => Path.GetDirectoryName(x.Location))
-                                  .Distinct();
+            var fullPath = Assembly.GetAssembly(typeof(EfMigratorBackend)).Location;
+            //var domain = AppDomain.CurrentDomain.GetAssemblies()
+            //                      .Where(x => !x.IsDynamic)
+            //                      .Where(x => !x.GlobalAssemblyCache)
+            //                      .Select(x => Path.GetDirectoryName(x.Location))
+            //                      .Distinct();
 
-            var domains = string.Join(", ", domain);
-            logger.Debug($"Loading assemblies into appDomain: {domains}.");
+            //var domains = string.Join(", ", domain);
+            //logger.Debug($"Loading assemblies into appDomain: {domains}.");
+
+            Debug.Assert(fullPath != null, "fullPath != null");
 
             var migrator = (EfMigratorBackend) _domain.CreateInstanceFromAndUnwrap(fullPath, type.FullName);
             _logger.Debug("Created new instance.");
