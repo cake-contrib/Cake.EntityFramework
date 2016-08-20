@@ -116,3 +116,4 @@ So to support multiple EF providers and configurations some ~~hackish~~ clever p
 - [ ] Add nuget packages
 - [X] Refactor repository
 - [X] Create unit tests
+- [ ] Update nuget package description
