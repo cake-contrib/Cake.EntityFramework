@@ -1,4 +1,8 @@
-﻿using System;
+﻿using System.Configuration;
+
+namespace Cake.EntityFramework6.CakeTranslation
+{
+    using System;
 
 using Cake.Core;
 using Cake.Core.Annotations;
@@ -56,6 +60,23 @@ namespace Cake.EntityFramework6.CakeTranslation
                 throw new ArgumentNullException(nameof(settings.ConfigurationClass));
             }
 
+            if ((settings.ConnectionString == null || settings.ConnectionProvider == null) 
+                && settings.ConnectionName != null)
+            {
+                string connectionString;
+                string connectionProvider;
+                SetConnectionStringFromAppConfig(settings, settings.ConnectionName, out connectionProvider, out connectionString);
+
+                if (connectionString == null)
+                    throw new ArgumentNullException(nameof(settings.ConnectionString));
+
+                if (connectionProvider ==  null)
+                    throw new ArgumentNullException(nameof(settings.ConnectionProvider));
+
+                settings.ConnectionString = connectionString;
+                settings.ConnectionProvider = connectionProvider;
+            }
+
             if (settings.ConnectionProvider == null)
             {
                 throw new ArgumentNullException(nameof(settings.ConnectionProvider));
@@ -63,7 +84,7 @@ namespace Cake.EntityFramework6.CakeTranslation
 
             if (settings.ConnectionString == null)
             {
-                throw new ArgumentNullException(nameof(settings.ConnectionString));
+               throw new ArgumentNullException(nameof(settings.ConnectionString));
             }
 
             return new EfMigrator(
@@ -74,6 +95,26 @@ namespace Cake.EntityFramework6.CakeTranslation
                 settings.ConnectionProvider,
                 new CakeLogger(context.Log)
             );
+        }
+
+        private static void SetConnectionStringFromAppConfig(EfMigratorSettings settings, string connectionName, out string connectionProvider, out string connectionString)
+        {
+            var configMap = new ExeConfigurationFileMap()
+            {
+                ExeConfigFilename = $@"{settings.AppConfigPath}"
+            };
+            var config = ConfigurationManager.OpenMappedExeConfiguration(configMap, ConfigurationUserLevel.None);
+
+            var x = config.ConnectionStrings?.ConnectionStrings[connectionName];
+
+            if (x == null)
+                throw new Exception($"Unable to load configuration from path {settings.AppConfigPath}");
+
+            connectionString = x?.ConnectionString;
+            connectionProvider = x?.ProviderName;
+
+            if (connectionString == null)
+                throw new Exception("Unable to parse connection string from app config.");
         }
     }
 }

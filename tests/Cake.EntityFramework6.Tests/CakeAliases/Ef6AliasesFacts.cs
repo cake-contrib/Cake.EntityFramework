@@ -30,7 +30,7 @@ namespace Cake.EntityFramework6.Tests.CakeAliases
             new object[] {Expression(x => x.AppConfigPath)},
             new object[] {Expression(x => x.AssemblyPath)},
             new object[] {Expression(x => x.ConfigurationClass)},
-            new object[] {Expression(x => x.ConnectionProvider)},
+            new object[] {Expression(x => x.ConnectionProvider)},            
             new object[] {Expression(x => x.ConnectionString)},
         };
 
@@ -39,6 +39,7 @@ namespace Cake.EntityFramework6.Tests.CakeAliases
         {
             var settings = AutoFixture.Build<EfMigratorSettings>()
                                       .With(expression, null)
+                                      .With(x => x.ConnectionName, null)
                                       .Create();
 
             // Act

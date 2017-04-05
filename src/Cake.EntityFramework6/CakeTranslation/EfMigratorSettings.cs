@@ -46,5 +46,11 @@ namespace Cake.EntityFramework6.CakeTranslation
         /// The connection provider to be used for code-first migrations.
         /// </value>
         public string ConnectionProvider { get; set; }
+
+        /// <summary>
+        /// The name of the connection string in the configuration file.
+        /// This can be used to load the connection string and provider.
+        /// </summary>
+        public string ConnectionName { get; set; }
     }
 }
