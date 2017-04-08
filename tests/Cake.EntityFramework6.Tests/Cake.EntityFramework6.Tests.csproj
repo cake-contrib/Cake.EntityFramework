@@ -98,8 +98,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="..\TestProjects\Cake.EntityFramework.TestProject.Postgres\bin\Debug\Cake.EntityFramework.TestProject.Postgres.exe.config">
-      <Link>Postgres\Cake.EntityFramework.TestProject.Postgres.exe.config</Link>
+    <Content Include="..\TestProjects\Cake.EntityFramework.TestProject.Postgres\bin\Debug\Cake.EntityFramework.TestProject.Postgres.dll.config">
+      <Link>Postgres\Cake.EntityFramework.TestProject.Postgres.dll.config</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <None Include="App.config" />
@@ -111,10 +111,9 @@
       <Name>Cake.EntityFramework6</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
-    <Content Include="..\TestProjects\Cake.EntityFramework.TestProject.Postgres\bin\Debug\Cake.EntityFramework.TestProject.Postgres.exe">
-      <Link>Postgres\Cake.EntityFramework.TestProject.Postgres.exe</Link>
+    <Content Include="..\TestProjects\Cake.EntityFramework.TestProject.Postgres\bin\Debug\Cake.EntityFramework.TestProject.Postgres.dll">
+      <Link>Postgres\Cake.EntityFramework.TestProject.Postgres.dll</Link>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\TestProjects\Cake.EntityFramework.TestProject.Postgres\bin\Debug\Cake.EntityFramework.TestProject.Postgres.pdb">
