@@ -1,0 +1,13 @@
+﻿<SolutionConfiguration>
+  <Settings>
+    <AllowParallelTestExecution>True</AllowParallelTestExecution>
+    <MetricsExclusionList>
+      <Value>src\Cake.EntityFramework6\Cake.EntityFramework6.csproj\Interfaces</Value>
+      <Value>src\Cake.EntityFramework6\Cake.EntityFramework6.csproj\Models</Value>
+      <Value>src\Cake.EntityFramework6\Cake.EntityFramework6.csproj\Properties</Value>
+      <Value>tests\Cake.EntityFramework6.Tests\Cake.EntityFramework6.Tests.csproj</Value>
+      <Value>tests\TestProjects\Cake.EntityFramework.TestProject.Postgres\Cake.EntityFramework.TestProject.Postgres.csproj</Value>
+    </MetricsExclusionList>
+    <SolutionConfigured>True</SolutionConfigured>
+  </Settings>
+</SolutionConfiguration>
