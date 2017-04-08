@@ -1,15 +1,15 @@
-﻿namespace Cake.EntityFramework6.Tests.CakeAliases
+﻿using Cake.Core.Diagnostics;
+using Cake.EntityFramework6.CakeTranslation;
+using Cake.EntityFramework6.Interfaces;
+
+using NSubstitute;
+
+using Ploeh.AutoFixture;
+
+using Xunit;
+
+namespace Cake.EntityFramework6.Tests.CakeAliases
 {
-    using Cake.Core.Diagnostics;
-    using Cake.EntityFramework6.CakeTranslation;
-    using Cake.EntityFramework6.Interfaces;
-
-    using NSubstitute;
-
-    using Ploeh.AutoFixture;
-
-    using Xunit;
-
     public class CakeLoggerFacts
     {
         private static readonly Fixture AutoFixture = new Fixture();

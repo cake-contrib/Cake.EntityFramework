@@ -1,9 +1,9 @@
-﻿namespace Cake.EntityFramework6.Tests
+﻿using Cake.EntityFramework6.Interfaces;
+
+using Xunit.Abstractions;
+
+namespace Cake.EntityFramework6.Tests
 {
-    using Cake.EntityFramework6.Interfaces;
-
-    using Xunit.Abstractions;
-
     internal class MockLogger : ILogger
     {
         private readonly ITestOutputHelper _helper;

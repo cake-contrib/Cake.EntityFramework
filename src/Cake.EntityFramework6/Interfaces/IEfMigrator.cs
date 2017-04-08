@@ -1,8 +1,8 @@
+using System;
+using System.Collections.Generic;
+
 namespace Cake.EntityFramework6.Interfaces
 {
-    using System;
-    using System.Collections.Generic;
-
     public interface IEfMigrator : IDisposable
     {
         bool Commited { get; }

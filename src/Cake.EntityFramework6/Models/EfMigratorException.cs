@@ -1,8 +1,8 @@
-﻿namespace Cake.EntityFramework6.Models
-{
-    using System;
-    using System.Runtime.Serialization;
+﻿using System;
+using System.Runtime.Serialization;
 
+namespace Cake.EntityFramework6.Models
+{
     [Serializable]
     public class EfMigrationException : Exception
     {

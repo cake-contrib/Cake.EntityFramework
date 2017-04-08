@@ -1,20 +1,20 @@
-﻿namespace Cake.EntityFramework6.Tests.CakeAliases
+﻿using System;
+using System.Collections.Generic;
+using System.Linq.Expressions;
+
+using Cake.Core;
+using Cake.EntityFramework6.CakeTranslation;
+
+using FluentAssertions;
+
+using NSubstitute;
+
+using Ploeh.AutoFixture;
+
+using Xunit;
+
+namespace Cake.EntityFramework6.Tests.CakeAliases
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq.Expressions;
-
-    using Cake.Core;
-    using Cake.EntityFramework6.CakeTranslation;
-
-    using FluentAssertions;
-
-    using NSubstitute;
-
-    using Ploeh.AutoFixture;
-
-    using Xunit;
-
     public class Ef6AliasesFacts
     {
         private static readonly Fixture AutoFixture = new Fixture();

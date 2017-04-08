@@ -1,7 +1,7 @@
-﻿namespace Cake.EntityFramework6.CakeTranslation
-{
-    using Cake.Core.IO;
+﻿using Cake.Core.IO;
 
+namespace Cake.EntityFramework6.CakeTranslation
+{
     /// <summary>
     /// Contains settings for working with EntityFramework6 <see cref="Ef6Aliases"/>.
     /// </summary>

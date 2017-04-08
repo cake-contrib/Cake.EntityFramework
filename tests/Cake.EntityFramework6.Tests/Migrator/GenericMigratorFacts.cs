@@ -1,20 +1,20 @@
-﻿namespace Cake.EntityFramework6.Tests.Migrator
+﻿using System;
+using System.Diagnostics.CodeAnalysis;
+
+using Cake.EntityFramework6.Interfaces;
+using Cake.EntityFramework6.Migrator;
+using Cake.EntityFramework6.Models;
+using Cake.EntityFramework6.Tests.Migrator.Postgres;
+
+using FluentAssertions;
+
+using Ploeh.AutoFixture;
+
+using Xunit;
+using Xunit.Abstractions;
+
+namespace Cake.EntityFramework6.Tests.Migrator
 {
-    using System;
-    using System.Diagnostics.CodeAnalysis;
-
-    using Cake.EntityFramework6.Interfaces;
-    using Cake.EntityFramework6.Migrator;
-    using Cake.EntityFramework6.Models;
-    using Cake.EntityFramework6.Tests.Migrator.Postgres;
-
-    using FluentAssertions;
-
-    using Ploeh.AutoFixture;
-
-    using Xunit;
-    using Xunit.Abstractions;
-
     [SuppressMessage("ReSharper", "ObjectCreationAsStatement")]
     public class GenericMigratorFacts
     {

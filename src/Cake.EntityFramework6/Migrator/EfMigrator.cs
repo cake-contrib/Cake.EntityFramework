@@ -1,14 +1,14 @@
-﻿namespace Cake.EntityFramework6.Migrator
+﻿using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
+using System.Reflection;
+
+using Cake.EntityFramework6.Interfaces;
+using Cake.EntityFramework6.Models;
+
+namespace Cake.EntityFramework6.Migrator
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Diagnostics;
-    using System.IO;
-    using System.Reflection;
-
-    using Cake.EntityFramework6.Interfaces;
-    using Cake.EntityFramework6.Models;
-
     public class EfMigrator : IEfMigrator
     {
         private readonly ILogger _logger;

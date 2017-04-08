@@ -1,16 +1,16 @@
-﻿namespace Cake.EntityFramework6.Migrator
+﻿using System;
+using System.Collections.Generic;
+using System.Data.Entity.Infrastructure;
+using System.Data.Entity.Migrations;
+using System.IO;
+using System.Linq;
+using System.Reflection;
+
+using Cake.EntityFramework6.Interfaces;
+using Cake.EntityFramework6.Models;
+
+namespace Cake.EntityFramework6.Migrator
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Data.Entity.Infrastructure;
-    using System.Data.Entity.Migrations;
-    using System.IO;
-    using System.Linq;
-    using System.Reflection;
-
-    using Cake.EntityFramework6.Interfaces;
-    using Cake.EntityFramework6.Models;
-
     public class EfMigratorBackend : MarshalByRefObject, IEfMigratorBackend
     {
         private string _parrentPath;

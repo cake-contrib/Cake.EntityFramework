@@ -1,19 +1,20 @@
-﻿namespace Cake.EntityFramework6.Tests.Migrator.Postgres
+﻿using System.Linq;
+
+using Cake.EntityFramework6.Interfaces;
+using Cake.EntityFramework6.Migrator;
+
+using FluentAssertions;
+
+using Xunit;
+using Xunit.Abstractions;
+
+namespace Cake.EntityFramework6.Tests.Migrator.Postgres
 {
-    using System.Linq;
-
-    using Cake.EntityFramework6.Interfaces;
-    using Cake.EntityFramework6.Migrator;
-
-    using FluentAssertions;
-
-    using Xunit;
-    using Xunit.Abstractions;
-
     public class CurrentMigrationFacts
     {
         // ReSharper disable once PrivateFieldCanBeConvertedToLocalVariable
         private readonly ITestOutputHelper _logHelper;
+
         private readonly ILogger _mockLogger;
 
         private readonly string _instanceString = PostgresFactConstants.InstanceConnectionString;

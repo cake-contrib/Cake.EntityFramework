@@ -1,7 +1,7 @@
-﻿namespace Cake.EntityFramework6.Models
-{
-    using System;
+﻿using System;
 
+namespace Cake.EntityFramework6.Models
+{
     [Serializable]
     public class Migration
     {

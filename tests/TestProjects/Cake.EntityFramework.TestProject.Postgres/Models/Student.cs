@@ -1,7 +1,7 @@
-﻿namespace Cake.EntityFramework.TestProject.Postgres.Models
-{
-    using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
+namespace Cake.EntityFramework.TestProject.Postgres.Models
+{
     public class Student
     {
         public int Id { get; set; }

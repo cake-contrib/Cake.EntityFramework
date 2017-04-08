@@ -1,12 +1,12 @@
-﻿namespace Cake.EntityFramework6.CakeTranslation
+﻿using System;
+
+using Cake.Core;
+using Cake.Core.Annotations;
+using Cake.EntityFramework6.Interfaces;
+using Cake.EntityFramework6.Migrator;
+
+namespace Cake.EntityFramework6.CakeTranslation
 {
-    using System;
-
-    using Cake.Core;
-    using Cake.Core.Annotations;
-    using Cake.EntityFramework6.Interfaces;
-    using Cake.EntityFramework6.Migrator;
-
     /// <summary>
     /// A set of Cake aliases for Entity Framework 6 code-first migrations.
     /// </summary>
@@ -73,7 +73,7 @@
                 settings.ConnectionString,
                 settings.ConnectionProvider,
                 new CakeLogger(context.Log)
-                );
+            );
         }
     }
 }

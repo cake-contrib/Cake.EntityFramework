@@ -1,8 +1,8 @@
-﻿namespace Cake.EntityFramework6.CakeTranslation
-{
-    using Cake.Core.Diagnostics;
-    using Cake.EntityFramework6.Interfaces;
+﻿using Cake.Core.Diagnostics;
+using Cake.EntityFramework6.Interfaces;
 
+namespace Cake.EntityFramework6.CakeTranslation
+{
     public class CakeLogger : ILogger
     {
         private readonly ICakeLog _cakeLogger;
