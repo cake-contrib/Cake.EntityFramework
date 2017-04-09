@@ -12,3 +12,7 @@ build:
   publish_nuget: true
   parallel: true
   verbosity: minimal
+test:
+  assemblies:
+    except:
+      - xunit.execution.dotnet.dll # TODO Why is this being discovered?
