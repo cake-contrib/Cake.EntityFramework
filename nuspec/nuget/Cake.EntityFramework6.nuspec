@@ -1,16 +1,17 @@
-<?xml version="1.0"?>
-<package >
-  <metadata>
-    <id>$id$</id>
-    <version>$version$</version>
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+         xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <metadata xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+    <id>Cake.EntityFramework6</id>
+    <version>0.0.0</version>
     <title>$title$</title>
-    <authors>Silvenga</authors>
-    <owners>Silvenga</owners>
-    <projectUrl>https://github.com/Silvenga/Cake.EntityFramework</projectUrl>
+    <authors>Silvenga,louisfischer</authors>
+    <owners>Silvenga,louisfischer</owners>
+    <projectUrl>https://github.com/louisfischer/Cake.EntityFramework</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>A set of Cake aliases for Entity Framework code-first migrations.</description>
     <releaseNotes>Summary of changes made in this release of the package.</releaseNotes>
-    <copyright>Copyright 2016</copyright>
-    <tags>Cake</tags>
+    <copyright>Copyright 2017</copyright>
+    <tags>cake EntityFramework ef code-first migrations sql-server </tags>
   </metadata>
 </package>
