@@ -101,7 +101,11 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+    <Compile Include="..\SolutionInfo.cs">
+      <Link>Properties\SolutionInfo.cs</Link>
+    </Compile>
   </ItemGroup>
+  
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201601100158179_V0.resx">
       <DependentUpon>201601100158179_V0.cs</DependentUpon>

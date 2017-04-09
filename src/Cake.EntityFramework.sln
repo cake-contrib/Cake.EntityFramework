@@ -5,15 +5,11 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{52F43204-A1F2-44E6-97FC-3095D889ABE9}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{29AF1EAC-C902-483B-B5BC-DF533312ACB9}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TestProjects", "TestProjects", "{AFB8B12C-1821-4F49-AEF0-5374E00231B3}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cake.EntityFramework6", "src\Cake.EntityFramework6\Cake.EntityFramework6.csproj", "{2E0DBE40-69A0-4295-802E-96D8852DF25C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cake.EntityFramework.TestProject.Postgres", "tests\TestProjects\Cake.EntityFramework.TestProject.Postgres\Cake.EntityFramework.TestProject.Postgres.csproj", "{4D8203A9-0969-4EDD-B50D-6DDB766E3584}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cake.EntityFramework.TestProject.Postgres", "src\Cake.EntityFramework.TestProject.Postgres\Cake.EntityFramework.TestProject.Postgres.csproj", "{4D8203A9-0969-4EDD-B50D-6DDB766E3584}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cake.EntityFramework6.Tests", "tests\Cake.EntityFramework6.Tests\Cake.EntityFramework6.Tests.csproj", "{EC98D5C7-B0DF-4CD5-A39F-7B9600E9F71C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cake.EntityFramework6.Tests", "src\Cake.EntityFramework6.Tests\Cake.EntityFramework6.Tests.csproj", "{EC98D5C7-B0DF-4CD5-A39F-7B9600E9F71C}"
 	ProjectSection(ProjectDependencies) = postProject
 		{4D8203A9-0969-4EDD-B50D-6DDB766E3584} = {4D8203A9-0969-4EDD-B50D-6DDB766E3584}
 	EndProjectSection
