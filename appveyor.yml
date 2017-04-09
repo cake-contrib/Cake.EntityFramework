@@ -1,18 +1,29 @@
-version: 1.0.0.{build}
-assembly_info:
-  patch: true
-  file: '**\AssemblyInfo.*'
-  assembly_version: '{version}'
-  assembly_file_version: '{version}'
-  assembly_informational_version: '{version}'
-services: postgresql
-before_build:
-- ps: nuget restore
-build:
-  publish_nuget: true
-  parallel: true
-  verbosity: minimal
-test:
-  assemblies:
-    except:
-      - xunit.execution.dotnet.dll # TODO Why is this being discovered?
+#---------------------------------#
+#  Build Script                   #
+#---------------------------------#
+build_script:
+  - ps: .\build.ps1 -Target AppVeyor
+
+# Tests
+test: off
+services: 
+  - postgresql
+  - mssql2016
+
+#---------------------------------#
+#        Branches to build        #
+#---------------------------------#
+branches:
+  # Whitelist
+  only:
+    - develop
+    - master
+    - /release/.*/
+    - /hotfix/.*/
+
+#---------------------------------#
+#  Build Cache                    #
+#---------------------------------#
+cache:
+- Source\packages -> Source\**\packages.config
+- tools -> setup.cake      
