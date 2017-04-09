@@ -5,7 +5,7 @@ namespace Cake.EntityFramework6.Interfaces
 {
     public interface IEfMigrator : IDisposable
     {
-        bool Commited { get; }
+        bool Committed { get; }
         bool Ready { get; }
         void Commit();
         void Rollback();
