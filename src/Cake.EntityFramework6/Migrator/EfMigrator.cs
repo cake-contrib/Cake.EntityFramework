@@ -17,7 +17,8 @@ namespace Cake.EntityFramework6.Migrator
 
         private const string InitialDatabase = "0";
 
-        public bool Commited { get; private set; }
+        public bool Committed { get; private set; }
+
         public string CurrentMigration { get; private set; }
 
         public EfMigrator(string assemblyPath, string qualifiedDbConfigName, string appConfigPath, string connectionString, string connectionProvider,
@@ -76,14 +77,14 @@ namespace Cake.EntityFramework6.Migrator
 
         public void Commit()
         {
-            Commited = true;
+            Committed = true;
             CurrentMigration = GetCurrentMigration();
             _logger.Information($"Migrations are now commited at {CurrentMigration}.");
         }
 
         public void Rollback()
         {
-            if (Commited)
+            if (Committed)
             {
                 throw new Exception("Can't rollback when the migrations have been commited.");
             }
@@ -151,7 +152,7 @@ namespace Cake.EntityFramework6.Migrator
 
         public void Dispose()
         {
-            if (!Commited)
+            if (!Committed)
             {
                 _logger.Warning("Nothing commited, rollingback.");
                 Rollback();
