@@ -1,6 +1,9 @@
-## Recommendations
+---
+Order: 25
+Title: Run Migrations in Transactions
+---
 
-Run migrations in trasactions. Keep in mind that this only works with supported providers (e.g. basiclly everyone except MySQL and Oracle). For example in PostgreSQL (Npgsql) you would do:
+Run migrations in transactions. Keep in mind that this only works with supported providers (e.g. basiclly everyone except MySQL and Oracle). For example in PostgreSQL (Npgsql) you would do:
 
 ```cake
 public class AtomicMigrationScriptBuilder : NpgsqlMigrationSqlGenerator

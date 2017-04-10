@@ -1,22 +1,9 @@
-# Build Script
+---
+Order: 20
+Title: PostgreSQL
+---
 
-You can reference Cake.EntityFramework in your build script as a cake addin:
-
-```cake
-#addin "Cake.EntityFramework6"
-```
-
-or nuget reference:
-
-```cake
-#addin "nuget:https://www.nuget.org/api/v2?package=Cake.EntityFramework6"
-```
-
-Then some examples:
-
-## PostgreSQL
-
-Requires:
+Requirements:
 - Windows 10 Pro
 - HyperV installed
 - Docker for Windows
@@ -26,7 +13,7 @@ cd docker\postgres
 docker-compose start
 ```
 
-### Cake Script Example
+### Example
 ```cake
 var migrationSettings = new EfMigratorSettings {
   AssemblyPath = @"path/to/example.data.dll",
@@ -46,7 +33,3 @@ Task("Migrate-To_Latest")
   }
 });
 ```
-
-## MS SQL Server
-
-*Coming Soon*

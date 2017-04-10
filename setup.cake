@@ -5,7 +5,7 @@ Environment.SetVariableNames();
 BuildParameters.SetParameters(context: Context, 
                             buildSystem: BuildSystem,
                             sourceDirectoryPath: "./src",
-                            title: "Cake.EntityFramework6",
+                            title: "Cake.EntityFramework",
                             repositoryOwner: "louisfischer",
                             repositoryName: "Cake.EntityFramework",
                             appVeyorAccountName: "louisfischer");
