@@ -25,8 +25,8 @@
         {
             _logger = logger;
 
-			_logger.Information($"Connection string is: {connectionString}"); 
-			
+            _logger.Information($"Connection string being used is: {connectionString}"); 
+            
             appConfigPath = Path.GetFullPath(appConfigPath);
             if (!File.Exists(appConfigPath))
             {
@@ -59,8 +59,6 @@
             _logger.Debug("Created new instance.");
             migrator.Initialize(assemblyPath, qualifiedDbConfigName, connectionString, connectionProvider);
 
-			_logger.Information($"Qualified DB config name is {qualifiedDbConfigName}"); 
-			
             _logger.Debug($"Initialized new {nameof(EfMigratorBackend)} within {domainName}.");
 
             CurrentMigration = migrator.GetCurrentMigration() ?? InitialDatabase;
@@ -140,11 +138,10 @@
 
         public bool MigrateToLatest()
         {
-			_logger.Information($"Migrating to latest..."); 
             var result = _migratorBackend.MigrateToLatest();
             if (!result.IsSuccess)
             {
-                throw new EfMigrationException("Error when migrating.", result.Exception);
+                throw new Exception($"Error when migrating: {result.Exception.Message}.", result.Exception);
             }
             return result.IsSuccess;
         }
