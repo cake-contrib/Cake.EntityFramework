@@ -3,14 +3,11 @@
 namespace Cake.EntityFramework6.CakeTranslation
 {
     using System;
+    using Cake.Core;
+    using Cake.Core.Annotations;
+    using Cake.EntityFramework6.Interfaces;
+    using Cake.EntityFramework6.Migrator;
 
-using Cake.Core;
-using Cake.Core.Annotations;
-using Cake.EntityFramework6.Interfaces;
-using Cake.EntityFramework6.Migrator;
-
-namespace Cake.EntityFramework6.CakeTranslation
-{
     /// <summary>
     /// A set of Cake aliases for Entity Framework 6 code-first migrations.
     /// </summary>
@@ -60,18 +57,12 @@ namespace Cake.EntityFramework6.CakeTranslation
                 throw new ArgumentNullException(nameof(settings.ConfigurationClass));
             }
 
-            if ((settings.ConnectionString == null || settings.ConnectionProvider == null) 
+            if (settings.ConnectionString == null && settings.ConnectionProvider == null
                 && settings.ConnectionName != null)
             {
                 string connectionString;
                 string connectionProvider;
-                SetConnectionStringFromAppConfig(settings, settings.ConnectionName, out connectionProvider, out connectionString);
-
-                if (connectionString == null)
-                    throw new ArgumentNullException(nameof(settings.ConnectionString));
-
-                if (connectionProvider ==  null)
-                    throw new ArgumentNullException(nameof(settings.ConnectionProvider));
+                SetConnectionStringFromAppConfig(settings, out connectionProvider, out connectionString);
 
                 settings.ConnectionString = connectionString;
                 settings.ConnectionProvider = connectionProvider;
@@ -97,24 +88,31 @@ namespace Cake.EntityFramework6.CakeTranslation
             );
         }
 
-        private static void SetConnectionStringFromAppConfig(EfMigratorSettings settings, string connectionName, out string connectionProvider, out string connectionString)
+        /// <summary>
+        /// Retrieves the connection string & connection provider from application config,
+        /// if the app config path is set & there is a connection name.
+        /// </summary>
+        /// <param name="settings"></param>
+        /// <param name="connectionProvider"></param>
+        /// <param name="connectionString"></param>
+        private static void SetConnectionStringFromAppConfig(EfMigratorSettings settings, out string connectionProvider, out string connectionString)
         {
-            var configMap = new ExeConfigurationFileMap()
-            {
-                ExeConfigFilename = $@"{settings.AppConfigPath}"
-            };
+            var configMap = new ExeConfigurationFileMap { ExeConfigFilename = $@"{settings.AppConfigPath}" };
             var config = ConfigurationManager.OpenMappedExeConfiguration(configMap, ConfigurationUserLevel.None);
 
-            var x = config.ConnectionStrings?.ConnectionStrings[connectionName];
+            var connectionStringSettings = config.ConnectionStrings?.ConnectionStrings[settings.ConnectionName];
 
-            if (x == null)
-                throw new Exception($"Unable to load configuration from path {settings.AppConfigPath}");
+            if (connectionStringSettings == null)
+                throw new ArgumentException($"Unable to load connection information for connection name {settings.ConnectionName}");
 
-            connectionString = x?.ConnectionString;
-            connectionProvider = x?.ProviderName;
+            connectionString = connectionStringSettings.ConnectionString;
+            connectionProvider = connectionStringSettings.ProviderName;
 
             if (connectionString == null)
-                throw new Exception("Unable to parse connection string from app config.");
+                throw new InvalidOperationException("Unable to get connection string from app config.");
+
+            if (connectionProvider == null)
+                throw new InvalidOperationException("Unable to get connection provider from app config.");
         }
     }
 }

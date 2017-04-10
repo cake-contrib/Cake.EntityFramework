@@ -75,6 +75,21 @@ namespace Cake.EntityFramework6.Tests.CakeAliases
             action.ShouldThrow<ArgumentException>();
         }
 
+        [Fact]
+        public void Missing_App_Config_Throws()
+        {
+            var settings = AutoFixture.Build<EfMigratorSettings>()
+                                      .With(x => x.ConnectionString, null)
+                                      .With(x => x.ConnectionProvider, null)
+                                      .Create();
+
+            // Act
+            Action action = () => _context.CreateEfMigrator(settings);
+
+            // Assert
+            action.ShouldThrow<ArgumentException>();
+        }
+
         private static Expression<Func<EfMigratorSettings, object>> Expression(Expression<Func<EfMigratorSettings, object>> expression)
         {
             return expression;
