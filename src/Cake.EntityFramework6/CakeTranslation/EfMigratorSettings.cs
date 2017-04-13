@@ -48,6 +48,11 @@ namespace Cake.EntityFramework6.CakeTranslation
         public string ConnectionProvider { get; set; }
 
         /// <summary>
+        /// The name of the connection string in the configuration file.
+        /// This can be used to load the connection string and provider.
+        /// </summary>
+        public string ConnectionName { get; set; }
+
         /// Gets or sets a flag to allow data to be lost on a migration.
         /// This is the same as the '-force' flag when running migrations through visual studio.
         /// </summary>
