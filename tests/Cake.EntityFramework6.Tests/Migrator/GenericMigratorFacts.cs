@@ -32,7 +32,7 @@ namespace Cake.EntityFramework6.Tests.Migrator
         public void When_appConfig_path_should_not_exist_throw()
         {
             var appPath = AutoFixture.Create<string>();
-            Action action = () => new EfMigrator(null, null, appPath, null, null, _mockLogger);
+            Action action = () => new EfMigrator(null, null, appPath, null, null, _mockLogger, false);
 
             // Act
 
@@ -46,7 +46,7 @@ namespace Cake.EntityFramework6.Tests.Migrator
         {
             var appPath = PostgresFactConstants.AppConfig;
             var assemblyPath = AutoFixture.Create<string>();
-            Action action = () => new EfMigrator(assemblyPath, null, appPath, null, null, _mockLogger);
+            Action action = () => new EfMigrator(assemblyPath, null, appPath, null, null, _mockLogger, false);
 
             // Act
 
@@ -61,7 +61,7 @@ namespace Cake.EntityFramework6.Tests.Migrator
             var appPath = PostgresFactConstants.AppConfig;
             var assemblyPath = PostgresFactConstants.DdlPath;
             var dbConfig = AutoFixture.Create<string>();
-            Action action = () => new EfMigrator(assemblyPath, dbConfig, appPath, null, null, _mockLogger);
+            Action action = () => new EfMigrator(assemblyPath, dbConfig, appPath, null, null, _mockLogger, false);
 
             // Act
 
@@ -78,7 +78,7 @@ namespace Cake.EntityFramework6.Tests.Migrator
             var dbConfig = PostgresFactConstants.ConfigName;
             var connectionString = AutoFixture.Create<string>();
             var providerName = PostgresFactConstants.ConnectionProvider;
-            Action action = () => new EfMigrator(assemblyPath, dbConfig, appPath, connectionString, providerName, _mockLogger);
+            Action action = () => new EfMigrator(assemblyPath, dbConfig, appPath, connectionString, providerName, _mockLogger, false);
 
             // Act
 

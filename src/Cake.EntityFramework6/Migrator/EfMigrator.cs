@@ -22,10 +22,12 @@ namespace Cake.EntityFramework6.Migrator
         public string CurrentMigration { get; private set; }
 
         public EfMigrator(string assemblyPath, string qualifiedDbConfigName, string appConfigPath, string connectionString, string connectionProvider,
-                          ILogger logger)
+                          ILogger logger, bool allowDataLossOnMigrations)
         {
             _logger = logger;
 
+            _logger.Information($"Connection string being used is: {connectionString}"); 
+            
             appConfigPath = Path.GetFullPath(appConfigPath);
             if (!File.Exists(appConfigPath))
             {
@@ -63,6 +65,8 @@ namespace Cake.EntityFramework6.Migrator
             CurrentMigration = migrator.GetCurrentMigration() ?? InitialDatabase;
             var currentMigrationStr = CurrentMigration == InitialDatabase ? "$InitialDatabase" : CurrentMigration;
             _logger.Information($"Current Migration is {currentMigrationStr}.");
+
+            migrator.SetAllowDataLossOnMigrations(allowDataLossOnMigrations);
 
             _migratorBackend = migrator;
         }
@@ -130,7 +134,7 @@ namespace Cake.EntityFramework6.Migrator
             var result = _migratorBackend.MigrateTo(version);
             if (!result.IsSuccess)
             {
-                throw new Exception("Error when migrating.", result.Exception);
+                throw new Exception($"Error when migrating: {result.Exception.Message}.", result.Exception); 
             }
             return result.IsSuccess;
         }
@@ -140,7 +144,7 @@ namespace Cake.EntityFramework6.Migrator
             var result = _migratorBackend.MigrateToLatest();
             if (!result.IsSuccess)
             {
-                throw new EfMigrationException("Error when migrating.", result.Exception);
+                throw new Exception($"Error when migrating: {result.Exception.Message}.", result.Exception);
             }
             return result.IsSuccess;
         }

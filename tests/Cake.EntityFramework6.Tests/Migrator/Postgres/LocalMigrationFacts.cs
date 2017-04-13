@@ -24,7 +24,7 @@ namespace Cake.EntityFramework6.Tests.Migrator.Postgres
             _logHelper = logHelper;
             _mockLogger = new MockLogger(logHelper);
             _migrator = new EfMigrator(PostgresFactConstants.DdlPath, PostgresFactConstants.ConfigName, PostgresFactConstants.AppConfig,
-                PostgresFactConstants.InstanceConnectionString, PostgresFactConstants.ConnectionProvider, _mockLogger);
+                PostgresFactConstants.InstanceConnectionString, PostgresFactConstants.ConnectionProvider, _mockLogger, false);
         }
 
         [Fact]
