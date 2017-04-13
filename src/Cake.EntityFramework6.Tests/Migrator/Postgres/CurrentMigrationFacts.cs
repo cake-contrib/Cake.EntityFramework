@@ -20,7 +20,7 @@ namespace Cake.EntityFramework6.Tests.Migrator.Postgres
         private readonly string _instanceString = PostgresFactConstants.InstanceConnectionString;
 
         private IEfMigrator Migrator => new EfMigrator(PostgresFactConstants.DdlPath, PostgresFactConstants.ConfigName, PostgresFactConstants.AppConfig,
-            _instanceString, PostgresFactConstants.ConnectionProvider, _mockLogger);
+            _instanceString, PostgresFactConstants.ConnectionProvider, _mockLogger, false);
 
         public CurrentMigrationFacts(ITestOutputHelper logHelper)
         {

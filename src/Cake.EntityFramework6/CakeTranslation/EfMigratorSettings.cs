@@ -46,5 +46,11 @@ namespace Cake.EntityFramework6.CakeTranslation
         /// The connection provider to be used for code-first migrations.
         /// </value>
         public string ConnectionProvider { get; set; }
+
+        /// <summary>
+        /// Gets or sets a flag to allow data to be lost on a migration.
+        /// This is the same as the '-force' flag when running migrations through visual studio.
+        /// </summary>
+        public bool AllowDataLossOnMigrations { get; set; }
     }
 }
