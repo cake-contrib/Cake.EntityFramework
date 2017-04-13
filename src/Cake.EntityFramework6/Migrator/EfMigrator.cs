@@ -22,7 +22,7 @@ namespace Cake.EntityFramework6.Migrator
         public string CurrentMigration { get; private set; }
 
         public EfMigrator(string assemblyPath, string qualifiedDbConfigName, string appConfigPath, string connectionString, string connectionProvider,
-                          ILogger logger)
+                          ILogger logger, bool allowDataLossOnMigrations)
         {
             _logger = logger;
 
@@ -65,6 +65,8 @@ namespace Cake.EntityFramework6.Migrator
             CurrentMigration = migrator.GetCurrentMigration() ?? InitialDatabase;
             var currentMigrationStr = CurrentMigration == InitialDatabase ? "$InitialDatabase" : CurrentMigration;
             _logger.Information($"Current Migration is {currentMigrationStr}.");
+
+            migrator.SetAllowDataLossOnMigrations(allowDataLossOnMigrations);
 
             _migratorBackend = migrator;
         }

@@ -72,8 +72,9 @@ namespace Cake.EntityFramework6.CakeTranslation
                 settings.AppConfigPath.FullPath,
                 settings.ConnectionString,
                 settings.ConnectionProvider,
-                new CakeLogger(context.Log)
-            );
+                new CakeLogger(context.Log),
+                settings.AllowDataLossOnMigrations
+                );
         }
     }
 }

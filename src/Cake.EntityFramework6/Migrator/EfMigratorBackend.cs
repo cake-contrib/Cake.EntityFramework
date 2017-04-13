@@ -79,6 +79,11 @@ namespace Cake.EntityFramework6.Migrator
             return new MigrationResult(true);
         }
 
+        public void SetAllowDataLossOnMigrations(bool allowDataLossOnMigrations)
+        {
+            _dbMigrator.Configuration.AutomaticMigrationDataLossAllowed = allowDataLossOnMigrations;
+        }
+
         public void Initialize(string assemblyPath, string qualifiedDbConfigName, string connectionString, string connectionProvider)
         {
             if (Ready)
