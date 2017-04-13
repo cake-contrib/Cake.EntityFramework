@@ -26,6 +26,8 @@ namespace Cake.EntityFramework6.Migrator
         {
             _logger = logger;
 
+            _logger.Information($"Connection string being used is: {connectionString}"); 
+            
             appConfigPath = Path.GetFullPath(appConfigPath);
             if (!File.Exists(appConfigPath))
             {
@@ -130,7 +132,7 @@ namespace Cake.EntityFramework6.Migrator
             var result = _migratorBackend.MigrateTo(version);
             if (!result.IsSuccess)
             {
-                throw new Exception("Error when migrating.", result.Exception);
+                throw new Exception($"Error when migrating: {result.Exception.Message}.", result.Exception); 
             }
             return result.IsSuccess;
         }
@@ -140,7 +142,7 @@ namespace Cake.EntityFramework6.Migrator
             var result = _migratorBackend.MigrateToLatest();
             if (!result.IsSuccess)
             {
-                throw new EfMigrationException("Error when migrating.", result.Exception);
+                throw new Exception($"Error when migrating: {result.Exception.Message}.", result.Exception);
             }
             return result.IsSuccess;
         }
