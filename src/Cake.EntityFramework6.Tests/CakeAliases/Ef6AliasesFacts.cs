@@ -30,7 +30,7 @@ namespace Cake.EntityFramework6.Tests.CakeAliases
             new object[] {Expression(x => x.AppConfigPath)},
             new object[] {Expression(x => x.AssemblyPath)},
             new object[] {Expression(x => x.ConfigurationClass)},
-            new object[] {Expression(x => x.ConnectionProvider)},
+            new object[] {Expression(x => x.ConnectionProvider)},            
             new object[] {Expression(x => x.ConnectionString)},
         };
 
@@ -39,6 +39,7 @@ namespace Cake.EntityFramework6.Tests.CakeAliases
         {
             var settings = AutoFixture.Build<EfMigratorSettings>()
                                       .With(expression, null)
+                                      .With(x => x.ConnectionName, null)
                                       .Create();
 
             // Act
@@ -69,6 +70,21 @@ namespace Cake.EntityFramework6.Tests.CakeAliases
             // Act
             // ReSharper disable once ExpressionIsAlwaysNull
             Action action = () => context.CreateEfMigrator(null);
+
+            // Assert
+            action.ShouldThrow<ArgumentException>();
+        }
+
+        [Fact]
+        public void Missing_App_Config_Throws()
+        {
+            var settings = AutoFixture.Build<EfMigratorSettings>()
+                                      .With(x => x.ConnectionString, null)
+                                      .With(x => x.ConnectionProvider, null)
+                                      .Create();
+
+            // Act
+            Action action = () => _context.CreateEfMigrator(settings);
 
             // Assert
             action.ShouldThrow<ArgumentException>();
