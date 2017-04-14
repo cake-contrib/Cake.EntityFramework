@@ -26,6 +26,7 @@
             <param name="settings">The settings <see cref="T:Cake.EntityFramework6.CakeTranslation.EfMigratorSettings"/>.</param>
             <returns>An EfMigrator <see cref="T:Cake.EntityFramework6.Interfaces.IEfMigrator"/>.</returns>
         </member>
+        <!-- Badly formed XML comment ignored for member "M:Cake.EntityFramework6.CakeTranslation.Ef6Aliases.SetConnectionStringFromAppConfig(Cake.EntityFramework6.CakeTranslation.EfMigratorSettings,System.String@,System.String@)" -->
         <member name="T:Cake.EntityFramework6.CakeTranslation.EfMigratorSettings">
             <summary>
             Contains settings for working with EntityFramework6 <see cref="T:Cake.EntityFramework6.CakeTranslation.Ef6Aliases"/>.
@@ -71,12 +72,13 @@
             The connection provider to be used for code-first migrations.
             </value>
         </member>
-        <member name="P:Cake.EntityFramework6.CakeTranslation.EfMigratorSettings.AllowDataLossOnMigrations">
+        <member name="P:Cake.EntityFramework6.CakeTranslation.EfMigratorSettings.ConnectionName">
             <summary>
-            Gets or sets a flag to allow data to be lost on a migration.
-            This is the same as the '-force' flag when running migrations through visual studio.
+            The name of the connection string in the configuration file.
+            This can be used to load the connection string and provider.
             </summary>
         </member>
+        <!-- Badly formed XML comment ignored for member "P:Cake.EntityFramework6.CakeTranslation.EfMigratorSettings.AllowDataLossOnMigrations" -->
         <member name="T:Cake.EntityFramework6.NamespaceDoc">
             <summary>
             This namespace contains EntityFramework6 aliases for the Cake
