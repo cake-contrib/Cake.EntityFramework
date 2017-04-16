@@ -1,0 +1,88 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Cake.EntityFramework6</name>
+    </assembly>
+    <members>
+        <member name="T:Cake.EntityFramework6.CakeTranslation.Ef6Aliases">
+            <summary>
+            A set of Cake aliases for Entity Framework 6 code-first migrations.
+            </summary>
+        </member>
+        <member name="M:Cake.EntityFramework6.CakeTranslation.Ef6Aliases.CreateEfMigrator(Cake.Core.ICakeContext,Cake.EntityFramework6.CakeTranslation.EfMigratorSettings)">
+            <summary>
+            Creates a new EfMigrator for use in EF6 code-first migrations.
+            </summary>
+            <example>
+            <code>
+            using(var migrator = CreateEfMigrator(efMigratorSettings)) 
+            {
+                 migrator.MigrateToLatest();
+                 migrator.Commit();
+            }
+            </code>
+            </example>
+            <param name="context">The context.</param>
+            <param name="settings">The settings <see cref="T:Cake.EntityFramework6.CakeTranslation.EfMigratorSettings"/>.</param>
+            <returns>An EfMigrator <see cref="T:Cake.EntityFramework6.Interfaces.IEfMigrator"/>.</returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:Cake.EntityFramework6.CakeTranslation.Ef6Aliases.SetConnectionStringFromAppConfig(Cake.EntityFramework6.CakeTranslation.EfMigratorSettings,System.String@,System.String@)" -->
+        <member name="T:Cake.EntityFramework6.CakeTranslation.EfMigratorSettings">
+            <summary>
+            Contains settings for working with EntityFramework6 <see cref="T:Cake.EntityFramework6.CakeTranslation.Ef6Aliases"/>.
+            </summary>
+        </member>
+        <member name="P:Cake.EntityFramework6.CakeTranslation.EfMigratorSettings.AssemblyPath">
+            <summary>
+            Gets or sets the assembly path.
+            </summary>
+            <value>
+            The path to the assembly where the EF configuration class is located.
+            </value>
+        </member>
+        <member name="P:Cake.EntityFramework6.CakeTranslation.EfMigratorSettings.ConfigurationClass">
+            <summary>
+            Gets or sets the configuration class.
+            </summary>
+            <value>
+            The fully qualified name of the EF configuration class for code-first migrations.
+            </value>
+        </member>
+        <member name="P:Cake.EntityFramework6.CakeTranslation.EfMigratorSettings.AppConfigPath">
+            <summary>
+            Gets or sets the app.config path.
+            </summary>
+            <value>
+            The path to the app.config (or web.config) containing the settings/configurations used by EF.
+            </value>
+        </member>
+        <member name="P:Cake.EntityFramework6.CakeTranslation.EfMigratorSettings.ConnectionString">
+            <summary>
+            Gets or sets the connection string.
+            </summary>
+            <value>
+            The connection string to be used for code-first migrations.
+            </value>
+        </member>
+        <member name="P:Cake.EntityFramework6.CakeTranslation.EfMigratorSettings.ConnectionProvider">
+            <summary>
+            Gets or sets the connection provider.
+            </summary>
+            <value>
+            The connection provider to be used for code-first migrations.
+            </value>
+        </member>
+        <member name="P:Cake.EntityFramework6.CakeTranslation.EfMigratorSettings.ConnectionName">
+            <summary>
+            The name of the connection string in the configuration file.
+            This can be used to load the connection string and provider.
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "P:Cake.EntityFramework6.CakeTranslation.EfMigratorSettings.AllowDataLossOnMigrations" -->
+        <member name="T:Cake.EntityFramework6.NamespaceDoc">
+            <summary>
+            This namespace contains EntityFramework6 aliases for the Cake
+            </summary>
+        </member>
+    </members>
+</doc>

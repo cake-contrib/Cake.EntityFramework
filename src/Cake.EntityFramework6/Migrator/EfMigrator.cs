@@ -45,15 +45,7 @@ namespace Cake.EntityFramework6.Migrator
             var type = typeof(EfMigratorBackend);
 
             var fullPath = Assembly.GetAssembly(typeof(EfMigratorBackend)).Location;
-            //var domain = AppDomain.CurrentDomain.GetAssemblies()
-            //                      .Where(x => !x.IsDynamic)
-            //                      .Where(x => !x.GlobalAssemblyCache)
-            //                      .Select(x => Path.GetDirectoryName(x.Location))
-            //                      .Distinct();
-
-            //var domains = string.Join(", ", domain);
-            //logger.Debug($"Loading assemblies into appDomain: {domains}.");
-
+            
             Debug.Assert(fullPath != null, "fullPath != null");
 
             var migrator = (EfMigratorBackend) _domain.CreateInstanceFromAndUnwrap(fullPath, type.FullName);
