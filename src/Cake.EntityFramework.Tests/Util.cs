@@ -50,5 +50,10 @@ namespace Cake.EntityFramework.Tests
             process.WaitForExit(milliseconds);
             return process;
         }
+
+        internal static bool IsRunningBuildServer()
+        {
+            return string.Equals(Environment.GetEnvironmentVariable("APPVEYOR"), "true", StringComparison.OrdinalIgnoreCase);
+        }
     }
 }

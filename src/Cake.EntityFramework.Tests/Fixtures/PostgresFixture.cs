@@ -22,15 +22,18 @@ namespace Cake.EntityFramework.Tests.Fixtures
         private void Initialize()
         {
             PostGresDockerComposeFilePath = Path.GetFullPath(_DockerFilePath);
+
             CakeContext = new CakeContextFixture();
 
-            Util.StartDockerComposeProcess(PostGresDockerComposeFilePath, "up", 5000);
+            if (!Util.IsRunningBuildServer())
+                Util.StartDockerComposeProcess(PostGresDockerComposeFilePath, "up", 5000);
         }
 
         public void Dispose()
         {
             //Stop Docker Container
-            Util.StartDockerComposeProcess(PostGresDockerComposeFilePath, "down");
+            if (!Util.IsRunningBuildServer())
+                Util.StartDockerComposeProcess(PostGresDockerComposeFilePath, "down");
         }
     }
 
