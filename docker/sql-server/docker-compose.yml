@@ -1,0 +1,8 @@
+sqlserver:
+  container_name: sqlserver-cake
+  image: microsoft/mssql-server-linux
+  ports:
+    - "1433:1433"
+  environment:
+    - ACCEPT_EULA=Y
+    - SA_PASSWORD=Password12! # Match CI DB config - https://www.appveyor.com/docs/services-databases
