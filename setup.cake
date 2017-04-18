@@ -18,7 +18,7 @@ ToolSettings.SetToolSettings(context: Context,
                                 BuildParameters.RootDirectoryPath + "/src/Cake.EntityFramework.TestProject.Postgres/**/*.cs",
                                 BuildParameters.RootDirectoryPath + "/src/Cake.EntityFramework.Tests/**/*.cs"
                             },
-                            testCoverageFilter: "+[*]* -[xunit.*]* -[Cake.Core]* -[Cake.Testing]* -[*.Tests]* ",
+                            testCoverageFilter: "+[*]* -[xunit.*]* -[Cake.Core]* -[Cake.Testing]* -[*.Tests]* -[Cake.EntityFramework.TestProject.Postgres]* -[FluentAssertions]* -[FluentAssertions.Core]* -[*]Costura.AssemblyLoader",
                             testCoverageExcludeByAttribute: "*.ExcludeFromCodeCoverage*",
                             testCoverageExcludeByFile: "*/*Designer.cs;*/*.g.cs;*/*.g.i.cs");
 
