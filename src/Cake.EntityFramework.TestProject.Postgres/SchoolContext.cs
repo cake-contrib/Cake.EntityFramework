@@ -2,9 +2,7 @@
 using System.Data.Entity;
 using System.Data.Entity.Migrations.Model;
 using System.Data.Entity.Migrations.Sql;
-
 using Cake.EntityFramework.TestProject.Postgres.Models;
-
 using Npgsql;
 
 namespace Cake.EntityFramework.TestProject.Postgres

@@ -16,7 +16,7 @@ ToolSettings.SetToolSettings(context: Context,
                             dupFinderExcludePattern: new string[] 
                             { 
                                 BuildParameters.RootDirectoryPath + "/src/Cake.EntityFramework.TestProject.Postgres/**/*.cs",
-                                BuildParameters.RootDirectoryPath + "/src/Cake.EntityFramework6.Tests/**/*.cs"
+                                BuildParameters.RootDirectoryPath + "/src/Cake.EntityFramework.Tests/**/*.cs"
                             },
                             testCoverageFilter: "+[*]* -[xunit.*]* -[Cake.Core]* -[Cake.Testing]* -[*.Tests]* ",
                             testCoverageExcludeByAttribute: "*.ExcludeFromCodeCoverage*",
