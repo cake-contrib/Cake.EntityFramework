@@ -13,7 +13,7 @@ A set of Cake aliases for Entity Framework code-first migrations.
 | |Stable|Pre-release|
 |:--:|:--:|:--:|
 |GitHub Release|-|[![GitHub release](https://img.shields.io/github/release/louisfischer/Cake.EntityFramework.svg)](https://github.com/louisfischer/Cake.EntityFramework/releases/latest)|
-|NuGet|[![NuGet](https://img.shields.io/nuget/v/Cake.EntityFramework6.svg)](https://www.nuget.org/packages/Cake.EntityFramework6)|[![NuGet](https://img.shields.io/nuget/vpre/Cake.EntityFramework6.svg)](https://www.nuget.org/packages/Cake.EntityFramework6)|
+|NuGet|[![NuGet](https://img.shields.io/nuget/v/Cake.EntityFramework.svg)](https://www.nuget.org/packages/Cake.EntityFramework)|[![NuGet](https://img.shields.io/nuget/vpre/Cake.EntityFramework.svg)](https://www.nuget.org/packages/Cake.EntityFramework)|
 
 ## Build Status
 

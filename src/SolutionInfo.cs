@@ -4,7 +4,7 @@
 //------------------------------------------------------------------------------
 using System.Reflection;
 
-[assembly: AssemblyProduct("Cake.EntityFramework6")]
+[assembly: AssemblyProduct("Cake.EntityFramework")]
 [assembly: AssemblyVersion("0.1.0")]
 [assembly: AssemblyFileVersion("0.1.0")]
 [assembly: AssemblyInformationalVersion("0.1.0")]
