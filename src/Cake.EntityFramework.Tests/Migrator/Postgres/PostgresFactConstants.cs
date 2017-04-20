@@ -6,6 +6,8 @@ namespace Cake.EntityFramework.Tests.Migrator.Postgres
 {
     public static class PostgresFactConstants
     {
+        private static readonly string AppVeyorArtifactPath = "BuildArtifacts/temp/_PublishedxUnitTests/Cake.EntityFramework.Tests";
+
         public static readonly string DdlPath = $@"{AssemblyDirectory}\Cake.EntityFramework.TestProject.Postgres.dll";
         public const string ConfigName = "Cake.EntityFramework.TestProject.Postgres.Migrations.Configuration";
         public static readonly string AppConfig = $@"{AssemblyDirectory}\Cake.EntityFramework.TestProject.Postgres.dll.config";
@@ -20,7 +22,13 @@ namespace Cake.EntityFramework.Tests.Migrator.Postgres
         {
             get
             {
-                string codeBase = Assembly.GetExecutingAssembly().CodeBase;
+                string codeBase = string.Empty;
+
+                if (Util.IsRunningBuildServer())
+                    codeBase = codeBase.Substring(0, codeBase.IndexOf("src/", StringComparison.OrdinalIgnoreCase)) + AppVeyorArtifactPath;
+                else
+                    codeBase = Assembly.GetExecutingAssembly().CodeBase;
+
                 UriBuilder uri = new UriBuilder(codeBase);
                 string path = Uri.UnescapeDataString(uri.Path);
                 return Path.GetDirectoryName(path);
