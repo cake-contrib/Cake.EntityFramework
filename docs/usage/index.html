@@ -8,7 +8,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="shortcut icon" href="/Cake.EntityFramework/assets/img/favicon.ico" type="image/x-icon">
         <link rel="icon" href="/Cake.EntityFramework/assets/img/favicon.ico" type="image/x-icon">
-        <title>Cake.EntityFramework - Cake.EntityFramework</title>
+        <title>Cake.EntityFramework - Usage</title>
         <link href="/Cake.EntityFramework/assets/css/mermaid.css" rel="stylesheet">
         <link href="/Cake.EntityFramework/assets/css/highlight.css" rel="stylesheet">
         <link href="/Cake.EntityFramework/assets/css/bootstrap/bootstrap.css" rel="stylesheet" />
@@ -31,7 +31,7 @@
 
         
     </head>
-    <body class="hold-transition wyam layout-boxed layout-top-nav no-gutter">    
+    <body class="hold-transition wyam layout-boxed  ">    
         <div class="top-banner"></div>
         <div class="wrapper with-container">
             <!-- Header -->
@@ -43,6 +43,10 @@
                          
                 <nav class="navbar navbar-static-top" role="navigation">
                     <!-- Sidebar toggle button-->
+                        <a href="#" class="sidebar-toggle visible-xs-block" data-toggle="offcanvas" role="button">
+                            <span class="sr-only">Toggle side menu</span>
+                            <i class="fa fa-chevron-circle-right"></i>
+                        </a>
                                         
                     <div class="navbar-header">
                         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
@@ -54,7 +58,7 @@
                     <!-- Collect the nav links, forms, and other content for toggling -->
                     <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
                         <ul class="nav navbar-nav">                            
-                                    <li><a href="/Cake.EntityFramework/docs">Documentation</a></li>
+                                    <li class="active"><a href="/Cake.EntityFramework/docs">Documentation</a></li>
         <li><a href="/Cake.EntityFramework/blog">Blog</a></li>
         <li><a href="/Cake.EntityFramework/api">API</a></li>
  
@@ -67,7 +71,7 @@
             </header>
             
             <!-- Left side column. contains the logo and sidebar -->
-            <aside class="main-sidebar hidden">
+            <aside class="main-sidebar ">
                 <section class="infobar" data-spy="affix" data-offset-top="60" data-offset-bottom="200"> 
                     	
     <div id="infobar-headings"></div>
@@ -78,6 +82,26 @@
 
                     <ul class="sidebar-menu">
                         
+                <li class="treeview">
+                    <a href="/Cake.EntityFramework/docs/features">Features</a> <a href="#" class="expand"></a>
+                    <ul class="treeview-menu">
+                                        <li><a href="/Cake.EntityFramework/docs/features/ef6">Entity Framework 6x</a></li>
+                <li><a href="/Cake.EntityFramework/docs/features/efcore">Entity Framework Core</a></li>
+                <li><a href="/Cake.EntityFramework/docs/features/todo">To Do List</a></li>
+
+                    </ul>
+                </li>
+                <li class="treeview active selected">
+                    <a href="/Cake.EntityFramework/docs/usage">Usage</a> <a href="#" class="expand"></a>
+                    <ul class="treeview-menu">
+                                        <li><a href="/Cake.EntityFramework/docs/usage/how-it-works">How It Works</a></li>
+                <li><a href="/Cake.EntityFramework/docs/usage/reference">Referencing Cake.EntityFramework</a></li>
+                <li><a href="/Cake.EntityFramework/docs/usage/sql-server">SQL Server</a></li>
+                <li><a href="/Cake.EntityFramework/docs/usage/postgre-sql">PostgreSQL</a></li>
+                <li><a href="/Cake.EntityFramework/docs/usage/transactions">Run Migrations in Transactions</a></li>
+
+                    </ul>
+                </li>
 
                     </ul>
                 </section>                
@@ -90,17 +114,47 @@
 
 
 	<section class="content-header">
-		<h1>Cake.EntityFramework</h1>
+		<h1>Usage</h1>
 	</section>
 	<section class="content">
 		
-<div class="container">				
-	<h1>What is it?</h1>    
-    <p>
-        <img src="../assets/images/icon.png" />
-        Cake.EntityFramework is a set of Cake aliases for Entity Framework code-first migrations.
-    </p>
-</div>
+<p>How to configure and use Cake.EntityFramework</p>
+
+			<div class="box">
+				<div class="box-body no-padding">
+					<table class="table table-striped table-hover two-cols-alt table-responsive">
+						
+						<tbody>
+								<tr>
+									<td><strong><a href="/Cake.EntityFramework/docs/usage/how-it-works">How It Works</a></strong></td>
+									<td>
+									</td>
+								</tr>
+								<tr>
+									<td><strong><a href="/Cake.EntityFramework/docs/usage/reference">Referencing Cake.EntityFramework</a></strong></td>
+									<td>
+									</td>
+								</tr>
+								<tr>
+									<td><strong><a href="/Cake.EntityFramework/docs/usage/sql-server">SQL Server</a></strong></td>
+									<td>
+									</td>
+								</tr>
+								<tr>
+									<td><strong><a href="/Cake.EntityFramework/docs/usage/postgre-sql">PostgreSQL</a></strong></td>
+									<td>
+									</td>
+								</tr>
+								<tr>
+									<td><strong><a href="/Cake.EntityFramework/docs/usage/transactions">Run Migrations in Transactions</a></strong></td>
+									<td>
+									</td>
+								</tr>
+						</tbody>				
+					</table>
+				</div>
+			</div> 
+
 	</section>
                 
             </div>           

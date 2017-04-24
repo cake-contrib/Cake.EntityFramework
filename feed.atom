@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+	<link rel="self" href="http://louisfischer.github.io/Cake.EntityFramework" />
+	<id>http://louisfischer.github.io/Cake.EntityFramework</id>
+	<title>Cake.EntityFramework</title>
+	<rights>2017</rights>
+	<updated>2017-04-24T02:35:32Z</updated>
+	<entry>
+		<author>
+			<name>louisifischer</name>
+		</author>
+		<link href="http://louisfischer.github.io/Cake.EntityFramework/blog/new-release-0.1.0" />
+		<id>http://louisfischer.github.io/Cake.EntityFramework/blog/new-release-0.1.0</id>
+		<title>New Release - 0.1.0</title>
+		<updated>2017-04-09T00:00:00Z</updated>
+		<summary>&lt;p&gt;The main focus of this release was to introduce Cake.Recipe as the main build engine for the project.&lt;/p&gt;</summary>
+	</entry>
+</feed>

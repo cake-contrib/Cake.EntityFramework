@@ -1,22 +1,20 @@
-﻿<!DOCTYPE html>
-<html>
-    <head>
+﻿<!DOCTYPE html><html><head>
         <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-        <meta name="description" />
-        <meta name="keywords" content="static content generator,static site generator,static site,HTML,web development,.NET,C#,Razor,Markdown,YAML" />
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+        <meta name="description">
+        <meta name="keywords" content="static content generator,static site generator,static site,HTML,web development,.NET,C#,Razor,Markdown,YAML">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="shortcut icon" href="/Cake.EntityFramework/assets/img/favicon.ico" type="image/x-icon">
         <link rel="icon" href="/Cake.EntityFramework/assets/img/favicon.ico" type="image/x-icon">
-        <title>Cake.EntityFramework - Cake.EntityFramework</title>
+        <title>Cake.EntityFramework - API - V2.Up() Method</title>
         <link href="/Cake.EntityFramework/assets/css/mermaid.css" rel="stylesheet">
         <link href="/Cake.EntityFramework/assets/css/highlight.css" rel="stylesheet">
-        <link href="/Cake.EntityFramework/assets/css/bootstrap/bootstrap.css" rel="stylesheet" />
-        <link href="/Cake.EntityFramework/assets/css/adminlte/AdminLTE.css" rel="stylesheet" />
-        <link href="/Cake.EntityFramework/assets/css/theme/theme.css" rel="stylesheet" />
+        <link href="/Cake.EntityFramework/assets/css/bootstrap/bootstrap.css" rel="stylesheet">
+        <link href="/Cake.EntityFramework/assets/css/adminlte/AdminLTE.css" rel="stylesheet">
+        <link href="/Cake.EntityFramework/assets/css/theme/theme.css" rel="stylesheet">
         <link href="//fonts.googleapis.com/css?family=Roboto+Mono:400,700|Roboto:400,400i,700,700i" rel="stylesheet">
         <link href="/Cake.EntityFramework/assets/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-        <link href="/Cake.EntityFramework/assets/css/override.css" rel="stylesheet" />
+        <link href="/Cake.EntityFramework/assets/css/override.css" rel="stylesheet">
         <script src="/Cake.EntityFramework/assets/js/jquery-2.2.3.min.js"></script>
         <script src="/Cake.EntityFramework/assets/js/bootstrap.min.js"></script>        
         <script src="/Cake.EntityFramework/assets/js/app.min.js"></script>         
@@ -31,7 +29,7 @@
 
         
     </head>
-    <body class="hold-transition wyam layout-boxed layout-top-nav no-gutter">    
+    <body class="hold-transition wyam layout-boxed  ">    
         <div class="top-banner"></div>
         <div class="wrapper with-container">
             <!-- Header -->
@@ -43,6 +41,10 @@
                          
                 <nav class="navbar navbar-static-top" role="navigation">
                     <!-- Sidebar toggle button-->
+                        <a href="#" class="sidebar-toggle visible-xs-block" data-toggle="offcanvas" role="button">
+                            <span class="sr-only">Toggle side menu</span>
+                            <i class="fa fa-chevron-circle-right"></i>
+                        </a>
                                         
                     <div class="navbar-header">
                         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
@@ -56,7 +58,7 @@
                         <ul class="nav navbar-nav">                            
                                     <li><a href="/Cake.EntityFramework/docs">Documentation</a></li>
         <li><a href="/Cake.EntityFramework/blog">Blog</a></li>
-        <li><a href="/Cake.EntityFramework/api">API</a></li>
+        <li class="active"><a href="/Cake.EntityFramework/api">API</a></li>
  
                         </ul>       
                     </div>
@@ -67,17 +69,70 @@
             </header>
             
             <!-- Left side column. contains the logo and sidebar -->
-            <aside class="main-sidebar hidden">
+            <aside class="main-sidebar ">
                 <section class="infobar" data-spy="affix" data-offset-top="60" data-offset-bottom="200"> 
                     	
-    <div id="infobar-headings"></div>
+	<div id="infobar-headings"><h6>On This Page</h6><p><a href="#Syntax">Syntax</a></p>
+<p><a href="#ReturnValue">Return Value</a></p>
+<hr class="infobar-hidden">
+</div>
 
                 </section>
                 <section class="sidebar">                    
-                    
+                    	
+	    <script src="/assets/js/lunr.min.js"></script>
+    <script src="/assets/js/searchIndex.js"></script>
+    <div class="sidebar-form">
+        <div class="input-group">
+            <input type="text" name="search" id="search" class="form-control" placeholder="Search Types...">
+            <span class="input-group-btn">
+                <button class="btn btn-flat"><i class="fa fa-search"></i></button>
+            </span>
+        </div>
+    </div>
+    <div id="search-results">
+    </div>
+    <script>
+        function runSearch(query){
+            $("#search-results").empty();			
+            if( query.length < 2 ){
+                return;
+            }			
+            var results = searchModule.search("*" + query + "*");
+            var listHtml = "<ul class='sidebar-menu'>";	
+            listHtml += "<li class='header'>Type Results</li>";	
+            if(results.length == 0 ){
+                listHtml += "<li>No results found</li>";
+            } else {					
+                for(var i = 0; i < results.length; ++i){
+                    var res = results[i];
+                    listHtml += "<li><a href='" + res.url + "'>" + res.title + "</a></li>";
+                }				
+            }
+            listHtml += "</ul>";				
+            $("#search-results").append(listHtml);
+        }
+
+        $(document).ready(function(){
+            $("#search").on('input propertychange paste', function() {
+                runSearch($("#search").val());
+            });
+        });
+    </script>
+	
+    <hr>
 
                     <ul class="sidebar-menu">
                         
+			<li class="header">Namespace</li>
+		<li><a href="/Cake.EntityFramework/api/Cake.EntityFramework.TestProject.Postgres.Migrations">Cake<wbr>.EntityFramework<wbr>.TestProject<wbr>.Postgres<wbr>.Migrations</a></li>
+		<li class="header">Type</li>
+		<li><a href="/Cake.EntityFramework/api/Cake.EntityFramework.TestProject.Postgres.Migrations/V2">V2</a></li>
+		<li role="separator" class="divider"></li>
+			<li class="header">Method Members</li>
+				<li><a href="/Cake.EntityFramework/api/Cake.EntityFramework.TestProject.Postgres.Migrations/V2/F8A7CEC7">Down<wbr>()<wbr></a></li>
+				<li class="selected"><a href="/Cake.EntityFramework/api/Cake.EntityFramework.TestProject.Postgres.Migrations/V2/6B2848D8">Up<wbr>()<wbr></a></li>
+
 
                     </ul>
                 </section>                
@@ -89,19 +144,57 @@
 
 
 
-	<section class="content-header">
-		<h1>Cake.EntityFramework</h1>
-	</section>
-	<section class="content">
-		
-<div class="container">				
-	<h1>What is it?</h1>    
-    <p>
-        <img src="../assets/images/icon.png" />
-        Cake.EntityFramework is a set of Cake aliases for Entity Framework code-first migrations.
-    </p>
-</div>
-	</section>
+<section class="content-header">
+			<h3><a href="/Cake.EntityFramework/api/Cake.EntityFramework.TestProject.Postgres.Migrations/V2">V2</a>.</h3>
+	<h1>Up<wbr>()<wbr> <small>Method</small></h1>
+</section>
+<section class="content">
+	
+	
+	
+		<div class="panel panel-default">
+  			<div class="panel-body">	
+				<dl class="dl-horizontal">	
+						
+						<dt>Namespace</dt>
+						<dd><a href="/Cake.EntityFramework/api/Cake.EntityFramework.TestProject.Postgres.Migrations">Cake<wbr>.EntityFramework<wbr>.TestProject<wbr>.Postgres<wbr>.Migrations</a></dd>
+					
+						<dt>Containing Type</dt>
+						<dd><a href="/Cake.EntityFramework/api/Cake.EntityFramework.TestProject.Postgres.Migrations/V2">V2</a></dd>		
+					
+				</dl>
+  			</div>
+		</div>
+
+	<h1 id="Syntax">Syntax</h1>
+	<pre><code>public override void Up()</code></pre>
+
+
+
+
+
+
+	<h1 id="ReturnValue">Return Value</h1>
+	<div class="box">
+		<div class="box-body no-padding table-responsive">
+			<table class="table table-striped table-hover two-cols">
+				<thead>
+					<tr>
+						<th>Type</th>
+						<th>Description</th>
+					</tr>
+				</thead>
+				<tbody><tr>
+					<td>void</td>
+					<td></td>
+				</tr>
+			</tbody></table>
+		</div>
+	</div>	
+
+
+	
+</section>
                 
             </div>           
             
@@ -155,5 +248,5 @@
                 }, 500);
             });
         </script>
-    </body>
-</html>
+    
+</body></html>
