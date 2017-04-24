@@ -1,3 +1,11 @@
+/*
+* https://cake-contrib.github.io/Cake.Recipe/docs/usage/creating-release
+* https://cake-contrib.github.io/Cake.Recipe/docs/fundamentals/environment-variables
+
+*[Environment]::SetEnvironmentVariable("GITHUB_USERNAME", "")
+*[Environment]::SetEnvironmentVariable("GITHUB_PASSWORD", "")
+*/
+
 #load nuget:https://www.myget.org/F/cake-contrib/api/v2?package=Cake.Recipe&prerelease
 
 Environment.SetVariableNames();
