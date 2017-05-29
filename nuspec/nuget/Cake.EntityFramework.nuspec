@@ -4,15 +4,15 @@
     <id>Cake.EntityFramework</id>
     <version>0.0.0</version>
     <authors>Silvenga,louisfischer</authors>
-    <owners>Silvenga,louisfischer</owners>
+    <owners>Silvenga,louisfischer,cake-contrib</owners>
     <title>Cake.EntityFramework</title>
     <description>A set of Cake aliases for Entity Framework code-first migrations.</description>
     <summary>Entity Framework 6x addin for cake build.</summary>
-    <licenseUrl>https://github.com/louisfischer/Cake.EntityFramework/blob/master/LICENSE</licenseUrl>
-    <projectUrl>https://github.com/louisfischer/Cake.EntityFramework</projectUrl>
+    <licenseUrl>https://github.com/cake-contrib/Cake.EntityFramework/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/cake-contrib/Cake.EntityFramework</projectUrl>
     <iconUrl>https://raw.githubusercontent.com/cake-build/graphics/master/png/cake-small.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <copyright>Copyright (c) Mark Lopez and Louis Fischer 2017</copyright>
+    <copyright>Copyright (c) Cake Contributions 2017</copyright>
     <releaseNotes></releaseNotes>
     <tags>cake EntityFramework ef code-first migrations sql-server</tags>
     <dependencies>

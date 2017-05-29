@@ -13,4 +13,4 @@ Here are all the details about the closed issues:
 
 ## Improvement
 
-- [__#9__](https://github.com/louisfischer/Cake.EntityFramework/issues/9) Standardize Deployment to Nuget
+- [__#9__](https://github.com/cake-contrib/Cake.EntityFramework/issues/9) Standardize Deployment to Nuget
