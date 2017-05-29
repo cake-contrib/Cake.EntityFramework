@@ -104,6 +104,7 @@
     <Compile Include="CakeAliases\CakeLoggerFacts.cs" />
     <Compile Include="CakeAliases\EfAliasesFacts.cs" />
     <Compile Include="Fixtures\CakeContextFixture.cs" />
+    <Compile Include="Fixtures\SqlServerFixture.cs" />
     <Compile Include="Fixtures\PostgresFixture.cs" />
     <Compile Include="Migrator\GenericMigratorFacts.cs" />
     <Compile Include="Migrator\Postgres\CurrentMigrationFacts.cs" />
