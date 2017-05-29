@@ -14,9 +14,9 @@ BuildParameters.SetParameters(context: Context,
                             buildSystem: BuildSystem,
                             sourceDirectoryPath: "./src",
                             title: "Cake.EntityFramework",
-                            repositoryOwner: "louisfischer",
+                            repositoryOwner: "cake-contrib",
                             repositoryName: "Cake.EntityFramework",
-                            appVeyorAccountName: "louisfischer");
+                            appVeyorAccountName: "cakecontrib");
 
 BuildParameters.PrintParameters(Context);
 

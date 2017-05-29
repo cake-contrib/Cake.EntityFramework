@@ -8,6 +8,9 @@ using System.Reflection;
 
 namespace Cake.EntityFramework.Migrator
 {
+    /// <summary>
+    /// EntityFramework Migrator implentations
+    /// </summary>
     public class EfMigrator : IEfMigrator
     {
         private readonly ILogger _logger;
@@ -16,10 +19,26 @@ namespace Cake.EntityFramework.Migrator
 
         private const string InitialDatabase = "0";
 
+        /// <summary>
+        /// Gets a boolean value if the migration was commited successfully
+        /// </summary>
         public bool Committed { get; private set; }
 
+        /// <summary>
+        /// Gets the name of the current migration
+        /// </summary>
         public string CurrentMigration { get; private set; }
 
+        /// <summary>
+        /// Entity Framework Migration
+        /// </summary>
+        /// <param name="assemblyPath">full path to the assembly</param>
+        /// <param name="qualifiedDbConfigName">Name of the DbConfiguration class to use for the migrations</param>
+        /// <param name="appConfigPath">App.Config or Web.config file path</param>
+        /// <param name="connectionString">Connectionsting name of actually connection string</param>
+        /// <param name="connectionProvider">Name of the connection string provider</param>
+        /// <param name="logger">Logger to write items to the console</param>
+        /// <param name="allowDataLossOnMigrations">Determines whether to allow dataloss during the migration</param>
         public EfMigrator(string assemblyPath, string qualifiedDbConfigName, string appConfigPath, string connectionString, string connectionProvider,
                           ILogger logger, bool allowDataLossOnMigrations)
         {
@@ -62,14 +81,25 @@ namespace Cake.EntityFramework.Migrator
             _migratorBackend = migrator;
         }
 
+        /// <summary>
+        /// Entity Framework Migration
+        /// </summary>
+        /// <param name="migratorBackend">Ef Migrator Backend commnication used in AppDomain</param>
+        /// <param name="logger">Logger to write items to the console</param>
         public EfMigrator(IEfMigratorBackend migratorBackend, ILogger logger)
         {
             _logger = logger;
             _migratorBackend = migratorBackend;
         }
 
+        /// <summary>
+        /// Gets a boolean value if the migration is currently ready
+        /// </summary>
         public bool Ready => _migratorBackend != null && _migratorBackend.Ready;
 
+        /// <summary>
+        /// Commits the changes to the data store
+        /// </summary>
         public void Commit()
         {
             Committed = true;
@@ -77,12 +107,13 @@ namespace Cake.EntityFramework.Migrator
             _logger.Information($"Migrations are now commited at {CurrentMigration}.");
         }
 
+        /// <summary>
+        /// Rollsback any changes made to the data store
+        /// </summary>
         public void Rollback()
         {
-            if (Committed)
-            {
-                throw new Exception("Can't rollback when the migrations have been commited.");
-            }
+            if (Committed)            
+                throw new Exception("Can't rollback when the migrations have been commited.");            
 
             if (CurrentMigration == null)
             {
@@ -95,31 +126,56 @@ namespace Cake.EntityFramework.Migrator
             _logger.Information("Migrations have been rolledbacked.");
         }
 
+        /// <summary>
+        /// Gets all migrations that are defined in the configured migrations assembly.
+        /// </summary>
+        /// <returns>List of migrations</returns>     
         public IEnumerable<string> GetLocalMigrations()
         {
             return _migratorBackend.GetLocalMigrations();
         }
 
+        /// <summary>
+        /// Gets all migrations that have been applied to the target database.
+        /// </summary>
+        /// <returns>List of strings</returns>
         public IEnumerable<string> GetRemoteMigrations()
         {
             return _migratorBackend.GetRemoteMigrations();
         }
 
+        /// <summary>
+        /// Gets all migrations that are defined in the assembly but haven't been applied to the target database.
+        /// </summary>
+        /// <returns>List of pending migrations if any</returns>
         public IEnumerable<string> GetPendingMigrations()
         {
             return _migratorBackend.GetPendingMigrations();
         }
 
+        /// <summary>
+        /// Gets the name of the current migration
+        /// </summary>
+        /// <returns>string name of latest migration</returns>
         public string GetCurrentMigration()
         {
             return _migratorBackend.GetCurrentMigration();
         }
 
+        /// <summary>
+        /// Determines if there are any pending migrations
+        /// </summary>
+        /// <returns>true if had migrations pending, otherwise false.</returns>
         public bool HasPendingMigrations()
         {
             return _migratorBackend.HasPendingMigrations();
         }
 
+        /// <summary>
+        /// Migrates the data store to the specific version
+        /// </summary>
+        /// <param name="version">Name of the migration to migrate to</param>
+        /// <returns>true if migration was successful, otherwise false</returns>
         public bool MigrateTo(string version)
         {
             var result = _migratorBackend.MigrateTo(version);
@@ -130,6 +186,10 @@ namespace Cake.EntityFramework.Migrator
             return result.IsSuccess;
         }
 
+        /// <summary>
+        /// Migrates the data store to the lastest version if any
+        /// </summary>
+        /// <returns>true if migration was susccessful, otherwise false</returns>
         public bool MigrateToLatest()
         {
             var result = _migratorBackend.MigrateToLatest();
@@ -140,11 +200,18 @@ namespace Cake.EntityFramework.Migrator
             return result.IsSuccess;
         }
 
+        /// <summary>
+        /// Gets the name of the latest migration
+        /// </summary>
+        /// <returns>Latest migration name</returns>
         public string GetLatestMigration()
         {
             return _migratorBackend.GetLatestMigration();
         }
 
+        /// <summary>
+        /// Disposes of any resources and unloads te temp AppDomain used for the migrations
+        /// </summary>
         public void Dispose()
         {
             if (!Committed)
