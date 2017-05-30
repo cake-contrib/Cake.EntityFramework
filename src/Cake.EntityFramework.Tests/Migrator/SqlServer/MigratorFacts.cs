@@ -18,19 +18,16 @@ namespace Cake.EntityFramework.Tests.Migrator.SqlServer
         private readonly ILogger _mockLogger;
 
         private readonly string _instanceString = SqlServerFactConstants.InstanceConnectionString;
-        private readonly SqlServerFixture _SqlServerFixture;
 
         private IEfMigrator Migrator => new EfMigrator(SqlServerFactConstants.DdlPath, SqlServerFactConstants.ConfigName, SqlServerFactConstants.AppConfig,
             _instanceString, SqlServerFactConstants.ConnectionProvider, _mockLogger, false);
 
-        public MigratorFacts(ITestOutputHelper logHelper)//, SqlServerFixture sqlServerFixture)
+        public MigratorFacts(ITestOutputHelper logHelper)
         {
             _logHelper = logHelper;
             _mockLogger = new MockLogger(logHelper);
 
             _logHelper.WriteLine($"Using connectionString: {_instanceString}");
-
-            //_SqlServerFixture = sqlServerFixture;
         }
 
         [Fact]

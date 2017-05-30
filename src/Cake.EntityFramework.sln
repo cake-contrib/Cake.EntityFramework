@@ -25,11 +25,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Meta", "Meta", "{5E8F4B9D-A
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docker", "Docker", "{25C751A3-7CC9-47D2-AA0A-EA63E0FC4A51}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "sql-server", "sql-server", "{0A9B707B-F9BA-4F8C-B3F4-BD37A94AA0D0}"
-	ProjectSection(SolutionItems) = preProject
-		..\docker\sql-server\docker-compose.yml = ..\docker\sql-server\docker-compose.yml
-	EndProjectSection
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "postgres", "postgres", "{D028D9A9-2B8E-4C09-938F-C2A61555B50B}"
 	ProjectSection(SolutionItems) = preProject
 		..\docker\postgres\docker-compose.yml = ..\docker\postgres\docker-compose.yml
@@ -64,7 +59,6 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{0A9B707B-F9BA-4F8C-B3F4-BD37A94AA0D0} = {25C751A3-7CC9-47D2-AA0A-EA63E0FC4A51}
 		{D028D9A9-2B8E-4C09-938F-C2A61555B50B} = {25C751A3-7CC9-47D2-AA0A-EA63E0FC4A51}
 	EndGlobalSection
 EndGlobal

@@ -17,7 +17,6 @@ namespace Cake.EntityFramework.Tests.Migrator.SqlServer
         private readonly ILogger _mockLogger;
 
         private readonly IEfMigrator _migrator;
-        private readonly SqlServerFixture _SqlServerFixture;
 
         public RemoteMigrationsFacts(ITestOutputHelper logHelper)//, SqlServerFixture sqlServerFixture)
         {
