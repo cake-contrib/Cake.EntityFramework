@@ -17,7 +17,6 @@ namespace Cake.EntityFramework.Tests.Migrator.SqlServer
         private readonly ILogger _mockLogger;
 
         private readonly IEfMigrator _migrator;
-        private readonly SqlServerFixture _SqlServerFixture;
 
         public LocalMigrationFacts(ITestOutputHelper logHelper)//, SqlServerFixture sqlServerFixture)
         {
@@ -25,8 +24,6 @@ namespace Cake.EntityFramework.Tests.Migrator.SqlServer
             _mockLogger = new MockLogger(logHelper);
             _migrator = new EfMigrator(SqlServerFactConstants.DdlPath, SqlServerFactConstants.ConfigName, SqlServerFactConstants.AppConfig,
                 SqlServerFactConstants.InstanceConnectionString, SqlServerFactConstants.ConnectionProvider, _mockLogger, false);
-
-            //_SqlServerFixture = sqlServerFixture;
         }
 
         [Fact]
