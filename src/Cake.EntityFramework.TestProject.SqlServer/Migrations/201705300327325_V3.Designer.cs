@@ -7,13 +7,13 @@ namespace Cake.EntityFramework.TestProject.SqlServer.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class V4 : IMigrationMetadata
+    public sealed partial class V3 : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(V4));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(V3));
         
         string IMigrationMetadata.Id
         {
-            get { return "201601100201094_V4"; }
+            get { return "201705300327325_V3"; }
         }
         
         string IMigrationMetadata.Source

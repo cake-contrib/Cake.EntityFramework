@@ -9,13 +9,21 @@ namespace Cake.EntityFramework.TestProject.SqlServer
 {
     public class SchoolContext : DbContext
     {
+        public SchoolContext(string nameOrConnectionString)
+           : base(nameOrConnectionString)
+        { }
+
+        public SchoolContext()
+        { }
+
+
         public DbSet<Student> Students { get; set; }
 
         public DbSet<Class> Classes { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.HasDefaultSchema("dbo");
+            //modelBuilder.HasDefaultSchema("dbo");
             base.OnModelCreating(modelBuilder);
         }
     }

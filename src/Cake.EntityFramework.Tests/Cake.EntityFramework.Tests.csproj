@@ -71,6 +71,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Threading.Tasks.Extensions, Version=4.1.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
@@ -107,6 +108,10 @@
     <Compile Include="Fixtures\SqlServerFixture.cs" />
     <Compile Include="Fixtures\PostgresFixture.cs" />
     <Compile Include="Migrator\GenericMigratorFacts.cs" />
+    <Compile Include="Migrator\SqlServer\LocalMigrationFacts.cs" />
+    <Compile Include="Migrator\SqlServer\MigratorFacts.cs" />
+    <Compile Include="Migrator\SqlServer\SqlServerConstants.cs" />
+    <Compile Include="Migrator\SqlServer\RemoteMigrationsFacts.cs" />
     <Compile Include="Migrator\Postgres\CurrentMigrationFacts.cs" />
     <Compile Include="Migrator\Postgres\LocalMigrationFacts.cs" />
     <Compile Include="Migrator\Postgres\MigratorFacts.cs" />
@@ -127,6 +132,10 @@
     <ProjectReference Include="..\Cake.EntityFramework.TestProject.Postgres\Cake.EntityFramework.TestProject.Postgres.csproj">
       <Project>{4d8203a9-0969-4edd-b50d-6ddb766e3584}</Project>
       <Name>Cake.EntityFramework.TestProject.Postgres</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Cake.EntityFramework.TestProject.SqlServer\Cake.EntityFramework.TestProject.SqlServer.csproj">
+      <Project>{174b77e1-dbac-48b0-b611-bf027ed86b21}</Project>
+      <Name>Cake.EntityFramework.TestProject.SqlServer</Name>
     </ProjectReference>
     <ProjectReference Include="..\Cake.EntityFramework\Cake.EntityFramework.csproj">
       <Project>{2e0dbe40-69a0-4295-802e-96d8852df25c}</Project>

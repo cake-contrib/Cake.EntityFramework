@@ -1,15 +1,14 @@
 ﻿using System;
 using Cake.Core;
 using Xunit;
-using System.IO;
+using Cake.EntityFramework.Tests.Migrator.SqlServer;
+using Cake.EntityFramework.TestProject.SqlServer;
+using System.Data.SqlClient;
 
 namespace Cake.EntityFramework.Tests.Fixtures
 {
-
     public sealed class SqlServerFixture : IDisposable
     {
-        private const string _DockerFilePath = "../../../../docker/sql-server/docker-compose.yml";
-
         public SqlServerFixture()
         {
             Initialize();
@@ -20,24 +19,32 @@ namespace Cake.EntityFramework.Tests.Fixtures
 
         private void Initialize()
         {
-            SqlServerDockerComposeFilePath = Path.GetFullPath(_DockerFilePath);
-
             CakeContext = new CakeContextFixture();
-
-            if (!Util.IsRunningBuildServer())
-                Util.StartDockerComposeProcess(SqlServerDockerComposeFilePath, "up", 5000);
         }
-
+        
         public void Dispose()
         {
-            //Stop Docker Container
-            if (!Util.IsRunningBuildServer())
-                Util.StartDockerComposeProcess(SqlServerDockerComposeFilePath, "down");
+            /*
+            const string sql = @"IF  EXISTS (SELECT name FROM master.dbo.sysdatabases WHERE name = N'SchoolDb')
+                                BEGIN
+	                                ALTER DATABASE SchoolDb  SET OFFLINE WITH ROLLBACK IMMEDIATE
+	                                DROP DATABASE SchoolDb
+                                END";
+
+            using (var sqlCnn = new SqlConnection(SqlServerFactConstants.InstanceConnectionString))
+            {
+                sqlCnn.Open();
+                var cmd = sqlCnn.CreateCommand();
+
+                cmd.CommandText = sql;
+                cmd.ExecuteNonQuery();
+            }
+            */
         }
     }
 
     [CollectionDefinition(Traits.SqlServerCollection)]
-    public class SqlServerFixtureFixtureCollection : ICollectionFixture<PostgresFixture>
+    public class SqlServerFixtureFixtureCollection : ICollectionFixture<SqlServerFixture>
     {
         // This class has no code, and is never created. Its purpose is simply
         // to be the place to apply [CollectionDefinition] and all the

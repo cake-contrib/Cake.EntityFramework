@@ -13,7 +13,7 @@ namespace Cake.EntityFramework.TestProject.SqlServer.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201601100201312_V5"; }
+            get { return "201705300328478_V5"; }
         }
         
         string IMigrationMetadata.Source
