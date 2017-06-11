@@ -206,21 +206,46 @@
             </summary>
         </member>
         <member name="M:Cake.EntityFramework.CakeTranslation.EfAliases.CreateEfMigrator(Cake.Core.ICakeContext,Cake.EntityFramework.CakeTranslation.EfMigratorSettings)">
-            <summary>
-            Creates a new EfMigrator for use in EF6 code-first migrations.
-            </summary>
-            <example>
-            <code>
-            using(var migrator = CreateEfMigrator(efMigratorSettings)) 
-            {
-                 migrator.MigrateToLatest();
-                 migrator.Commit();
-            }
-            </code>
-            </example>
-            <param name="context">The context.</param>
-            <param name="settings">The settings <see cref="T:Cake.EntityFramework.CakeTranslation.EfMigratorSettings"/>.</param>
-            <returns>An EfMigrator <see cref="T:Cake.EntityFramework.Interfaces.IEfMigrator"/>.</returns>
+             <summary>
+             Creates a new EfMigrator for use in EF6 code-first migrations.
+             </summary>
+             <example>
+             <code>
+               var migrationSettings = new EfMigratorSettings
+               {
+                 AssemblyPath = @"path/to/example.data.dll",
+                 ConfigurationClass = "Example.Migrations.Configuation",
+                 AppConfigPath = @"path/to/example.data.dll.config",
+                 ConnectionString = "Server=(localdb)\MSSQLLocalDB;Database=SchoolDb;User ID=sa;Password=Password12!",
+                 ConnectionProvider = "System.Data.SqlClient"
+               };
+            
+              Task("Migrate-To_Latest")
+                  .Description("Migrate database to latest.")
+                  .Does(() =>
+               {
+                  using (var migrator = CreateEfMigrator(migrationSettings))
+                  {
+                      migrator.MigrateToLatest();
+                     migrator.Commit();
+                  }
+               });
+            
+              Task("Generate-Script-To_Latest")
+                 .Description("Generates a script to latest migration.")
+                 .Does(() =>
+                 {
+                     using (var migrator = CreateEfMigrator(migrationSettings))
+                     {
+                         var script = migrator.GenerateScriptForLatest();
+                         Information(script);
+                     }
+                 });
+             </code>
+             </example>
+             <param name="context">The context.</param>
+             <param name="settings">The settings <see cref="T:Cake.EntityFramework.CakeTranslation.EfMigratorSettings"/>.</param>
+             <returns>An EfMigrator <see cref="T:Cake.EntityFramework.Interfaces.IEfMigrator"/>.</returns>
         </member>
         <!-- Badly formed XML comment ignored for member "M:Cake.EntityFramework.CakeTranslation.EfAliases.SetConnectionStringFromAppConfig(Cake.EntityFramework.CakeTranslation.EfMigratorSettings,System.String@,System.String@)" -->
         <member name="T:Cake.EntityFramework.CakeTranslation.CakeLogger">

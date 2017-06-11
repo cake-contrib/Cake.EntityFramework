@@ -2,8 +2,6 @@
 
 # Cake.EntityFramework
 
-> This is considered beta quality, use at your own risk.
-
 A set of Cake aliases for Entity Framework code-first migrations.
 
 [![License](http://img.shields.io/:license-mit-blue.svg)](http://cake-contrib.mit-license.org)
