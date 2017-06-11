@@ -12,6 +12,6 @@ You can reference Cake.EntityFramework in your build script as a cake addin:
 or nuget reference:
 
 ```cake
-#addin "nuget:https://www.nuget.org/api/v2?package=Cake.EntityFramework6"
+#addin "nuget:https://www.nuget.org/api/v2?package=Cake.EntityFramework"
 ```
 

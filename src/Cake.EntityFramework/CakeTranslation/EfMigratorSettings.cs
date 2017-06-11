@@ -53,6 +53,7 @@ namespace Cake.EntityFramework.CakeTranslation
         /// </summary>
         public string ConnectionName { get; set; }
 
+        /// <summary>
         /// Gets or sets a flag to allow data to be lost on a migration.
         /// This is the same as the '-force' flag when running migrations through visual studio.
         /// </summary>

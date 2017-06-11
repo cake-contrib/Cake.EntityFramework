@@ -26,7 +26,7 @@ namespace Cake.EntityFramework.Tests.Fixtures
             CakeContext = new CakeContextFixture();
 
             if (!Util.IsRunningBuildServer())
-                Util.StartDockerComposeProcess(PostGresDockerComposeFilePath, "up", 5000);
+                Util.StartDockerComposeProcess(PostGresDockerComposeFilePath, "up", 10000);
         }
 
         public void Dispose()

@@ -4,29 +4,292 @@
         <name>Cake.EntityFramework</name>
     </assembly>
     <members>
+        <member name="T:Cake.EntityFramework.Interfaces.IEfMigratorBackend">
+            <summary>
+            Back-end migrator used in the MarshalByReference
+            </summary>
+        </member>
+        <member name="P:Cake.EntityFramework.Interfaces.IEfMigratorBackend.Ready">
+            <summary>
+            Gets a boolean value if the migration is currently ready.
+            Specifically the AppDomain is ready
+            </summary>
+        </member>
+        <member name="M:Cake.EntityFramework.Interfaces.IEfMigratorBackend.GetLocalMigrations">
+            <summary>
+            Gets a list of names of local migrations
+            </summary>
+            <returns>List of strings</returns>  
+        </member>
+        <member name="M:Cake.EntityFramework.Interfaces.IEfMigratorBackend.GetRemoteMigrations">
+            <summary>
+            Gets all migrations that have been applied to the target database.
+            </summary>
+            <returns>List of strings</returns>
+        </member>
+        <member name="M:Cake.EntityFramework.Interfaces.IEfMigratorBackend.GetPendingMigrations">
+            <summary>
+            Gets all migrations that are defined in the assembly but haven't been applied to the target database.
+            </summary>
+            <returns>List of pending migrations if any</returns>
+        </member>
+        <member name="M:Cake.EntityFramework.Interfaces.IEfMigratorBackend.GetCurrentMigration">
+            <summary>
+            Gets the name of the current migration
+            </summary>
+            <returns>string name of latest migration</returns>
+        </member>
+        <member name="M:Cake.EntityFramework.Interfaces.IEfMigratorBackend.HasPendingMigrations">
+            <summary>
+            Determines if there are any pending migrations
+            </summary>
+            <returns>true if had migrations pending, otherwise false.</returns>
+        </member>
+        <member name="M:Cake.EntityFramework.Interfaces.IEfMigratorBackend.MigrateTo(System.String)">
+            <summary>
+            Migrates the data store to the specific version
+            </summary>
+            <param name="version">Name of the migration to migrate to</param>
+            <returns>Migration Result if the migration was successful in AppDomain</returns>
+        </member>
+        <member name="M:Cake.EntityFramework.Interfaces.IEfMigratorBackend.MigrateToLatest">
+            <summary>
+            Migrates the data store to the lastest version if any
+            </summary>
+            <returns>Migration Result if the migration was successful in AppDomain</returns>
+        </member>
+        <member name="M:Cake.EntityFramework.Interfaces.IEfMigratorBackend.GenerateScriptForLatest">
+            <summary>
+            Generates a script for the latest version if any
+            </summary>
+            <returns>ScriptResult with Migration Script</returns>
+        </member>
+        <member name="M:Cake.EntityFramework.Interfaces.IEfMigratorBackend.GenerateScriptForVersion(System.String)">
+            <summary>
+            Generates a script for the specific version if any
+            </summary>
+            <param name="version">Version to Generate a script for.</param>
+            <returns>ScriptResult with Migration Script</returns>
+        </member>
+        <member name="M:Cake.EntityFramework.Interfaces.IEfMigratorBackend.GetLatestMigration">
+            <summary>
+            Gets the name of the latest migration
+            </summary>
+            <returns>Latest migration name</returns>
+        </member>
+        <member name="T:Cake.EntityFramework.Interfaces.ILogger">
+            <summary>
+            Logger contract
+            </summary>
+        </member>
+        <member name="M:Cake.EntityFramework.Interfaces.ILogger.Warning(System.String)">
+            <summary>
+            Logs warnings such as use of deprecated APIs, poor use of API, 'almost' errors, other runtime situations
+            that are undesirable or unexpected, but not necessarily "wrong".
+            </summary>
+            <param name="message">Message to log</param>
+        </member>
+        <member name="M:Cake.EntityFramework.Interfaces.ILogger.Information(System.String)">
+            <summary>
+            Logs information or 'interesting' runtime events.
+            </summary>
+            <param name="message">Message to log</param>
+        </member>
+        <member name="M:Cake.EntityFramework.Interfaces.ILogger.Error(System.String)">
+            <summary>
+            Logs errors or other runtime errors or unexpected conditions.
+            </summary>
+            <param name="message">Message to log</param>
+        </member>
+        <member name="M:Cake.EntityFramework.Interfaces.ILogger.Debug(System.String)">
+            <summary>
+            Logs debug information which includes the most detailed information.
+            </summary>
+            <param name="message">Message to log</param>
+        </member>
+        <member name="M:Cake.EntityFramework.Interfaces.ILogger.Verbose(System.String)">
+            <summary>
+            Logs verbose or detailed information on the flow through the system.
+            </summary>
+            <param name="message">Message to log</param>
+        </member>
+        <member name="T:Cake.EntityFramework.Interfaces.IEfMigrator">
+            <summary>
+            Entity Framework Migrator 
+            </summary>
+        </member>
+        <member name="P:Cake.EntityFramework.Interfaces.IEfMigrator.Committed">
+            <summary>
+            Gets a boolean value if the migration was commited successfully
+            </summary>
+        </member>
+        <member name="P:Cake.EntityFramework.Interfaces.IEfMigrator.Ready">
+            <summary>
+            Gets a boolean value if the migration is currently ready
+            </summary>
+        </member>
+        <member name="M:Cake.EntityFramework.Interfaces.IEfMigrator.Commit">
+            <summary>
+            Commits the changes to the data store
+            </summary>
+        </member>
+        <member name="M:Cake.EntityFramework.Interfaces.IEfMigrator.Rollback">
+            <summary>
+            Rollsback any changes made to the data store
+            </summary>
+        </member>
+        <member name="M:Cake.EntityFramework.Interfaces.IEfMigrator.GetLocalMigrations">
+            <summary>
+            Gets all migrations that are defined in the configured migrations assembly.
+            </summary>
+            <returns>List of strings</returns>        
+        </member>
+        <member name="M:Cake.EntityFramework.Interfaces.IEfMigrator.GetRemoteMigrations">
+            <summary>
+            Gets all migrations that have been applied to the target database.
+            </summary>
+            <returns>List of strings</returns>
+        </member>
+        <member name="M:Cake.EntityFramework.Interfaces.IEfMigrator.GetPendingMigrations">
+            <summary>
+            Gets all migrations that are defined in the assembly but haven't been applied to the target database.
+            </summary>
+            <returns>List of pending migrations if any</returns>
+        </member>
+        <member name="M:Cake.EntityFramework.Interfaces.IEfMigrator.HasPendingMigrations">
+            <summary>
+            Determines if there are any pending migrations
+            </summary>
+            <returns>true if had migrations pending, otherwise false.</returns>
+        </member>
+        <member name="M:Cake.EntityFramework.Interfaces.IEfMigrator.MigrateTo(System.String)">
+            <summary>
+            Migrates the data store to the specific version
+            </summary>
+            <param name="version">Name of the migration to migrate to</param>
+            <returns>true if migration was successful, otherwise false</returns>
+        </member>
+        <member name="M:Cake.EntityFramework.Interfaces.IEfMigrator.MigrateToLatest">
+            <summary>
+            Migrates the data store to the lastest version if any
+            </summary>
+            <returns>true if migration was susccessful, otherwise false</returns>
+        </member>
+        <member name="M:Cake.EntityFramework.Interfaces.IEfMigrator.GetCurrentMigration">
+            <summary>
+             Gets last migration that has been applied to the target database.
+            </summary>
+            <returns>Name of the migration</returns>
+        </member>
+        <member name="M:Cake.EntityFramework.Interfaces.IEfMigrator.GetLatestMigration">
+            <summary>
+            Gets latest migration that is defined in the assembly but has not been applied to the target database.
+            </summary>
+            <returns>Latest migration name</returns>
+        </member>
+        <member name="M:Cake.EntityFramework.Interfaces.IEfMigrator.GenerateScriptForVersion(System.String)">
+            <summary>
+            Generates a script from the data store to the specific version
+            </summary>
+            <param name="version">Name of the migration to generate a script to</param>
+            <returns>true if migration was successful, otherwise false</returns>
+        </member>
+        <member name="M:Cake.EntityFramework.Interfaces.IEfMigrator.GenerateScriptForLatest">
+            <summary>
+            Generates a script from the data store for the latest version
+            </summary>
+            <returns>true if script generation was successful, otherwise false</returns>
+        </member>
         <member name="T:Cake.EntityFramework.CakeTranslation.EfAliases">
             <summary>
             A set of Cake aliases for Entity Framework (not .NET Core) code-first migrations.
             </summary>
         </member>
         <member name="M:Cake.EntityFramework.CakeTranslation.EfAliases.CreateEfMigrator(Cake.Core.ICakeContext,Cake.EntityFramework.CakeTranslation.EfMigratorSettings)">
-            <summary>
-            Creates a new EfMigrator for use in EF6 code-first migrations.
-            </summary>
-            <example>
-            <code>
-            using(var migrator = CreateEfMigrator(efMigratorSettings)) 
-            {
-                 migrator.MigrateToLatest();
-                 migrator.Commit();
-            }
-            </code>
-            </example>
-            <param name="context">The context.</param>
-            <param name="settings">The settings <see cref="T:Cake.EntityFramework.CakeTranslation.EfMigratorSettings"/>.</param>
-            <returns>An EfMigrator <see cref="T:Cake.EntityFramework.Interfaces.IEfMigrator"/>.</returns>
+             <summary>
+             Creates a new EfMigrator for use in EF6 code-first migrations.
+             </summary>
+             <example>
+             <code>
+               var migrationSettings = new EfMigratorSettings
+               {
+                 AssemblyPath = @"path/to/example.data.dll",
+                 ConfigurationClass = "Example.Migrations.Configuation",
+                 AppConfigPath = @"path/to/example.data.dll.config",
+                 ConnectionString = "Server=(localdb)\MSSQLLocalDB;Database=SchoolDb;User ID=sa;Password=Password12!",
+                 ConnectionProvider = "System.Data.SqlClient"
+               };
+            
+              Task("Migrate-To_Latest")
+                  .Description("Migrate database to latest.")
+                  .Does(() =>
+               {
+                  using (var migrator = CreateEfMigrator(migrationSettings))
+                  {
+                      migrator.MigrateToLatest();
+                     migrator.Commit();
+                  }
+               });
+            
+              Task("Generate-Script-To_Latest")
+                 .Description("Generates a script to latest migration.")
+                 .Does(() =>
+                 {
+                     using (var migrator = CreateEfMigrator(migrationSettings))
+                     {
+                         var script = migrator.GenerateScriptForLatest();
+                         Information(script);
+                     }
+                 });
+             </code>
+             </example>
+             <param name="context">The context.</param>
+             <param name="settings">The settings <see cref="T:Cake.EntityFramework.CakeTranslation.EfMigratorSettings"/>.</param>
+             <returns>An EfMigrator <see cref="T:Cake.EntityFramework.Interfaces.IEfMigrator"/>.</returns>
         </member>
         <!-- Badly formed XML comment ignored for member "M:Cake.EntityFramework.CakeTranslation.EfAliases.SetConnectionStringFromAppConfig(Cake.EntityFramework.CakeTranslation.EfMigratorSettings,System.String@,System.String@)" -->
+        <member name="T:Cake.EntityFramework.CakeTranslation.CakeLogger">
+            <summary>
+            Cake Logger implmentation
+            </summary>
+        </member>
+        <member name="M:Cake.EntityFramework.CakeTranslation.CakeLogger.#ctor(Cake.Core.Diagnostics.ICakeLog)">
+            <summary>
+            Cake logger implementation
+            </summary>
+            <param name="cakeLogger">Ilogger from cake.core</param>
+        </member>
+        <member name="M:Cake.EntityFramework.CakeTranslation.CakeLogger.Warning(System.String)">
+            <summary>
+            Logs warnings such as use of deprecated APIs, poor use of API, 'almost' errors, other runtime situations
+            that are undesirable or unexpected, but not necessarily "wrong".
+            </summary>
+            <param name="message">Message to log</param>
+        </member>
+        <member name="M:Cake.EntityFramework.CakeTranslation.CakeLogger.Information(System.String)">
+            <summary>
+            Logs information or 'interesting' runtime events.
+            </summary>
+            <param name="message">Message to log</param>
+        </member>
+        <member name="M:Cake.EntityFramework.CakeTranslation.CakeLogger.Error(System.String)">
+            <summary>
+            Logs errors or other runtime errors or unexpected conditions.
+            </summary>
+            <param name="message">Message to log</param>
+        </member>
+        <member name="M:Cake.EntityFramework.CakeTranslation.CakeLogger.Debug(System.String)">
+            <summary>
+            Logs debug information which includes the most detailed information.
+            </summary>
+            <param name="message">Message to log</param>
+        </member>
+        <member name="M:Cake.EntityFramework.CakeTranslation.CakeLogger.Verbose(System.String)">
+            <summary>
+            Logs verbose or detailed information on the flow through the system.
+            </summary>
+            <param name="message">Message to log</param>
+        </member>
         <member name="T:Cake.EntityFramework.CakeTranslation.EfMigratorSettings">
             <summary>
             Contains settings for working with EntityFramework6 <see cref="T:Cake.EntityFramework.CakeTranslation.EfAliases"/>.
@@ -78,7 +341,296 @@
             This can be used to load the connection string and provider.
             </summary>
         </member>
-        <!-- Badly formed XML comment ignored for member "P:Cake.EntityFramework.CakeTranslation.EfMigratorSettings.AllowDataLossOnMigrations" -->
+        <member name="P:Cake.EntityFramework.CakeTranslation.EfMigratorSettings.AllowDataLossOnMigrations">
+            <summary>
+            Gets or sets a flag to allow data to be lost on a migration.
+            This is the same as the '-force' flag when running migrations through visual studio.
+            </summary>
+        </member>
+        <member name="P:Cake.EntityFramework.Migrator.EfMigratorBackend.Ready">
+            <summary>
+            Gets a boolean value if the migration is currently ready.
+            Specifically the AppDomain is ready
+            </summary>
+        </member>
+        <member name="M:Cake.EntityFramework.Migrator.EfMigratorBackend.GetLocalMigrations">
+            <summary>
+            Gets all migrations that are defined in the configured migrations assembly.
+            </summary>
+            <returns>List of migrations</returns>  
+        </member>
+        <member name="M:Cake.EntityFramework.Migrator.EfMigratorBackend.GetRemoteMigrations">
+            <summary>
+            Gets all migrations that have been applied to the target database.
+            </summary>
+            <returns>List of migrations</returns>
+        </member>
+        <member name="M:Cake.EntityFramework.Migrator.EfMigratorBackend.GetPendingMigrations">
+            <summary>
+            Gets all migrations that are defined in the assembly but haven't been applied to the target database.
+            </summary>
+            <returns>List of pending migrations if any</returns>
+        </member>
+        <member name="M:Cake.EntityFramework.Migrator.EfMigratorBackend.GetCurrentMigration">
+            <summary>
+             Gets last migration that has been applied to the target database.
+            </summary>
+            <returns>Name of the migration</returns>
+        </member>
+        <member name="M:Cake.EntityFramework.Migrator.EfMigratorBackend.GetLatestMigration">
+            <summary>
+            Gets latest migration that is defined in the assembly but has not been applied to the target database.
+            </summary>
+            <returns>Name of the migration</returns>
+        </member>
+        <member name="M:Cake.EntityFramework.Migrator.EfMigratorBackend.HasPendingMigrations">
+            <summary>
+            Determines if there are any pending migrations
+            </summary>
+            <returns>true if had migrations pending, otherwise false.</returns>
+        </member>
+        <member name="M:Cake.EntityFramework.Migrator.EfMigratorBackend.MigrateTo(System.String)">
+            <summary>
+            Migrates the data store to the specific version
+            </summary>
+            <param name="version">Name of the migration to migrate to</param>
+            <returns>true if migration was successful, otherwise false</returns>
+        </member>
+        <member name="M:Cake.EntityFramework.Migrator.EfMigratorBackend.MigrateToLatest">
+            <summary>
+            Migrates the data store to the lastest version if any
+            </summary>
+            <returns>true if migration was susccessful, otherwise false</returns>
+        </member>
+        <member name="M:Cake.EntityFramework.Migrator.EfMigratorBackend.SetAllowDataLossOnMigrations(System.Boolean)">
+            <summary>
+            Determines whether to allow data loss on the migration
+            </summary>
+            <param name="allowDataLossOnMigrations">tru to allow data loss</param>
+        </member>
+        <member name="M:Cake.EntityFramework.Migrator.EfMigratorBackend.Initialize(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Initalized the migrator with requred settings
+            </summary>
+            <param name="assemblyPath">the full path of the assembly the contains the DbConfiguration Class</param>
+            <param name="qualifiedDbConfigName">Full Qualified Name of the DbConfigurationClass that contains the migrations</param>
+            <param name="connectionString">ConnectionStringName or full connection string</param>
+            <param name="connectionProvider">Invaiant Name of the Ado.Net Connection Provider</param>
+        </member>
+        <member name="M:Cake.EntityFramework.Migrator.EfMigratorBackend.GenerateScriptForLatest">
+            <summary>
+            Generates a script for the latest version if any
+            </summary>
+            <returns>ScriptResult with Migration Script</returns>
+        </member>
+        <member name="M:Cake.EntityFramework.Migrator.EfMigratorBackend.GenerateScriptForVersion(System.String)">
+            <summary>
+            Generates a script for the specific version if any
+            </summary>
+            <param name="version">Version to Generate a script for.</param>
+            <returns>ScriptResult with Migration Script</returns>
+        </member>
+        <member name="T:Cake.EntityFramework.Migrator.EfMigrator">
+            <summary>
+            EntityFramework Migrator implentations
+            </summary>
+        </member>
+        <member name="P:Cake.EntityFramework.Migrator.EfMigrator.Committed">
+            <summary>
+            Gets a boolean value if the migration was commited successfully
+            </summary>
+        </member>
+        <member name="P:Cake.EntityFramework.Migrator.EfMigrator.CurrentMigration">
+            <summary>
+            Gets the name of the current migration
+            </summary>
+        </member>
+        <member name="M:Cake.EntityFramework.Migrator.EfMigrator.#ctor(System.String,System.String,System.String,System.String,System.String,Cake.EntityFramework.Interfaces.ILogger,System.Boolean)">
+            <summary>
+            Entity Framework Migration
+            </summary>
+            <param name="assemblyPath">full path to the assembly</param>
+            <param name="qualifiedDbConfigName">Name of the DbConfiguration class to use for the migrations</param>
+            <param name="appConfigPath">App.Config or Web.config file path</param>
+            <param name="connectionString">Connectionsting name of actually connection string</param>
+            <param name="connectionProvider">Name of the connection string provider</param>
+            <param name="logger">Logger to write items to the console</param>
+            <param name="allowDataLossOnMigrations">Determines whether to allow dataloss during the migration</param>
+        </member>
+        <member name="M:Cake.EntityFramework.Migrator.EfMigrator.#ctor(Cake.EntityFramework.Interfaces.IEfMigratorBackend,Cake.EntityFramework.Interfaces.ILogger)">
+            <summary>
+            Entity Framework Migration
+            </summary>
+            <param name="migratorBackend">Ef Migrator Backend commnication used in AppDomain</param>
+            <param name="logger">Logger to write items to the console</param>
+        </member>
+        <member name="P:Cake.EntityFramework.Migrator.EfMigrator.Ready">
+            <summary>
+            Gets a boolean value if the migration is currently ready
+            </summary>
+        </member>
+        <member name="M:Cake.EntityFramework.Migrator.EfMigrator.Commit">
+            <summary>
+            Commits the changes to the data store
+            </summary>
+        </member>
+        <member name="M:Cake.EntityFramework.Migrator.EfMigrator.Rollback">
+            <summary>
+            Rollsback any changes made to the data store
+            </summary>
+        </member>
+        <member name="M:Cake.EntityFramework.Migrator.EfMigrator.GetLocalMigrations">
+            <summary>
+            Gets all migrations that are defined in the configured migrations assembly.
+            </summary>
+            <returns>List of migrations</returns>     
+        </member>
+        <member name="M:Cake.EntityFramework.Migrator.EfMigrator.GetRemoteMigrations">
+            <summary>
+            Gets all migrations that have been applied to the target database.
+            </summary>
+            <returns>List of strings</returns>
+        </member>
+        <member name="M:Cake.EntityFramework.Migrator.EfMigrator.GetPendingMigrations">
+            <summary>
+            Gets all migrations that are defined in the assembly but haven't been applied to the target database.
+            </summary>
+            <returns>List of pending migrations if any</returns>
+        </member>
+        <member name="M:Cake.EntityFramework.Migrator.EfMigrator.GetCurrentMigration">
+            <summary>
+            Gets the name of the current migration
+            </summary>
+            <returns>string name of latest migration</returns>
+        </member>
+        <member name="M:Cake.EntityFramework.Migrator.EfMigrator.HasPendingMigrations">
+            <summary>
+            Determines if there are any pending migrations
+            </summary>
+            <returns>true if had migrations pending, otherwise false.</returns>
+        </member>
+        <member name="M:Cake.EntityFramework.Migrator.EfMigrator.MigrateTo(System.String)">
+            <summary>
+            Migrates the data store to the specific version
+            </summary>
+            <param name="version">Name of the migration to migrate to</param>
+            <returns>true if migration was successful, otherwise false</returns>
+        </member>
+        <member name="M:Cake.EntityFramework.Migrator.EfMigrator.MigrateToLatest">
+            <summary>
+            Migrates the data store to the lastest version if any
+            </summary>
+            <returns>true if migration was susccessful, otherwise false</returns>
+        </member>
+        <member name="M:Cake.EntityFramework.Migrator.EfMigrator.GetLatestMigration">
+            <summary>
+            Gets the name of the latest migration
+            </summary>
+            <returns>Latest migration name</returns>
+        </member>
+        <member name="M:Cake.EntityFramework.Migrator.EfMigrator.Dispose">
+            <summary>
+            Disposes of any resources and unloads te temp AppDomain used for the migrations
+            </summary>
+        </member>
+        <member name="M:Cake.EntityFramework.Migrator.EfMigrator.GenerateScriptForVersion(System.String)">
+            <summary>
+            Generates a script from the data store to the specific version
+            </summary>
+            <param name="version">Name of the migration to generate a script to</param>
+            <returns>true if migration was successful, otherwise false</returns>
+        </member>
+        <member name="M:Cake.EntityFramework.Migrator.EfMigrator.GenerateScriptForLatest">
+            <summary>
+            Generates a script from the data store for the latest version
+            </summary>
+            <returns>true if script generation was successful, otherwise false</returns>
+        </member>
+        <member name="T:Cake.EntityFramework.Models.EfMigrationException">
+            <summary>
+            Migration Exception Class used to marshal exceptions between AppDomains
+            </summary>
+        </member>
+        <member name="T:Cake.EntityFramework.Models.Migration">
+            <summary>
+            Migration class 
+            </summary>
+        </member>
+        <member name="P:Cake.EntityFramework.Models.Migration.Name">
+            <summary>
+            Name of the Migration
+            </summary>
+        </member>
+        <member name="P:Cake.EntityFramework.Models.Migration.Completed">
+            <summary>
+            Gets or Sets whether the migraton completed
+            </summary>
+        </member>
+        <member name="P:Cake.EntityFramework.Models.Migration.Error">
+            <summary>
+            Gets or Sets wheter the migration errored out
+            </summary>
+        </member>
+        <member name="P:Cake.EntityFramework.Models.Migration.Exception">
+            <summary>
+            If the exception errored out, the details of the exception.
+            </summary>
+        </member>
+        <member name="T:Cake.EntityFramework.Models.ScriptResult">
+            <summary>
+            Migration Result 
+            </summary>
+        </member>
+        <member name="P:Cake.EntityFramework.Models.ScriptResult.IsSuccess">
+            <summary>
+            Gets or Sets whether the result was successful
+            </summary>
+        </member>
+        <member name="P:Cake.EntityFramework.Models.ScriptResult.Exception">
+            <summary>
+            Gets or sets the exception if the script generation was not successful
+            </summary>
+        </member>
+        <member name="P:Cake.EntityFramework.Models.ScriptResult.Script">
+            <summary>
+            Gets the script text generated from the migration
+            </summary>
+        </member>
+        <member name="M:Cake.EntityFramework.Models.ScriptResult.#ctor(System.Boolean,System.String,System.Exception)">
+            <summary>
+            Script Result
+            </summary>
+            <param name="isSuccess"> whether the result was successful</param>
+            <param name="script">if successful, the actual migration script</param>
+            <param name="exception">the exception if the migration was not successful, defaults to null</param>
+        </member>
+        <member name="T:Cake.EntityFramework.Models.MigrationResult">
+            <summary>
+            Migration Result 
+            </summary>
+        </member>
+        <member name="P:Cake.EntityFramework.Models.MigrationResult.IsSuccess">
+            <summary>
+            Gets or Sets whether the result was successful
+            </summary>
+        </member>
+        <member name="P:Cake.EntityFramework.Models.MigrationResult.Exception">
+            <summary>
+            Gets or sets the exception if the migration was not successful
+            </summary>
+        </member>
+        <member name="M:Cake.EntityFramework.Models.MigrationResult.#ctor(System.Boolean,System.Exception)">
+            <summary>
+            Migration Result
+            </summary>
+            <param name="isSuccess"> whether the result was successful</param>
+            <param name="exception">the exception if the migration was not successful, defaults to null</param>
+        </member>
+        <member name="M:Cake.EntityFramework.Models.MigrationResult.#ctor">
+            <summary>
+            Migration Result
+            </summary>
+        </member>
         <member name="T:Cake.EntityFramework.NamespaceDoc">
             <summary>
             This namespace contains EntityFramework6 aliases for the Cake

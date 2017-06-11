@@ -14,9 +14,9 @@ BuildParameters.SetParameters(context: Context,
                             buildSystem: BuildSystem,
                             sourceDirectoryPath: "./src",
                             title: "Cake.EntityFramework",
-                            repositoryOwner: "louisfischer",
+                            repositoryOwner: "cake-contrib",
                             repositoryName: "Cake.EntityFramework",
-                            appVeyorAccountName: "louisfischer");
+                            appVeyorAccountName: "cakecontrib");
 
 BuildParameters.PrintParameters(Context);
 
@@ -24,9 +24,10 @@ ToolSettings.SetToolSettings(context: Context,
                             dupFinderExcludePattern: new string[] 
                             { 
                                 BuildParameters.RootDirectoryPath + "/src/Cake.EntityFramework.TestProject.Postgres/**/*.cs",
+                                BuildParameters.RootDirectoryPath + "/src/Cake.EntityFramework.TestProject.SqlServer/**/*.cs",
                                 BuildParameters.RootDirectoryPath + "/src/Cake.EntityFramework.Tests/**/*.cs"
                             },
-                            testCoverageFilter: "+[*]* -[xunit.*]* -[Cake.Core]* -[Cake.Testing]* -[*.Tests]* -[Cake.EntityFramework.TestProject.Postgres]* -[FluentAssertions]* -[FluentAssertions.Core]* -[*]Costura.AssemblyLoader",
+                            testCoverageFilter: "+[*]* -[xunit.*]* -[Cake.Core]* -[Cake.Testing]* -[*.Tests]* -[Cake.EntityFramework.TestProject.Postgres]* -[Cake.EntityFramework.TestProject.SqlServer]* -[FluentAssertions]* -[FluentAssertions.Core]* -[*]Costura.AssemblyLoader",
                             testCoverageExcludeByAttribute: "*.ExcludeFromCodeCoverage*",
                             testCoverageExcludeByFile: "*/*Designer.cs;*/*.g.cs;*/*.g.i.cs");
 
