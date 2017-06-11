@@ -9,7 +9,6 @@ using Cake.EntityFramework.Tests.Fixtures;
 
 namespace Cake.EntityFramework.Tests.Migrator.SqlServer
 {
-    //[Collection(Traits.SqlServerCollection)]
     public class MigratorFacts
     {
         // ReSharper disable once PrivateFieldCanBeConvertedToLocalVariable
@@ -41,22 +40,7 @@ namespace Cake.EntityFramework.Tests.Migrator.SqlServer
             // Assert
             result.Should().BeTrue();
         }
-
-        [Fact]
-        public void When_migrating_from_InitialDatabase_to_latest_rollback_should_rollback_to_InitialDatabase()
-        {
-            var migrator = Migrator;
-            var lastGoodMigration = migrator.GetLocalMigrations().Skip(1).First();
-
-            // Act
-            migrator.MigrateTo(lastGoodMigration);
-            migrator.Rollback();
-
-            // Assert
-            var assertMigrator = Migrator;
-            assertMigrator.GetRemoteMigrations().Should().NotBeNullOrEmpty();
-        }
-
+        
         [Fact]
         public void When_migrating_fails_return_false()
         {
@@ -97,6 +81,19 @@ namespace Cake.EntityFramework.Tests.Migrator.SqlServer
 
             // Assert
             action.ShouldThrow<Exception>();
+        }
+
+
+        [Fact(DisplayName = "Generate Script for Latest")]
+        public void When_generating_script_return_true()
+        {
+            var migrator = Migrator;
+
+            // Act
+            var scriptResult = Migrator.GenerateScriptForLatest();
+
+            // Assert
+            scriptResult.Should().NotBeNullOrEmpty();
         }
     }
 }

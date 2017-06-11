@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using System.Data.Entity.Infrastructure;
 using System.Data.Entity.Migrations;
+using System.Data.Entity.Migrations.Design;
 using System.IO;
 using System.Linq;
 using System.Reflection;
 using Cake.EntityFramework.Interfaces;
 using Cake.EntityFramework.Models;
+using System.Data.Entity.Migrations.Infrastructure;
 
 namespace Cake.EntityFramework.Migrator
 {
@@ -14,6 +16,7 @@ namespace Cake.EntityFramework.Migrator
     {
         private string _parrentPath;
         private DbMigrator _dbMigrator;
+        private MigratorScriptingDecorator _scripter;
 
         /// <summary>
         /// Gets a boolean value if the migration is currently ready.
@@ -107,10 +110,8 @@ namespace Cake.EntityFramework.Migrator
         {
             AssertForReady();
             var last = GetLatestMigration();
-            if (last != null)
-            {
-                return MigrateTo(last);
-            }
+            if (last != null)            
+                return MigrateTo(last);            
 
             return new MigrationResult(true);
         }
@@ -131,43 +132,45 @@ namespace Cake.EntityFramework.Migrator
         /// <param name="qualifiedDbConfigName">Full Qualified Name of the DbConfigurationClass that contains the migrations</param>
         /// <param name="connectionString">ConnectionStringName or full connection string</param>
         /// <param name="connectionProvider">Invaiant Name of the Ado.Net Connection Provider</param>
-        public void Initialize(string assemblyPath, string qualifiedDbConfigName, string connectionString, string connectionProvider)
+        public void Initialize(string assemblyPath, string qualifiedDbConfigName, string connectionString, string connectionProvider, string appConfigPath)
         {
             if (Ready)
-            {
                 throw new EfMigrationException("EfMigrator is already initialize and cannot be re-initialize.");
-            }
 
             var assemblyLocation = Path.GetFullPath(assemblyPath);
             if (!File.Exists(assemblyLocation))
-            {
                 throw new EfMigrationException($"The assemblyPath '{assemblyPath}' must exist, it currently doesn't.");
-            }
 
             _parrentPath = Path.GetDirectoryName(assemblyLocation);
             AppDomain.CurrentDomain.AssemblyResolve += CurrentDomainOnAssemblyResolve;
 
+            //DbConnectionInfo for Migrator
             var dbMigrationsConfiguration = LoadConfiguration(assemblyLocation, qualifiedDbConfigName);
             if (dbMigrationsConfiguration == null)
-            {
-                throw new EfMigrationException(
-                    $"The qualifiedDbConfigName {qualifiedDbConfigName} must exist within {assemblyPath} and implement type {nameof(DbMigrationsConfiguration)}. Make sure this class exists or that this class is a Migration Configuration.");
-            }
-            dbMigrationsConfiguration.TargetDatabase = new DbConnectionInfo(connectionString, connectionProvider);
+                throw new EfMigrationException($"The qualifiedDbConfigName {qualifiedDbConfigName} must exist within {assemblyPath} and implement type {nameof(DbMigrationsConfiguration)}. Make sure this class exists or that this class is a Migration Configuration.");
+
+            //DbConnectionInfo for Migrator
+            dbMigrationsConfiguration.TargetDatabase = new DbConnectionInfo(connectionString, connectionProvider); ;
             _dbMigrator = new DbMigrator(dbMigrationsConfiguration);
+
+            //Script Db Migrators
+            var scriptDbMigrationConfiguration = Activator.CreateInstance(dbMigrationsConfiguration.GetType()) as DbMigrationsConfiguration;
+            scriptDbMigrationConfiguration.TargetDatabase = new DbConnectionInfo(connectionString, connectionProvider);
+            
+            _scripter = new MigratorScriptingDecorator(new DbMigrator(scriptDbMigrationConfiguration));            
 
             Ready = true;
         }
 
         private DbMigrationsConfiguration LoadConfiguration(string assemblyLocation, string qualifiedDbConfigName)
         {
-            var dll = Assembly.LoadFrom(assemblyLocation);
-            return dll.DefinedTypes
-                      .Where(x => typeof(DbMigrationsConfiguration).IsAssignableFrom(x))
-                      .Where(x => !x.IsAbstract)
-                      .Select(x => Activator.CreateInstance(x) as DbMigrationsConfiguration)
-                      .Where(x => x != null)
-                      .SingleOrDefault(x => x.GetType().FullName == qualifiedDbConfigName);
+            return Assembly.LoadFrom(assemblyLocation)
+                           .DefinedTypes
+                           .Where(x => typeof(DbMigrationsConfiguration).IsAssignableFrom(x))
+                           .Where(x => !x.IsAbstract)
+                           .Select(x => Activator.CreateInstance(x) as DbMigrationsConfiguration)
+                           .Where(x => x != null)
+                           .SingleOrDefault(x => x.GetType().FullName == qualifiedDbConfigName);
         }
 
         private Assembly CurrentDomainOnAssemblyResolve(object sender, ResolveEventArgs args)
@@ -183,8 +186,40 @@ namespace Cake.EntityFramework.Migrator
         private void AssertForReady()
         {
             if (!Ready)
-            {
                 throw new Exception("Safety assert failed, improbable code reached. EfMigrator is not ready.");
+        }
+
+        /// <summary>
+        /// Generates a script for the latest version if any
+        /// </summary>
+        /// <returns>ScriptResult with Migration Script</returns>
+        public ScriptResult GenerateScriptForLatest()
+        {
+            AssertForReady();
+
+            var script = _scripter.ScriptUpdate(null, null);
+            return new ScriptResult(true, script);
+        }
+
+        /// <summary>
+        /// Generates a script for the specific version if any
+        /// </summary>
+        /// <param name="version">Version to Generate a script for.</param>
+        /// <returns>ScriptResult with Migration Script</returns>
+        public ScriptResult GenerateScriptForVersion(string version)
+        {
+            AssertForReady();
+            try
+            {
+                if (string.IsNullOrWhiteSpace(version))
+                    version = null;
+
+                var script = _scripter.ScriptUpdate(null, version);
+                return new ScriptResult(true, script);
+            }
+            catch (Exception e)
+            {
+                return new ScriptResult(false, null, e);
             }
         }
     }

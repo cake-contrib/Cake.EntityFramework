@@ -58,6 +58,19 @@
             </summary>
             <returns>Migration Result if the migration was successful in AppDomain</returns>
         </member>
+        <member name="M:Cake.EntityFramework.Interfaces.IEfMigratorBackend.GenerateScriptForLatest">
+            <summary>
+            Generates a script for the latest version if any
+            </summary>
+            <returns>ScriptResult with Migration Script</returns>
+        </member>
+        <member name="M:Cake.EntityFramework.Interfaces.IEfMigratorBackend.GenerateScriptForVersion(System.String)">
+            <summary>
+            Generates a script for the specific version if any
+            </summary>
+            <param name="version">Version to Generate a script for.</param>
+            <returns>ScriptResult with Migration Script</returns>
+        </member>
         <member name="M:Cake.EntityFramework.Interfaces.IEfMigratorBackend.GetLatestMigration">
             <summary>
             Gets the name of the latest migration
@@ -174,27 +187,65 @@
             </summary>
             <returns>Latest migration name</returns>
         </member>
+        <member name="M:Cake.EntityFramework.Interfaces.IEfMigrator.GenerateScriptForVersion(System.String)">
+            <summary>
+            Generates a script from the data store to the specific version
+            </summary>
+            <param name="version">Name of the migration to generate a script to</param>
+            <returns>true if migration was successful, otherwise false</returns>
+        </member>
+        <member name="M:Cake.EntityFramework.Interfaces.IEfMigrator.GenerateScriptForLatest">
+            <summary>
+            Generates a script from the data store for the latest version
+            </summary>
+            <returns>true if script generation was successful, otherwise false</returns>
+        </member>
         <member name="T:Cake.EntityFramework.CakeTranslation.EfAliases">
             <summary>
             A set of Cake aliases for Entity Framework (not .NET Core) code-first migrations.
             </summary>
         </member>
         <member name="M:Cake.EntityFramework.CakeTranslation.EfAliases.CreateEfMigrator(Cake.Core.ICakeContext,Cake.EntityFramework.CakeTranslation.EfMigratorSettings)">
-            <summary>
-            Creates a new EfMigrator for use in EF6 code-first migrations.
-            </summary>
-            <example>
-            <code>
-            using(var migrator = CreateEfMigrator(efMigratorSettings)) 
-            {
-                 migrator.MigrateToLatest();
-                 migrator.Commit();
-            }
-            </code>
-            </example>
-            <param name="context">The context.</param>
-            <param name="settings">The settings <see cref="T:Cake.EntityFramework.CakeTranslation.EfMigratorSettings"/>.</param>
-            <returns>An EfMigrator <see cref="T:Cake.EntityFramework.Interfaces.IEfMigrator"/>.</returns>
+             <summary>
+             Creates a new EfMigrator for use in EF6 code-first migrations.
+             </summary>
+             <example>
+             <code>
+               var migrationSettings = new EfMigratorSettings
+               {
+                 AssemblyPath = @"path/to/example.data.dll",
+                 ConfigurationClass = "Example.Migrations.Configuation",
+                 AppConfigPath = @"path/to/example.data.dll.config",
+                 ConnectionString = "Server=(localdb)\MSSQLLocalDB;Database=SchoolDb;User ID=sa;Password=Password12!",
+                 ConnectionProvider = "System.Data.SqlClient"
+               };
+            
+              Task("Migrate-To_Latest")
+                  .Description("Migrate database to latest.")
+                  .Does(() =>
+               {
+                  using (var migrator = CreateEfMigrator(migrationSettings))
+                  {
+                      migrator.MigrateToLatest();
+                     migrator.Commit();
+                  }
+               });
+            
+              Task("Generate-Script-To_Latest")
+                 .Description("Generates a script to latest migration.")
+                 .Does(() =>
+                 {
+                     using (var migrator = CreateEfMigrator(migrationSettings))
+                     {
+                         var script = migrator.GenerateScriptForLatest();
+                         Information(script);
+                     }
+                 });
+             </code>
+             </example>
+             <param name="context">The context.</param>
+             <param name="settings">The settings <see cref="T:Cake.EntityFramework.CakeTranslation.EfMigratorSettings"/>.</param>
+             <returns>An EfMigrator <see cref="T:Cake.EntityFramework.Interfaces.IEfMigrator"/>.</returns>
         </member>
         <!-- Badly formed XML comment ignored for member "M:Cake.EntityFramework.CakeTranslation.EfAliases.SetConnectionStringFromAppConfig(Cake.EntityFramework.CakeTranslation.EfMigratorSettings,System.String@,System.String@)" -->
         <member name="T:Cake.EntityFramework.CakeTranslation.CakeLogger">
@@ -357,7 +408,7 @@
             </summary>
             <param name="allowDataLossOnMigrations">tru to allow data loss</param>
         </member>
-        <member name="M:Cake.EntityFramework.Migrator.EfMigratorBackend.Initialize(System.String,System.String,System.String,System.String)">
+        <member name="M:Cake.EntityFramework.Migrator.EfMigratorBackend.Initialize(System.String,System.String,System.String,System.String,System.String)">
             <summary>
             Initalized the migrator with requred settings
             </summary>
@@ -365,6 +416,19 @@
             <param name="qualifiedDbConfigName">Full Qualified Name of the DbConfigurationClass that contains the migrations</param>
             <param name="connectionString">ConnectionStringName or full connection string</param>
             <param name="connectionProvider">Invaiant Name of the Ado.Net Connection Provider</param>
+        </member>
+        <member name="M:Cake.EntityFramework.Migrator.EfMigratorBackend.GenerateScriptForLatest">
+            <summary>
+            Generates a script for the latest version if any
+            </summary>
+            <returns>ScriptResult with Migration Script</returns>
+        </member>
+        <member name="M:Cake.EntityFramework.Migrator.EfMigratorBackend.GenerateScriptForVersion(System.String)">
+            <summary>
+            Generates a script for the specific version if any
+            </summary>
+            <param name="version">Version to Generate a script for.</param>
+            <returns>ScriptResult with Migration Script</returns>
         </member>
         <member name="T:Cake.EntityFramework.Migrator.EfMigrator">
             <summary>
@@ -469,6 +533,19 @@
             Disposes of any resources and unloads te temp AppDomain used for the migrations
             </summary>
         </member>
+        <member name="M:Cake.EntityFramework.Migrator.EfMigrator.GenerateScriptForVersion(System.String)">
+            <summary>
+            Generates a script from the data store to the specific version
+            </summary>
+            <param name="version">Name of the migration to generate a script to</param>
+            <returns>true if migration was successful, otherwise false</returns>
+        </member>
+        <member name="M:Cake.EntityFramework.Migrator.EfMigrator.GenerateScriptForLatest">
+            <summary>
+            Generates a script from the data store for the latest version
+            </summary>
+            <returns>true if script generation was successful, otherwise false</returns>
+        </member>
         <member name="T:Cake.EntityFramework.Models.EfMigrationException">
             <summary>
             Migration Exception Class used to marshal exceptions between AppDomains
@@ -498,6 +575,34 @@
             <summary>
             If the exception errored out, the details of the exception.
             </summary>
+        </member>
+        <member name="T:Cake.EntityFramework.Models.ScriptResult">
+            <summary>
+            Migration Result 
+            </summary>
+        </member>
+        <member name="P:Cake.EntityFramework.Models.ScriptResult.IsSuccess">
+            <summary>
+            Gets or Sets whether the result was successful
+            </summary>
+        </member>
+        <member name="P:Cake.EntityFramework.Models.ScriptResult.Exception">
+            <summary>
+            Gets or sets the exception if the script generation was not successful
+            </summary>
+        </member>
+        <member name="P:Cake.EntityFramework.Models.ScriptResult.Script">
+            <summary>
+            Gets the script text generated from the migration
+            </summary>
+        </member>
+        <member name="M:Cake.EntityFramework.Models.ScriptResult.#ctor(System.Boolean,System.String,System.Exception)">
+            <summary>
+            Script Result
+            </summary>
+            <param name="isSuccess"> whether the result was successful</param>
+            <param name="script">if successful, the actual migration script</param>
+            <param name="exception">the exception if the migration was not successful, defaults to null</param>
         </member>
         <member name="T:Cake.EntityFramework.Models.MigrationResult">
             <summary>

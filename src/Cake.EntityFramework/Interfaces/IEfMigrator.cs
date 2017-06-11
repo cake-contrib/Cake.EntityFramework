@@ -1,3 +1,4 @@
+using Cake.EntityFramework.Models;
 using System;
 using System.Collections.Generic;
 
@@ -76,5 +77,18 @@ namespace Cake.EntityFramework.Interfaces
         /// </summary>
         /// <returns>Latest migration name</returns>
         string GetLatestMigration();
+
+        /// <summary>
+        /// Generates a script from the data store to the specific version
+        /// </summary>
+        /// <param name="version">Name of the migration to generate a script to</param>
+        /// <returns>true if migration was successful, otherwise false</returns>
+        string GenerateScriptForVersion(string version);
+
+        /// <summary>
+        /// Generates a script from the data store for the latest version
+        /// </summary>
+        /// <returns>true if script generation was successful, otherwise false</returns>
+        string GenerateScriptForLatest();
     }
 }

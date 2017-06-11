@@ -8,7 +8,6 @@ using Cake.EntityFramework.Tests.Fixtures;
 
 namespace Cake.EntityFramework.Tests.Migrator.SqlServer
 {
-    //[Collection(Traits.SqlServerCollection)]
     public class LocalMigrationFacts
     {
         private readonly ITestOutputHelper _logHelper;

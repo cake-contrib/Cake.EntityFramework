@@ -1,45 +1,38 @@
 ﻿using Cake.EntityFramework.Interfaces;
 using Cake.EntityFramework.Migrator;
+using Cake.EntityFramework.TestProject.SqlServer;
 using Cake.EntityFramework.Tests.Fixtures;
 using FluentAssertions;
+using System;
 using System.Linq;
 using Xunit;
 using Xunit.Abstractions;
 
 namespace Cake.EntityFramework.Tests.Migrator.SqlServer
 {
-    //[Collection(Traits.SqlServerCollection)]
-    public class RemoteMigrationsFacts
+    public class RemoteMigrationsFacts : IDisposable
     {
         private readonly ITestOutputHelper _logHelper;
 
         // ReSharper disable once PrivateFieldCanBeConvertedToLocalVariable
         private readonly ILogger _mockLogger;
-
+        private SchoolContext _DbContext;
         private readonly IEfMigrator _migrator;
 
-        public RemoteMigrationsFacts(ITestOutputHelper logHelper)//, SqlServerFixture sqlServerFixture)
+        public RemoteMigrationsFacts(ITestOutputHelper logHelper)
         {
             _logHelper = logHelper;
             _mockLogger = new MockLogger(logHelper);
             _migrator = new EfMigrator(SqlServerFactConstants.DdlPath, SqlServerFactConstants.ConfigName, SqlServerFactConstants.AppConfig,
                 SqlServerFactConstants.InstanceConnectionString, SqlServerFactConstants.ConnectionProvider, _mockLogger, false);
-            //_SqlServerFixture = sqlServerFixture;
         }
-
+        
         [Fact]
-        public void When_no_remote_migration_remote_migrations_should_be_zero()
+        public void When_no_remote_migrations_current_migration_should_return_not_empty_or_null()
         {
-            var migrations = _migrator.GetRemoteMigrations();
-            migrations.Should().HaveCount(0);
+            var migrations = _migrator.GetCurrentMigration();
+            migrations.Should().NotBeNullOrEmpty();
         }
-
-        //[Fact]
-        //public void When_no_remote_migrations_current_migration_should_return_not_empty_or_null()
-        //{
-        //    var migrations = _migrator.GetCurrentMigration();
-        //    migrations.Should().NotBeNullOrEmpty();
-        //}
 
         [Fact]
         public void When_single_remote_migration_current_migration_should_return_single_migration()
@@ -69,6 +62,10 @@ namespace Cake.EntityFramework.Tests.Migrator.SqlServer
 
             // Assert
             migrations.Should().BeInDescendingOrder();
+        }
+
+        public void Dispose()
+        {
         }
     }
 }

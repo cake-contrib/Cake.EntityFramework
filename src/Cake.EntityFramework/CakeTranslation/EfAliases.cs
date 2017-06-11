@@ -19,11 +19,36 @@ namespace Cake.EntityFramework.CakeTranslation
         /// </summary>
         /// <example>
         /// <code>
-        /// using(var migrator = CreateEfMigrator(efMigratorSettings)) 
-        /// {
-        ///      migrator.MigrateToLatest();
-        ///      migrator.Commit();
-        /// }
+        ///   var migrationSettings = new EfMigratorSettings
+        ///   {
+        ///     AssemblyPath = @"path/to/example.data.dll",
+        ///     ConfigurationClass = "Example.Migrations.Configuation",
+        ///     AppConfigPath = @"path/to/example.data.dll.config",
+        ///     ConnectionString = "Server=(localdb)\MSSQLLocalDB;Database=SchoolDb;User ID=sa;Password=Password12!",
+        ///     ConnectionProvider = "System.Data.SqlClient"
+        ///   };
+        ///
+        ///  Task("Migrate-To_Latest")
+        ///      .Description("Migrate database to latest.")
+        ///      .Does(() =>
+        ///   {
+        ///      using (var migrator = CreateEfMigrator(migrationSettings))
+        ///      {
+        ///          migrator.MigrateToLatest();
+        ///         migrator.Commit();
+        ///      }
+        ///   });
+        ///
+        ///  Task("Generate-Script-To_Latest")
+        ///     .Description("Generates a script to latest migration.")
+        ///     .Does(() =>
+        ///     {
+        ///         using (var migrator = CreateEfMigrator(migrationSettings))
+        ///         {
+        ///             var script = migrator.GenerateScriptForLatest();
+        ///             Information(script);
+        ///         }
+        ///     });
         /// </code>
         /// </example>
         /// <param name="context">The context.</param>
