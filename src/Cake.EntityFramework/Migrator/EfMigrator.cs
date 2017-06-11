@@ -68,7 +68,7 @@ namespace Cake.EntityFramework.Migrator
 
             var migrator = (EfMigratorBackend) _domain.CreateInstanceFromAndUnwrap(fullPath, type.FullName);
             _logger.Debug("Created new instance.");
-            migrator.Initialize(assemblyPath, qualifiedDbConfigName, connectionString, connectionProvider);
+            migrator.Initialize(assemblyPath, qualifiedDbConfigName, connectionString, connectionProvider, appConfigPath);
 
             _logger.Debug($"Initialized new {nameof(EfMigratorBackend)} within {domainName}.");
 
@@ -227,6 +227,35 @@ namespace Cake.EntityFramework.Migrator
 
                 _domain = null;
             }
+        }
+
+        /// <summary>
+        /// Generates a script from the data store to the specific version
+        /// </summary>
+        /// <param name="version">Name of the migration to generate a script to</param>
+        /// <returns>true if migration was successful, otherwise false</returns>
+        public string GenerateScriptForVersion(string version)
+        {
+            var result = _migratorBackend.GenerateScriptForVersion(version);
+
+            if (!result.IsSuccess)           
+                throw new Exception($"Error when generating a script: {result.Exception.Message}.", result.Exception);
+            
+            return result.Script;
+        }
+
+        /// <summary>
+        /// Generates a script from the data store for the latest version
+        /// </summary>
+        /// <returns>true if script generation was successful, otherwise false</returns>
+        public string GenerateScriptForLatest()
+        {
+            var result = _migratorBackend.GenerateScriptForLatest();
+
+            if (!result.IsSuccess)            
+                throw new Exception($"Error when generating a migration script: {result.Exception.Message}.", result.Exception);
+            
+            return result.Script;
         }
     }
 }

@@ -47,22 +47,5 @@ namespace Cake.EntityFramework.Tests.Migrator.Postgres
             // Assert
             result.Should().BeNull();
         }
-
-        //[Fact]
-        //public void When_there_remote_migration_current_migration_should_match()
-        //{
-        //    var setupMigrator = Migrator;
-        //    var firstMigration = setupMigrator.GetLocalMigrations().First();
-        //    setupMigrator.MigrateTo(firstMigration);
-        //    setupMigrator.Commit();
-
-        //    var migrator = Migrator;
-
-        //    // Act
-        //    var result = migrator.GetCurrentMigration();
-
-        //    // Assert
-        //    result.Should().Be(firstMigration);
-        //}
     }
 }

@@ -7,7 +7,7 @@ namespace Cake.EntityFramework.TestProject.SqlServer.Migrations
     {
         public override void Up()
         {
-            DropColumn("public.Students", "BadColumn");
+            DropColumn("dbo.Students", "BadColumn");
         }
         
         public override void Down()

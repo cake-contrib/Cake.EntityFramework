@@ -59,6 +59,19 @@ namespace Cake.EntityFramework.Interfaces
         MigrationResult MigrateToLatest();
 
         /// <summary>
+        /// Generates a script for the latest version if any
+        /// </summary>
+        /// <returns>ScriptResult with Migration Script</returns>
+        ScriptResult GenerateScriptForLatest();
+
+        /// <summary>
+        /// Generates a script for the specific version if any
+        /// </summary>
+        /// <param name="version">Version to Generate a script for.</param>
+        /// <returns>ScriptResult with Migration Script</returns>
+        ScriptResult GenerateScriptForVersion(string version);
+
+        /// <summary>
         /// Gets the name of the latest migration
         /// </summary>
         /// <returns>Latest migration name</returns>
