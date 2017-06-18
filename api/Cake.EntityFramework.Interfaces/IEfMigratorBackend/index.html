@@ -72,7 +72,8 @@
             <aside class="main-sidebar ">
                 <section class="infobar" data-spy="affix" data-offset-top="60" data-offset-bottom="200"> 
                     	
-	<div id="infobar-headings"><h6>On This Page</h6><p><a href="#Syntax">Syntax</a></p>
+	<div id="infobar-headings"><h6>On This Page</h6><p><a href="#Summary">Summary</a></p>
+<p><a href="#Syntax">Syntax</a></p>
 <p><a href="#Properties">Properties</a></p>
 <p><a href="#Methods">Methods</a></p>
 <hr class="infobar-hidden">
@@ -150,7 +151,11 @@
 <section class="content">
 	
 	
-	
+		<h1 id="Summary">Summary</h1>
+	<div class="lead">
+    Back-end migrator used in the MarshalByReference
+    </div>
+
 		<div class="panel panel-default">
   			<div class="panel-body">
 				<div class="row">
@@ -211,7 +216,10 @@ class Type type-node
 								<td><a href="/Cake.EntityFramework/api/Cake.EntityFramework.Interfaces/IEfMigratorBackend/9863BB5D">Ready</a></td>
 								<td>bool</td>
 								<td>
-									<div></div>
+									<div>
+    Gets a boolean value if the migration is currently ready.
+    Specifically the AppDomain is ready
+    </div>
 								</td>
 							</tr>
 					</tbody></table>
@@ -231,59 +239,93 @@ class Type type-node
 							</tr>
 						</thead>
 							<tbody><tr>
+								<td><a href="/Cake.EntityFramework/api/Cake.EntityFramework.Interfaces/IEfMigratorBackend/57CA8311">Generate<wbr>Script<wbr>For<wbr>Latest<wbr>()<wbr></a></td>
+								<td><a href="/Cake.EntityFramework/api/Cake.EntityFramework.Models/ScriptResult">ScriptResult</a></td>
+								<td>
+									<div>
+    Generates a script for the latest version if any
+    </div>
+								</td>
+							</tr>
+							<tr>
+								<td><a href="/Cake.EntityFramework/api/Cake.EntityFramework.Interfaces/IEfMigratorBackend/80AEF62A">Generate<wbr>Script<wbr>For<wbr>Version<wbr>(string)<wbr></a></td>
+								<td><a href="/Cake.EntityFramework/api/Cake.EntityFramework.Models/ScriptResult">ScriptResult</a></td>
+								<td>
+									<div>
+    Generates a script for the specific version if any
+    </div>
+								</td>
+							</tr>
+							<tr>
 								<td><a href="/Cake.EntityFramework/api/Cake.EntityFramework.Interfaces/IEfMigratorBackend/091E57B3">GetCurrentMigration<wbr>()<wbr></a></td>
 								<td>string</td>
 								<td>
-									<div></div>
+									<div>
+    Gets the name of the current migration
+    </div>
 								</td>
 							</tr>
 							<tr>
 								<td><a href="/Cake.EntityFramework/api/Cake.EntityFramework.Interfaces/IEfMigratorBackend/C1FC9C32">GetLatestMigration<wbr>()<wbr></a></td>
 								<td>string</td>
 								<td>
-									<div></div>
+									<div>
+    Gets the name of the latest migration
+    </div>
 								</td>
 							</tr>
 							<tr>
 								<td><a href="/Cake.EntityFramework/api/Cake.EntityFramework.Interfaces/IEfMigratorBackend/181F4D94">GetLocalMigrations<wbr>()<wbr></a></td>
 								<td>IEnumerable<wbr>&lt;string&gt;<wbr></td>
 								<td>
-									<div></div>
+									<div>
+    Gets a list of names of local migrations
+    </div>
 								</td>
 							</tr>
 							<tr>
 								<td><a href="/Cake.EntityFramework/api/Cake.EntityFramework.Interfaces/IEfMigratorBackend/9686C4F2">GetPendingMigrations<wbr>()<wbr></a></td>
 								<td>IEnumerable<wbr>&lt;string&gt;<wbr></td>
 								<td>
-									<div></div>
+									<div>
+    Gets all migrations that are defined in the assembly but haven't been applied to the target database.
+    </div>
 								</td>
 							</tr>
 							<tr>
 								<td><a href="/Cake.EntityFramework/api/Cake.EntityFramework.Interfaces/IEfMigratorBackend/095BDD52">GetRemoteMigrations<wbr>()<wbr></a></td>
 								<td>IEnumerable<wbr>&lt;string&gt;<wbr></td>
 								<td>
-									<div></div>
+									<div>
+    Gets all migrations that have been applied to the target database.
+    </div>
 								</td>
 							</tr>
 							<tr>
 								<td><a href="/Cake.EntityFramework/api/Cake.EntityFramework.Interfaces/IEfMigratorBackend/31F11D86">HasPendingMigrations<wbr>()<wbr></a></td>
 								<td>bool</td>
 								<td>
-									<div></div>
+									<div>
+    Determines if there are any pending migrations
+    </div>
 								</td>
 							</tr>
 							<tr>
 								<td><a href="/Cake.EntityFramework/api/Cake.EntityFramework.Interfaces/IEfMigratorBackend/38BACFD4">MigrateTo<wbr>(string)<wbr></a></td>
 								<td><a href="/Cake.EntityFramework/api/Cake.EntityFramework.Models/MigrationResult">MigrationResult</a></td>
 								<td>
-									<div></div>
+									<div>
+    Migrates the data store to the specific version
+    </div>
 								</td>
 							</tr>
 							<tr>
 								<td><a href="/Cake.EntityFramework/api/Cake.EntityFramework.Interfaces/IEfMigratorBackend/E39B83C0">MigrateToLatest<wbr>()<wbr></a></td>
 								<td><a href="/Cake.EntityFramework/api/Cake.EntityFramework.Models/MigrationResult">MigrationResult</a></td>
 								<td>
-									<div></div>
+									<div>
+    Migrates the data store to the lastest version if any
+    </div>
 								</td>
 							</tr>
 					</tbody></table>

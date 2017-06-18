@@ -74,7 +74,7 @@
             <aside class="main-sidebar ">
                 <section class="infobar" data-spy="affix" data-offset-top="60" data-offset-bottom="200"> 
                     	
-        <div><p><a href="https://github.com/louisfischer/Cake.EntityFramework/tree/develop/docs/input/docs/usage/sql-server.md"><i class="fa fa-pencil-square" aria-hidden="true"></i> Edit Content</a></p></div>
+        <div><p><a href="https://github.com/cake-contrib/Cake.EntityFramework/tree/develop/docs/input/docs/usage/sql-server.md"><i class="fa fa-pencil-square" aria-hidden="true"></i> Edit Content</a></p></div>
     <div id="infobar-headings"></div>
 
                 </section>
@@ -87,7 +87,6 @@
                     <a href="/Cake.EntityFramework/docs/features">Features</a> <a href="#" class="expand"></a>
                     <ul class="treeview-menu">
                                         <li><a href="/Cake.EntityFramework/docs/features/ef6">Entity Framework 6x</a></li>
-                <li><a href="/Cake.EntityFramework/docs/features/efcore">Entity Framework Core</a></li>
                 <li><a href="/Cake.EntityFramework/docs/features/todo">To Do List</a></li>
 
                     </ul>
@@ -118,8 +117,46 @@
 		<h1>SQL Server</h1>
 	</section>
 	<section class="content">
-		<h2 id="coming-soon"><em>Coming Soon</em></h2>
+		<html><head></head><body><p>Requirements:</p>
+<ul>
+<li>SQL Server 2014 (localdb) or Higher</li>
+<li>Modify connection string if necessary</li>
+</ul>
+<h3 id="example">Example</h3>
+<pre><code class="language-cake">var migrationSettings = new <a href="/Cake.EntityFramework/api/Cake.EntityFramework.CakeTranslation/EfMigratorSettings">EfMigratorSettings</a> {
+  AssemblyPath = &#64;"path/to/example.data.dll",
+  ConfigurationClass = "Example.Migrations.Configuation",
+  AppConfigPath = &#64;"path/to/example.data.dll.config",
+  ConnectionString = "Server=(localdb)\MSSQLLocalDB;Database=SchoolDb;User ID=sa;Password=Password12!",
+  ConnectionProvider = "System.Data.SqlClient" // &lt;- using SQL Server LocalDb here
+};
 
+//Migration Example
+Task("Migrate-To_Latest")
+  .Description("Migrate database to latest.")
+  .Does(() =&gt;
+{
+  using(var migrator = CreateEfMigrator(migrationSettings)){
+    migrator.MigrateToLatest();
+    migrator.Commit();
+  }
+});
+
+
+//Generate Script Example
+Task("Generate-Script-To_Latest")
+  .Description("Generates a script to latest migration.")
+  .Does(() =&gt;
+{
+  using(var migrator = CreateEfMigrator(migrationSettings))
+  {
+      var script = migrator.GenerateScriptForLatest();
+      Information(script);
+  }
+});
+
+</code></pre>
+</body></html>
 	</section>
                 
             </div>           

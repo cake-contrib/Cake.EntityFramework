@@ -72,7 +72,8 @@
             <aside class="main-sidebar ">
                 <section class="infobar" data-spy="affix" data-offset-top="60" data-offset-bottom="200"> 
                     	
-	<div id="infobar-headings"><h6>On This Page</h6><p><a href="#Syntax">Syntax</a></p>
+	<div id="infobar-headings"><h6>On This Page</h6><p><a href="#Summary">Summary</a></p>
+<p><a href="#Syntax">Syntax</a></p>
 <p><a href="#Methods">Methods</a></p>
 <hr class="infobar-hidden">
 </div>
@@ -149,7 +150,11 @@
 <section class="content">
 	
 	
-	
+		<h1 id="Summary">Summary</h1>
+	<div class="lead">
+    Logger contract
+    </div>
+
 		<div class="panel panel-default">
   			<div class="panel-body">
 				<div class="row">
@@ -211,35 +216,46 @@ class Type type-node
 								<td><a href="/Cake.EntityFramework/api/Cake.EntityFramework.Interfaces/ILogger/C3855894">Debug<wbr>(string)<wbr></a></td>
 								<td>void</td>
 								<td>
-									<div></div>
+									<div>
+    Logs debug information which includes the most detailed information.
+    </div>
 								</td>
 							</tr>
 							<tr>
 								<td><a href="/Cake.EntityFramework/api/Cake.EntityFramework.Interfaces/ILogger/70F7E33F">Error<wbr>(string)<wbr></a></td>
 								<td>void</td>
 								<td>
-									<div></div>
+									<div>
+    Logs errors or other runtime errors or unexpected conditions.
+    </div>
 								</td>
 							</tr>
 							<tr>
 								<td><a href="/Cake.EntityFramework/api/Cake.EntityFramework.Interfaces/ILogger/BA651564">Information<wbr>(string)<wbr></a></td>
 								<td>void</td>
 								<td>
-									<div></div>
+									<div>
+    Logs information or 'interesting' runtime events.
+    </div>
 								</td>
 							</tr>
 							<tr>
 								<td><a href="/Cake.EntityFramework/api/Cake.EntityFramework.Interfaces/ILogger/1BCAE909">Verbose<wbr>(string)<wbr></a></td>
 								<td>void</td>
 								<td>
-									<div></div>
+									<div>
+    Logs verbose or detailed information on the flow through the system.
+    </div>
 								</td>
 							</tr>
 							<tr>
 								<td><a href="/Cake.EntityFramework/api/Cake.EntityFramework.Interfaces/ILogger/8E19C260">Warning<wbr>(string)<wbr></a></td>
 								<td>void</td>
 								<td>
-									<div></div>
+									<div>
+    Logs warnings such as use of deprecated APIs, poor use of API, 'almost' errors, other runtime situations
+    that are undesirable or unexpected, but not necessarily "wrong".
+    </div>
 								</td>
 							</tr>
 					</tbody></table>

@@ -2,17 +2,17 @@
 <rss version="2.0">
 	<channel>
 		<title>Cake.EntityFramework</title>
-		<link>http://louisfischer.github.io/Cake.EntityFramework</link>
+		<link>http://cake-contrib.github.io/Cake.EntityFramework</link>
 		<description />
 		<copyright>2017</copyright>
-		<pubDate>Tue, 25 Apr 2017 14:00:01 GMT</pubDate>
-		<lastBuildDate>Tue, 25 Apr 2017 14:00:01 GMT</lastBuildDate>
+		<pubDate>Sun, 18 Jun 2017 19:47:42 GMT</pubDate>
+		<lastBuildDate>Sun, 18 Jun 2017 19:47:42 GMT</lastBuildDate>
 		<item>
 			<title>New Release - 0.1.0</title>
-			<link>http://louisfischer.github.io/Cake.EntityFramework/blog/new-release-0.1.0</link>
+			<link>http://cake-contrib.github.io/Cake.EntityFramework/blog/new-release-0.1.0</link>
 			<description>&lt;p&gt;The main focus of this release was to introduce Cake.Recipe as the main build engine for the project.&lt;/p&gt;</description>
 			<author>louisifischer</author>
-			<guid>http://louisfischer.github.io/Cake.EntityFramework/blog/new-release-0.1.0</guid>
+			<guid>http://cake-contrib.github.io/Cake.EntityFramework/blog/new-release-0.1.0</guid>
 			<pubDate>Sun, 09 Apr 2017 00:00:00 GMT</pubDate>
 		</item>
 	</channel>

@@ -72,7 +72,8 @@
             <aside class="main-sidebar ">
                 <section class="infobar" data-spy="affix" data-offset-top="60" data-offset-bottom="200"> 
                     	
-	<div id="infobar-headings"><h6>On This Page</h6><p><a href="#Syntax">Syntax</a></p>
+	<div id="infobar-headings"><h6>On This Page</h6><p><a href="#Summary">Summary</a></p>
+<p><a href="#Syntax">Syntax</a></p>
 <p><a href="#Attributes">Attributes</a></p>
 <p><a href="#Constructors">Constructors</a></p>
 <p><a href="#Properties">Properties</a></p>
@@ -133,6 +134,7 @@
 				<li><a href="/Cake.EntityFramework/api/Cake.EntityFramework.Models/EfMigrationException">EfMigrationException</a></li>
 				<li><a href="/Cake.EntityFramework/api/Cake.EntityFramework.Models/Migration">Migration</a></li>
 				<li class="selected"><a href="/Cake.EntityFramework/api/Cake.EntityFramework.Models/MigrationResult">MigrationResult</a></li>
+				<li><a href="/Cake.EntityFramework/api/Cake.EntityFramework.Models/ScriptResult">ScriptResult</a></li>
 
 
                     </ul>
@@ -151,7 +153,11 @@
 <section class="content">
 	
 	
-	
+		<h1 id="Summary">Summary</h1>
+	<div class="lead">
+    Migration Result 
+    </div>
+
 		<div class="panel panel-default">
   			<div class="panel-body">
 				<div class="row">
@@ -223,11 +229,15 @@ public class MigrationResult</code></pre>
 						</thead>
 							<tbody><tr>
 								<td><a href="/Cake.EntityFramework/api/Cake.EntityFramework.Models/MigrationResult/A1878D66">MigrationResult<wbr>()<wbr></a></td>
-									<td></td>
+									<td>
+    Migration Result
+    </td>
 							</tr>
 							<tr>
 								<td><a href="/Cake.EntityFramework/api/Cake.EntityFramework.Models/MigrationResult/1E6D0E93">MigrationResult<wbr>(bool, <wbr>Exception)<wbr></a></td>
-									<td></td>
+									<td>
+    Migration Result
+    </td>
 							</tr>
 					</tbody></table>
 				</div>
@@ -251,14 +261,18 @@ public class MigrationResult</code></pre>
 								<td><a href="/Cake.EntityFramework/api/Cake.EntityFramework.Models/MigrationResult/06AF62AA">Exception</a></td>
 								<td>Exception</td>
 								<td>
-									<div></div>
+									<div>
+    Gets or sets the exception if the migration was not successful
+    </div>
 								</td>
 							</tr>
 							<tr>
 								<td><a href="/Cake.EntityFramework/api/Cake.EntityFramework.Models/MigrationResult/19AD6CDC">IsSuccess</a></td>
 								<td>bool</td>
 								<td>
-									<div></div>
+									<div>
+    Gets or Sets whether the result was successful
+    </div>
 								</td>
 							</tr>
 					</tbody></table>

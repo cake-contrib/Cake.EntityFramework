@@ -156,8 +156,8 @@
 	
 		<h1 id="Summary">Summary</h1>
 	<div class="lead">
-    Creates a new EfMigrator for use in EF6 code-first migrations.
-    </div>
+     Creates a new EfMigrator for use in EF6 code-first migrations.
+     </div>
 
 		<div class="panel panel-default">
   			<div class="panel-body">	
@@ -179,12 +179,37 @@ public static IEfMigrator CreateEfMigrator(this ICakeContext context, EfMigrator
 
 	<h1 id="Examples">Examples</h1>
 	<div>
-    <pre><code class="cs">using(var migrator = CreateEfMigrator(efMigratorSettings)) 
-{
-     migrator.MigrateToLatest();
-     migrator.Commit();
-}</code></pre>
-    </div>
+     <pre><code class="cs">   var migrationSettings = new EfMigratorSettings
+   {
+     AssemblyPath = @"path/to/example.data.dll",
+     ConfigurationClass = "Example.Migrations.Configuation",
+     AppConfigPath = @"path/to/example.data.dll.config",
+     ConnectionString = "Server=(localdb)\MSSQLLocalDB;Database=SchoolDb;User ID=sa;Password=Password12!",
+     ConnectionProvider = "System.Data.SqlClient"
+   };
+
+  Task("Migrate-To_Latest")
+      .Description("Migrate database to latest.")
+      .Does(() =&gt;
+   {
+      using (var migrator = CreateEfMigrator(migrationSettings))
+      {
+          migrator.MigrateToLatest();
+         migrator.Commit();
+      }
+   });
+
+  Task("Generate-Script-To_Latest")
+     .Description("Generates a script to latest migration.")
+     .Does(() =&gt;
+     {
+         using (var migrator = CreateEfMigrator(migrationSettings))
+         {
+             var script = migrator.GenerateScriptForLatest();
+             Information(script);
+         }
+     });</code></pre>
+     </div>
 
 
 	<h1 id="Attributes">Attributes</h1>

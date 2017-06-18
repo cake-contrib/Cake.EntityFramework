@@ -72,7 +72,8 @@
             <aside class="main-sidebar ">
                 <section class="infobar" data-spy="affix" data-offset-top="60" data-offset-bottom="200"> 
                     	
-	<div id="infobar-headings"><h6>On This Page</h6><p><a href="#Syntax">Syntax</a></p>
+	<div id="infobar-headings"><h6>On This Page</h6><p><a href="#Summary">Summary</a></p>
+<p><a href="#Syntax">Syntax</a></p>
 <p><a href="#Parameters">Parameters</a></p>
 <p><a href="#ReturnValue">Return Value</a></p>
 <hr class="infobar-hidden">
@@ -135,6 +136,8 @@
 				<li><a href="/Cake.EntityFramework/api/Cake.EntityFramework.Interfaces/IEfMigrator/1FD013B9">Ready</a></li>
 			<li class="header">Method Members</li>
 				<li><a href="/Cake.EntityFramework/api/Cake.EntityFramework.Interfaces/IEfMigrator/73225542">Commit<wbr>()<wbr></a></li>
+				<li><a href="/Cake.EntityFramework/api/Cake.EntityFramework.Interfaces/IEfMigrator/9B9D99DE">Generate<wbr>Script<wbr>For<wbr>Latest<wbr>()<wbr></a></li>
+				<li><a href="/Cake.EntityFramework/api/Cake.EntityFramework.Interfaces/IEfMigrator/100ADD64">Generate<wbr>Script<wbr>For<wbr>Version<wbr>(string)<wbr></a></li>
 				<li><a href="/Cake.EntityFramework/api/Cake.EntityFramework.Interfaces/IEfMigrator/96F9B91C">GetCurrentMigration<wbr>()<wbr></a></li>
 				<li><a href="/Cake.EntityFramework/api/Cake.EntityFramework.Interfaces/IEfMigrator/682F60D6">GetLatestMigration<wbr>()<wbr></a></li>
 				<li><a href="/Cake.EntityFramework/api/Cake.EntityFramework.Interfaces/IEfMigrator/B1CCB170">GetLocalMigrations<wbr>()<wbr></a></li>
@@ -163,7 +166,11 @@
 <section class="content">
 	
 	
-	
+		<h1 id="Summary">Summary</h1>
+	<div class="lead">
+    Migrates the data store to the specific version
+    </div>
+
 		<div class="panel panel-default">
   			<div class="panel-body">	
 				<dl class="dl-horizontal">	
@@ -199,7 +206,7 @@
 					<tbody><tr>
 						<td>version</td>
 						<td>string</td>
-						<td></td>
+						<td>Name of the migration to migrate to</td>
 					</tr>
 			</tbody></table>
 		</div>
@@ -217,7 +224,7 @@
 				</thead>
 				<tbody><tr>
 					<td>bool</td>
-					<td></td>
+					<td>true if migration was successful, otherwise false</td>
 				</tr>
 			</tbody></table>
 		</div>

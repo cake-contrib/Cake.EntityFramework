@@ -74,7 +74,7 @@
             <aside class="main-sidebar ">
                 <section class="infobar" data-spy="affix" data-offset-top="60" data-offset-bottom="200"> 
                     	
-        <div><p><a href="https://github.com/louisfischer/Cake.EntityFramework/tree/develop/docs/input/docs/usage/transactions.md"><i class="fa fa-pencil-square" aria-hidden="true"></i> Edit Content</a></p></div>
+        <div><p><a href="https://github.com/cake-contrib/Cake.EntityFramework/tree/develop/docs/input/docs/usage/transactions.md"><i class="fa fa-pencil-square" aria-hidden="true"></i> Edit Content</a></p></div>
     <div id="infobar-headings"></div>
 
                 </section>
@@ -87,7 +87,6 @@
                     <a href="/Cake.EntityFramework/docs/features">Features</a> <a href="#" class="expand"></a>
                     <ul class="treeview-menu">
                                         <li><a href="/Cake.EntityFramework/docs/features/ef6">Entity Framework 6x</a></li>
-                <li><a href="/Cake.EntityFramework/docs/features/efcore">Entity Framework Core</a></li>
                 <li><a href="/Cake.EntityFramework/docs/features/todo">To Do List</a></li>
 
                     </ul>
@@ -118,24 +117,24 @@
 		<h1>Run Migrations in Transactions</h1>
 	</section>
 	<section class="content">
-		<html><head></head><body><p>Run migrations in transactions. Keep in mind that this only works with supported providers (e.g. basiclly everyone except MySQL and Oracle). For example in PostgreSQL (Npgsql) you would do:</p>
-<pre><code class="language-cake">public class <a href="/Cake.EntityFramework/api/Cake.EntityFramework.TestProject.Postgres/AtomicMigrationScriptBuilder">AtomicMigrationScriptBuilder</a> : NpgsqlMigrationSqlGenerator
+		<p>Run migrations in transactions. Keep in mind that this only works with supported providers (e.g. basiclly everyone except MySQL and Oracle). For example in PostgreSQL (Npgsql) you would do:</p>
+<pre><code class="language-cake">public class AtomicMigrationScriptBuilder : NpgsqlMigrationSqlGenerator
 {
-    public override IEnumerable<migrationstatement> Generate(IEnumerable<migrationoperation> migrationOperations, string providerManifestToken)
+    public override IEnumerable&lt;MigrationStatement&gt; Generate(IEnumerable&lt;MigrationOperation&gt; migrationOperations, string providerManifestToken)
     {
-        yield return new MigrationStatement { Sql = "BEGIN TRANSACTION" };
+        yield return new MigrationStatement { Sql = &quot;BEGIN TRANSACTION&quot; };
 
         foreach (var migrationStatement in base.Generate(migrationOperations, providerManifestToken))
         {
             yield return migrationStatement;
         }
 
-        yield return new MigrationStatement { Sql = "COMMIT TRANSACTION" };
+        yield return new MigrationStatement { Sql = &quot;COMMIT TRANSACTION&quot; };
     }
 }
-</migrationoperation></migrationstatement></code></pre>
+</code></pre>
 <p>This will allow for more reliable rollbacks.</p>
-</body></html>
+
 	</section>
                 
             </div>           

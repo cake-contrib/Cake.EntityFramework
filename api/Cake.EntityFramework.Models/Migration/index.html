@@ -72,7 +72,8 @@
             <aside class="main-sidebar ">
                 <section class="infobar" data-spy="affix" data-offset-top="60" data-offset-bottom="200"> 
                     	
-	<div id="infobar-headings"><h6>On This Page</h6><p><a href="#Syntax">Syntax</a></p>
+	<div id="infobar-headings"><h6>On This Page</h6><p><a href="#Summary">Summary</a></p>
+<p><a href="#Syntax">Syntax</a></p>
 <p><a href="#Attributes">Attributes</a></p>
 <p><a href="#Properties">Properties</a></p>
 <hr class="infobar-hidden">
@@ -132,6 +133,7 @@
 				<li><a href="/Cake.EntityFramework/api/Cake.EntityFramework.Models/EfMigrationException">EfMigrationException</a></li>
 				<li class="selected"><a href="/Cake.EntityFramework/api/Cake.EntityFramework.Models/Migration">Migration</a></li>
 				<li><a href="/Cake.EntityFramework/api/Cake.EntityFramework.Models/MigrationResult">MigrationResult</a></li>
+				<li><a href="/Cake.EntityFramework/api/Cake.EntityFramework.Models/ScriptResult">ScriptResult</a></li>
 
 
                     </ul>
@@ -150,7 +152,11 @@
 <section class="content">
 	
 	
-	
+		<h1 id="Summary">Summary</h1>
+	<div class="lead">
+    Migration class 
+    </div>
+
 		<div class="panel panel-default">
   			<div class="panel-body">
 				<div class="row">
@@ -228,28 +234,36 @@ public class Migration</code></pre>
 								<td><a href="/Cake.EntityFramework/api/Cake.EntityFramework.Models/Migration/1F2EF7A9">Completed</a></td>
 								<td>bool</td>
 								<td>
-									<div></div>
+									<div>
+    Gets or Sets whether the migraton completed
+    </div>
 								</td>
 							</tr>
 							<tr>
 								<td><a href="/Cake.EntityFramework/api/Cake.EntityFramework.Models/Migration/9A6C6B37">Error</a></td>
 								<td>bool</td>
 								<td>
-									<div></div>
+									<div>
+    Gets or Sets wheter the migration errored out
+    </div>
 								</td>
 							</tr>
 							<tr>
 								<td><a href="/Cake.EntityFramework/api/Cake.EntityFramework.Models/Migration/1CFCC6EC">Exception</a></td>
 								<td>Exception</td>
 								<td>
-									<div></div>
+									<div>
+    If the exception errored out, the details of the exception.
+    </div>
 								</td>
 							</tr>
 							<tr>
 								<td><a href="/Cake.EntityFramework/api/Cake.EntityFramework.Models/Migration/1767D358">Name</a></td>
 								<td>string</td>
 								<td>
-									<div></div>
+									<div>
+    Name of the Migration
+    </div>
 								</td>
 							</tr>
 					</tbody></table>
