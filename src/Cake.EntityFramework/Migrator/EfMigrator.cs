@@ -257,5 +257,13 @@ namespace Cake.EntityFramework.Migrator
             
             return result.Script;
         }
+
+        /// <summary>
+        /// Runs the Seed Method on the targeted database.
+        /// </summary>
+        public void RunSeedMethod()
+        {            
+            _migratorBackend.RunSeedMethod();
+        }
     }
 }
