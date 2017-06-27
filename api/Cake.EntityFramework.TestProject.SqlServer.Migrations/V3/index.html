@@ -168,14 +168,14 @@
 								<dt>Interfaces</dt>
 								<dd>
 									<ul class="list-unstyled">
-											<li>DbMigration</li>								
+											<li>IMigrationMetadata</li>								
 									</ul>
 								</dd>
 							
 								<dt>Base Types</dt>
 								<dd>
 									<ul class="list-unstyled">										
-											<li>IMigrationMetadata</li>								
+											<li>DbMigration</li>								
 									</ul>
 								</dd>				
 							
@@ -185,8 +185,8 @@
 					<div class="col-md-6">
 						<div class="mermaid">
 							graph TD
-	Base0["IMigrationMetadata"]--&gt;Type
-	Interface0["DbMigration"]-.-&gt;Type
+	Base0["DbMigration"]--&gt;Type
+	Interface0["IMigrationMetadata"]-.-&gt;Type
 	Type["V3"]
 class Type type-node
 
@@ -198,7 +198,7 @@ class Type type-node
 
 	<h1 id="Syntax">Syntax</h1>
 	<pre><code>[GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-public sealed class V3 : IMigrationMetadata, DbMigration</code></pre>
+public sealed class V3 : DbMigration, IMigrationMetadata</code></pre>
 
 
 
