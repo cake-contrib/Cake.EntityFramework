@@ -6,7 +6,7 @@ Title: Referencing Cake.EntityFramework
 You can reference Cake.EntityFramework in your build script as a cake addin:
 
 ```cake
-#addin "Cake.EntityFramework6"
+#addin "Cake.EntityFramework"
 ```
 
 or nuget reference:
