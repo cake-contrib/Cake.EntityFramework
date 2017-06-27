@@ -34,8 +34,8 @@ var searchModule = function() {
 
     a({
         id:0,
-        title:"Migration",
-        content:"Migration",
+        title:"ILogger",
+        content:"ILogger",
         description:'',
         tags:''
     });
@@ -50,86 +50,46 @@ var searchModule = function() {
 
     a({
         id:2,
-        title:"MigrationResult",
-        content:"MigrationResult",
+        title:"",
+        content:"",
         description:'',
         tags:''
     });
 
     a({
         id:3,
-        title:"CakeLogger",
-        content:"CakeLogger",
+        title:"SchoolContext",
+        content:"SchoolContext",
         description:'',
         tags:''
     });
 
     a({
         id:4,
-        title:"EfMigratorSettings",
-        content:"EfMigratorSettings",
+        title:"",
+        content:"",
         description:'',
         tags:''
     });
 
     a({
         id:5,
-        title:"Class",
-        content:"Class",
+        title:"",
+        content:"",
         description:'',
         tags:''
     });
 
     a({
         id:6,
-        title:"Student",
-        content:"Student",
+        title:"Migration",
+        content:"Migration",
         description:'',
         tags:''
     });
 
     a({
         id:7,
-        title:"",
-        content:"",
-        description:'',
-        tags:''
-    });
-
-    a({
-        id:8,
-        title:"",
-        content:"",
-        description:'',
-        tags:''
-    });
-
-    a({
-        id:9,
-        title:"",
-        content:"",
-        description:'',
-        tags:''
-    });
-
-    a({
-        id:10,
-        title:"",
-        content:"",
-        description:'',
-        tags:''
-    });
-
-    a({
-        id:11,
-        title:"ILogger",
-        content:"ILogger",
-        description:'',
-        tags:''
-    });
-
-    a({
-        id:12,
         title:"IEfMigrator",
         content:"IEfMigrator",
         description:'',
@@ -137,15 +97,23 @@ var searchModule = function() {
     });
 
     a({
-        id:13,
-        title:"EfAliases",
-        content:"EfAliases",
+        id:8,
+        title:"IEfMigratorBackend",
+        content:"IEfMigratorBackend",
         description:'',
         tags:''
     });
 
     a({
-        id:14,
+        id:9,
+        title:"Class",
+        content:"Class",
+        description:'',
+        tags:''
+    });
+
+    a({
+        id:10,
         title:"AtomicMigrationScriptBuilder",
         content:"AtomicMigrationScriptBuilder",
         description:'',
@@ -153,25 +121,57 @@ var searchModule = function() {
     });
 
     a({
-        id:15,
+        id:11,
         title:"",
         content:"",
+        description:'',
+        tags:''
+    });
+
+    a({
+        id:12,
+        title:"",
+        content:"",
+        description:'',
+        tags:''
+    });
+
+    a({
+        id:13,
+        title:"EfMigrationException",
+        content:"EfMigrationException",
+        description:'',
+        tags:''
+    });
+
+    a({
+        id:14,
+        title:"Student",
+        content:"Student",
+        description:'',
+        tags:''
+    });
+
+    a({
+        id:15,
+        title:"Bad",
+        content:"Bad",
         description:'',
         tags:''
     });
 
     a({
         id:16,
-        title:"",
-        content:"",
+        title:"SchoolContext",
+        content:"SchoolContext",
         description:'',
         tags:''
     });
 
     a({
         id:17,
-        title:"ScriptResult",
-        content:"ScriptResult",
+        title:"",
+        content:"",
         description:'',
         tags:''
     });
@@ -186,6 +186,14 @@ var searchModule = function() {
 
     a({
         id:19,
+        title:"EfMigratorBackend",
+        content:"EfMigratorBackend",
+        description:'',
+        tags:''
+    });
+
+    a({
+        id:20,
         title:"",
         content:"",
         description:'',
@@ -193,17 +201,9 @@ var searchModule = function() {
     });
 
     a({
-        id:20,
-        title:"Bad",
-        content:"Bad",
-        description:'',
-        tags:''
-    });
-
-    a({
         id:21,
-        title:"Student",
-        content:"Student",
+        title:"CakeLogger",
+        content:"CakeLogger",
         description:'',
         tags:''
     });
@@ -218,16 +218,16 @@ var searchModule = function() {
 
     a({
         id:23,
-        title:"Class",
-        content:"Class",
+        title:"MigrationResult",
+        content:"MigrationResult",
         description:'',
         tags:''
     });
 
     a({
         id:24,
-        title:"AtomicMigrationScriptBuilder",
-        content:"AtomicMigrationScriptBuilder",
+        title:"Class",
+        content:"Class",
         description:'',
         tags:''
     });
@@ -242,46 +242,30 @@ var searchModule = function() {
 
     a({
         id:26,
-        title:"EfMigratorBackend",
-        content:"EfMigratorBackend",
+        title:"AtomicMigrationScriptBuilder",
+        content:"AtomicMigrationScriptBuilder",
         description:'',
         tags:''
     });
 
     a({
         id:27,
-        title:"IEfMigratorBackend",
-        content:"IEfMigratorBackend",
+        title:"",
+        content:"",
         description:'',
         tags:''
     });
 
     a({
         id:28,
-        title:"SchoolContext",
-        content:"SchoolContext",
+        title:"EfMigratorSettings",
+        content:"EfMigratorSettings",
         description:'',
         tags:''
     });
 
     a({
         id:29,
-        title:"EfMigrationException",
-        content:"EfMigrationException",
-        description:'',
-        tags:''
-    });
-
-    a({
-        id:30,
-        title:"SchoolContext",
-        content:"SchoolContext",
-        description:'',
-        tags:''
-    });
-
-    a({
-        id:31,
         title:"EfMigrator",
         content:"EfMigrator",
         description:'',
@@ -289,23 +273,7 @@ var searchModule = function() {
     });
 
     a({
-        id:32,
-        title:"",
-        content:"",
-        description:'',
-        tags:''
-    });
-
-    a({
-        id:33,
-        title:"",
-        content:"",
-        description:'',
-        tags:''
-    });
-
-    a({
-        id:34,
+        id:30,
         title:"Bad",
         content:"Bad",
         description:'',
@@ -313,64 +281,48 @@ var searchModule = function() {
     });
 
     a({
-        id:35,
+        id:31,
         title:"",
         content:"",
         description:'',
         tags:''
     });
 
-    y({
-        url:'/Cake.EntityFramework/Cake.EntityFramework/api/Cake.EntityFramework.Models/Migration',
-        title:"Migration",
-        description:""
-    });
-
-    y({
-        url:'/Cake.EntityFramework/Cake.EntityFramework/api/Cake.EntityFramework.TestProject.SqlServer.Migrations/V3',
-        title:"V3",
-        description:""
-    });
-
-    y({
-        url:'/Cake.EntityFramework/Cake.EntityFramework/api/Cake.EntityFramework.Models/MigrationResult',
-        title:"MigrationResult",
-        description:""
-    });
-
-    y({
-        url:'/Cake.EntityFramework/Cake.EntityFramework/api/Cake.EntityFramework.CakeTranslation/CakeLogger',
-        title:"CakeLogger",
-        description:""
-    });
-
-    y({
-        url:'/Cake.EntityFramework/Cake.EntityFramework/api/Cake.EntityFramework.CakeTranslation/EfMigratorSettings',
-        title:"EfMigratorSettings",
-        description:""
-    });
-
-    y({
-        url:'/Cake.EntityFramework/Cake.EntityFramework/api/Cake.EntityFramework.TestProject.Postgres.Models/Class',
-        title:"Class",
-        description:""
-    });
-
-    y({
-        url:'/Cake.EntityFramework/Cake.EntityFramework/api/Cake.EntityFramework.TestProject.Postgres.Models/Student',
+    a({
+        id:32,
         title:"Student",
-        description:""
+        content:"Student",
+        description:'',
+        tags:''
+    });
+
+    a({
+        id:33,
+        title:"ScriptResult",
+        content:"ScriptResult",
+        description:'',
+        tags:''
+    });
+
+    a({
+        id:34,
+        title:"",
+        content:"",
+        description:'',
+        tags:''
+    });
+
+    a({
+        id:35,
+        title:"EfAliases",
+        content:"EfAliases",
+        description:'',
+        tags:''
     });
 
     y({
-        url:'/Cake.EntityFramework/Cake.EntityFramework/api/Cake.EntityFramework.TestProject.Postgres.Migrations/V4',
-        title:"V4",
-        description:""
-    });
-
-    y({
-        url:'/Cake.EntityFramework/Cake.EntityFramework/api/Cake.EntityFramework.TestProject.SqlServer.Migrations/V7',
-        title:"V7",
+        url:'/Cake.EntityFramework/Cake.EntityFramework/api/Cake.EntityFramework.Interfaces/ILogger',
+        title:"ILogger",
         description:""
     });
 
@@ -381,134 +333,14 @@ var searchModule = function() {
     });
 
     y({
-        url:'/Cake.EntityFramework/Cake.EntityFramework/api/Cake.EntityFramework.TestProject.Postgres.Migrations/V3',
-        title:"V3",
-        description:""
-    });
-
-    y({
-        url:'/Cake.EntityFramework/Cake.EntityFramework/api/Cake.EntityFramework.Interfaces/ILogger',
-        title:"ILogger",
-        description:""
-    });
-
-    y({
-        url:'/Cake.EntityFramework/Cake.EntityFramework/api/Cake.EntityFramework.Interfaces/IEfMigrator',
-        title:"IEfMigrator",
-        description:""
-    });
-
-    y({
-        url:'/Cake.EntityFramework/Cake.EntityFramework/api/Cake.EntityFramework.CakeTranslation/EfAliases',
-        title:"EfAliases",
-        description:""
-    });
-
-    y({
-        url:'/Cake.EntityFramework/Cake.EntityFramework/api/Cake.EntityFramework.TestProject.SqlServer/AtomicMigrationScriptBuilder',
-        title:"AtomicMigrationScriptBuilder",
-        description:""
-    });
-
-    y({
-        url:'/Cake.EntityFramework/Cake.EntityFramework/api/Cake.EntityFramework.TestProject.SqlServer.Migrations/V2',
-        title:"V2",
-        description:""
-    });
-
-    y({
-        url:'/Cake.EntityFramework/Cake.EntityFramework/api/Cake.EntityFramework.TestProject.Postgres.Migrations/V5',
-        title:"V5",
-        description:""
-    });
-
-    y({
-        url:'/Cake.EntityFramework/Cake.EntityFramework/api/Cake.EntityFramework.Models/ScriptResult',
-        title:"ScriptResult",
-        description:""
-    });
-
-    y({
-        url:'/Cake.EntityFramework/Cake.EntityFramework/api/Cake.EntityFramework.TestProject.SqlServer.Migrations/V0',
-        title:"V0",
-        description:""
-    });
-
-    y({
-        url:'/Cake.EntityFramework/Cake.EntityFramework/api/Cake.EntityFramework.TestProject.Postgres.Migrations/V2',
-        title:"V2",
-        description:""
-    });
-
-    y({
-        url:'/Cake.EntityFramework/Cake.EntityFramework/api/Cake.EntityFramework.TestProject.SqlServer.Migrations/Bad',
-        title:"Bad",
-        description:""
-    });
-
-    y({
-        url:'/Cake.EntityFramework/Cake.EntityFramework/api/Cake.EntityFramework.TestProject.SqlServer.Models/Student',
-        title:"Student",
-        description:""
-    });
-
-    y({
         url:'/Cake.EntityFramework/Cake.EntityFramework/api/Cake.EntityFramework.TestProject.SqlServer.Migrations/V6',
         title:"V6",
         description:""
     });
 
     y({
-        url:'/Cake.EntityFramework/Cake.EntityFramework/api/Cake.EntityFramework.TestProject.SqlServer.Models/Class',
-        title:"Class",
-        description:""
-    });
-
-    y({
-        url:'/Cake.EntityFramework/Cake.EntityFramework/api/Cake.EntityFramework.TestProject.Postgres/AtomicMigrationScriptBuilder',
-        title:"AtomicMigrationScriptBuilder",
-        description:""
-    });
-
-    y({
-        url:'/Cake.EntityFramework/Cake.EntityFramework/api/Cake.EntityFramework.TestProject.SqlServer.Migrations/V4',
-        title:"V4",
-        description:""
-    });
-
-    y({
-        url:'/Cake.EntityFramework/Cake.EntityFramework/api/Cake.EntityFramework.Migrator/EfMigratorBackend',
-        title:"EfMigratorBackend",
-        description:""
-    });
-
-    y({
-        url:'/Cake.EntityFramework/Cake.EntityFramework/api/Cake.EntityFramework.Interfaces/IEfMigratorBackend',
-        title:"IEfMigratorBackend",
-        description:""
-    });
-
-    y({
         url:'/Cake.EntityFramework/Cake.EntityFramework/api/Cake.EntityFramework.TestProject.Postgres/SchoolContext',
         title:"SchoolContext",
-        description:""
-    });
-
-    y({
-        url:'/Cake.EntityFramework/Cake.EntityFramework/api/Cake.EntityFramework.Models/EfMigrationException',
-        title:"EfMigrationException",
-        description:""
-    });
-
-    y({
-        url:'/Cake.EntityFramework/Cake.EntityFramework/api/Cake.EntityFramework.TestProject.SqlServer/SchoolContext',
-        title:"SchoolContext",
-        description:""
-    });
-
-    y({
-        url:'/Cake.EntityFramework/Cake.EntityFramework/api/Cake.EntityFramework.Migrator/EfMigrator',
-        title:"EfMigrator",
         description:""
     });
 
@@ -525,14 +357,182 @@ var searchModule = function() {
     });
 
     y({
-        url:'/Cake.EntityFramework/Cake.EntityFramework/api/Cake.EntityFramework.TestProject.Postgres.Migrations/Bad',
-        title:"Bad",
+        url:'/Cake.EntityFramework/Cake.EntityFramework/api/Cake.EntityFramework.Models/Migration',
+        title:"Migration",
+        description:""
+    });
+
+    y({
+        url:'/Cake.EntityFramework/Cake.EntityFramework/api/Cake.EntityFramework.Interfaces/IEfMigrator',
+        title:"IEfMigrator",
+        description:""
+    });
+
+    y({
+        url:'/Cake.EntityFramework/Cake.EntityFramework/api/Cake.EntityFramework.Interfaces/IEfMigratorBackend',
+        title:"IEfMigratorBackend",
+        description:""
+    });
+
+    y({
+        url:'/Cake.EntityFramework/Cake.EntityFramework/api/Cake.EntityFramework.TestProject.SqlServer.Models/Class',
+        title:"Class",
+        description:""
+    });
+
+    y({
+        url:'/Cake.EntityFramework/Cake.EntityFramework/api/Cake.EntityFramework.TestProject.Postgres/AtomicMigrationScriptBuilder',
+        title:"AtomicMigrationScriptBuilder",
         description:""
     });
 
     y({
         url:'/Cake.EntityFramework/Cake.EntityFramework/api/Cake.EntityFramework.TestProject.Postgres.Migrations/V6',
         title:"V6",
+        description:""
+    });
+
+    y({
+        url:'/Cake.EntityFramework/Cake.EntityFramework/api/Cake.EntityFramework.TestProject.SqlServer.Migrations/V2',
+        title:"V2",
+        description:""
+    });
+
+    y({
+        url:'/Cake.EntityFramework/Cake.EntityFramework/api/Cake.EntityFramework.Models/EfMigrationException',
+        title:"EfMigrationException",
+        description:""
+    });
+
+    y({
+        url:'/Cake.EntityFramework/Cake.EntityFramework/api/Cake.EntityFramework.TestProject.SqlServer.Models/Student',
+        title:"Student",
+        description:""
+    });
+
+    y({
+        url:'/Cake.EntityFramework/Cake.EntityFramework/api/Cake.EntityFramework.TestProject.Postgres.Migrations/Bad',
+        title:"Bad",
+        description:""
+    });
+
+    y({
+        url:'/Cake.EntityFramework/Cake.EntityFramework/api/Cake.EntityFramework.TestProject.SqlServer/SchoolContext',
+        title:"SchoolContext",
+        description:""
+    });
+
+    y({
+        url:'/Cake.EntityFramework/Cake.EntityFramework/api/Cake.EntityFramework.TestProject.SqlServer.Migrations/V0',
+        title:"V0",
+        description:""
+    });
+
+    y({
+        url:'/Cake.EntityFramework/Cake.EntityFramework/api/Cake.EntityFramework.TestProject.SqlServer.Migrations/V3',
+        title:"V3",
+        description:""
+    });
+
+    y({
+        url:'/Cake.EntityFramework/Cake.EntityFramework/api/Cake.EntityFramework.Migrator/EfMigratorBackend',
+        title:"EfMigratorBackend",
+        description:""
+    });
+
+    y({
+        url:'/Cake.EntityFramework/Cake.EntityFramework/api/Cake.EntityFramework.TestProject.Postgres.Migrations/V4',
+        title:"V4",
+        description:""
+    });
+
+    y({
+        url:'/Cake.EntityFramework/Cake.EntityFramework/api/Cake.EntityFramework.CakeTranslation/CakeLogger',
+        title:"CakeLogger",
+        description:""
+    });
+
+    y({
+        url:'/Cake.EntityFramework/Cake.EntityFramework/api/Cake.EntityFramework.TestProject.SqlServer.Migrations/V4',
+        title:"V4",
+        description:""
+    });
+
+    y({
+        url:'/Cake.EntityFramework/Cake.EntityFramework/api/Cake.EntityFramework.Models/MigrationResult',
+        title:"MigrationResult",
+        description:""
+    });
+
+    y({
+        url:'/Cake.EntityFramework/Cake.EntityFramework/api/Cake.EntityFramework.TestProject.Postgres.Models/Class',
+        title:"Class",
+        description:""
+    });
+
+    y({
+        url:'/Cake.EntityFramework/Cake.EntityFramework/api/Cake.EntityFramework.TestProject.Postgres.Migrations/V5',
+        title:"V5",
+        description:""
+    });
+
+    y({
+        url:'/Cake.EntityFramework/Cake.EntityFramework/api/Cake.EntityFramework.TestProject.SqlServer/AtomicMigrationScriptBuilder',
+        title:"AtomicMigrationScriptBuilder",
+        description:""
+    });
+
+    y({
+        url:'/Cake.EntityFramework/Cake.EntityFramework/api/Cake.EntityFramework.TestProject.SqlServer.Migrations/V7',
+        title:"V7",
+        description:""
+    });
+
+    y({
+        url:'/Cake.EntityFramework/Cake.EntityFramework/api/Cake.EntityFramework.CakeTranslation/EfMigratorSettings',
+        title:"EfMigratorSettings",
+        description:""
+    });
+
+    y({
+        url:'/Cake.EntityFramework/Cake.EntityFramework/api/Cake.EntityFramework.Migrator/EfMigrator',
+        title:"EfMigrator",
+        description:""
+    });
+
+    y({
+        url:'/Cake.EntityFramework/Cake.EntityFramework/api/Cake.EntityFramework.TestProject.SqlServer.Migrations/Bad',
+        title:"Bad",
+        description:""
+    });
+
+    y({
+        url:'/Cake.EntityFramework/Cake.EntityFramework/api/Cake.EntityFramework.TestProject.Postgres.Migrations/V2',
+        title:"V2",
+        description:""
+    });
+
+    y({
+        url:'/Cake.EntityFramework/Cake.EntityFramework/api/Cake.EntityFramework.TestProject.Postgres.Models/Student',
+        title:"Student",
+        description:""
+    });
+
+    y({
+        url:'/Cake.EntityFramework/Cake.EntityFramework/api/Cake.EntityFramework.Models/ScriptResult',
+        title:"ScriptResult",
+        description:""
+    });
+
+    y({
+        url:'/Cake.EntityFramework/Cake.EntityFramework/api/Cake.EntityFramework.TestProject.Postgres.Migrations/V3',
+        title:"V3",
+        description:""
+    });
+
+    y({
+        url:'/Cake.EntityFramework/Cake.EntityFramework/api/Cake.EntityFramework.CakeTranslation/EfAliases',
+        title:"EfAliases",
         description:""
     });
 
