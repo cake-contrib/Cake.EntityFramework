@@ -90,5 +90,10 @@ namespace Cake.EntityFramework.Interfaces
         /// </summary>
         /// <returns>true if script generation was successful, otherwise false</returns>
         string GenerateScriptForLatest();
+
+        /// <summary>
+        /// Runs the Seed Method
+        /// </summary>
+        void RunSeedMethod();
     }
 }

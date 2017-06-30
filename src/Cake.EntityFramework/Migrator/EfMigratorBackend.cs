@@ -74,6 +74,15 @@ namespace Cake.EntityFramework.Migrator
         }
 
         /// <summary>
+        /// Updates the database to the current database version and runs the seed method. This should result in no schema changes.
+        /// </summary>
+        public void RunSeedMethod()
+        {
+            var current = GetCurrentMigration();
+            MigrateTo(current);
+        }
+
+        /// <summary>
         /// Determines if there are any pending migrations
         /// </summary>
         /// <returns>true if had migrations pending, otherwise false.</returns>

@@ -76,5 +76,11 @@ namespace Cake.EntityFramework.Interfaces
         /// </summary>
         /// <returns>Latest migration name</returns>
         string GetLatestMigration();
+
+        /// <summary>
+        /// Runs the seed method on the target database.
+        /// </summary>
+        /// <returns></returns>
+        void RunSeedMethod();
     }
 }
