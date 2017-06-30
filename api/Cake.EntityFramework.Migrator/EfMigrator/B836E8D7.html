@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="shortcut icon" href="/Cake.EntityFramework/assets/img/favicon.ico" type="image/x-icon">
         <link rel="icon" href="/Cake.EntityFramework/assets/img/favicon.ico" type="image/x-icon">
-        <title>Cake.EntityFramework - API - EfMigrator.GetCurrentMigration() Method</title>
+        <title>Cake.EntityFramework - API - EfMigrator.RunSeedMethod() Method</title>
         <link href="/Cake.EntityFramework/assets/css/mermaid.css" rel="stylesheet">
         <link href="/Cake.EntityFramework/assets/css/highlight.css" rel="stylesheet">
         <link href="/Cake.EntityFramework/assets/css/bootstrap/bootstrap.css" rel="stylesheet">
@@ -142,7 +142,7 @@
 				<li><a href="/Cake.EntityFramework/api/Cake.EntityFramework.Migrator/EfMigrator/1D6D7C30">Dispose<wbr>()<wbr></a></li>
 				<li><a href="/Cake.EntityFramework/api/Cake.EntityFramework.Migrator/EfMigrator/1FCA46E6">Generate<wbr>Script<wbr>For<wbr>Latest<wbr>()<wbr></a></li>
 				<li><a href="/Cake.EntityFramework/api/Cake.EntityFramework.Migrator/EfMigrator/80EE1F56">Generate<wbr>Script<wbr>For<wbr>Version<wbr>(string)<wbr></a></li>
-				<li class="selected"><a href="/Cake.EntityFramework/api/Cake.EntityFramework.Migrator/EfMigrator/D925886A">GetCurrentMigration<wbr>()<wbr></a></li>
+				<li><a href="/Cake.EntityFramework/api/Cake.EntityFramework.Migrator/EfMigrator/D925886A">GetCurrentMigration<wbr>()<wbr></a></li>
 				<li><a href="/Cake.EntityFramework/api/Cake.EntityFramework.Migrator/EfMigrator/28F0FD3B">GetLatestMigration<wbr>()<wbr></a></li>
 				<li><a href="/Cake.EntityFramework/api/Cake.EntityFramework.Migrator/EfMigrator/F1132C9D">GetLocalMigrations<wbr>()<wbr></a></li>
 				<li><a href="/Cake.EntityFramework/api/Cake.EntityFramework.Migrator/EfMigrator/798BCE74">GetPendingMigrations<wbr>()<wbr></a></li>
@@ -151,7 +151,7 @@
 				<li><a href="/Cake.EntityFramework/api/Cake.EntityFramework.Migrator/EfMigrator/9AB63FAC">MigrateTo<wbr>(string)<wbr></a></li>
 				<li><a href="/Cake.EntityFramework/api/Cake.EntityFramework.Migrator/EfMigrator/83220062">MigrateToLatest<wbr>()<wbr></a></li>
 				<li><a href="/Cake.EntityFramework/api/Cake.EntityFramework.Migrator/EfMigrator/F788525E">Rollback<wbr>()<wbr></a></li>
-				<li><a href="/Cake.EntityFramework/api/Cake.EntityFramework.Migrator/EfMigrator/B836E8D7">RunSeedMethod<wbr>()<wbr></a></li>
+				<li class="selected"><a href="/Cake.EntityFramework/api/Cake.EntityFramework.Migrator/EfMigrator/B836E8D7">RunSeedMethod<wbr>()<wbr></a></li>
 
 
                     </ul>
@@ -166,14 +166,14 @@
 
 <section class="content-header">
 			<h3><a href="/Cake.EntityFramework/api/Cake.EntityFramework.Migrator/EfMigrator">EfMigrator</a>.</h3>
-	<h1>GetCurrentMigration<wbr>()<wbr> <small>Method</small></h1>
+	<h1>RunSeedMethod<wbr>()<wbr> <small>Method</small></h1>
 </section>
 <section class="content">
 	
 	
 		<h1 id="Summary">Summary</h1>
 	<div class="lead">
-    Gets the name of the current migration
+    Runs the Seed Method on the targeted database.
     </div>
 
 		<div class="panel panel-default">
@@ -191,7 +191,7 @@
 		</div>
 
 	<h1 id="Syntax">Syntax</h1>
-	<pre><code>public string GetCurrentMigration()</code></pre>
+	<pre><code>public void RunSeedMethod()</code></pre>
 
 
 
@@ -209,8 +209,8 @@
 					</tr>
 				</thead>
 				<tbody><tr>
-					<td>string</td>
-					<td>string name of latest migration</td>
+					<td>void</td>
+					<td></td>
 				</tr>
 			</tbody></table>
 		</div>
