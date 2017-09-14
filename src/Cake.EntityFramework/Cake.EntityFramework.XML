@@ -77,6 +77,12 @@
             </summary>
             <returns>Latest migration name</returns>
         </member>
+        <member name="M:Cake.EntityFramework.Interfaces.IEfMigratorBackend.RunSeedMethod">
+            <summary>
+            Runs the seed method on the target database.
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:Cake.EntityFramework.Interfaces.ILogger">
             <summary>
             Logger contract
@@ -199,6 +205,11 @@
             Generates a script from the data store for the latest version
             </summary>
             <returns>true if script generation was successful, otherwise false</returns>
+        </member>
+        <member name="M:Cake.EntityFramework.Interfaces.IEfMigrator.RunSeedMethod">
+            <summary>
+            Runs the Seed Method
+            </summary>
         </member>
         <member name="T:Cake.EntityFramework.CakeTranslation.EfAliases">
             <summary>
@@ -383,6 +394,11 @@
             </summary>
             <returns>Name of the migration</returns>
         </member>
+        <member name="M:Cake.EntityFramework.Migrator.EfMigratorBackend.RunSeedMethod">
+            <summary>
+            Updates the database to the current database version and runs the seed method. This should result in no schema changes.
+            </summary>
+        </member>
         <member name="M:Cake.EntityFramework.Migrator.EfMigratorBackend.HasPendingMigrations">
             <summary>
             Determines if there are any pending migrations
@@ -545,6 +561,11 @@
             Generates a script from the data store for the latest version
             </summary>
             <returns>true if script generation was successful, otherwise false</returns>
+        </member>
+        <member name="M:Cake.EntityFramework.Migrator.EfMigrator.RunSeedMethod">
+            <summary>
+            Runs the Seed Method on the targeted database.
+            </summary>
         </member>
         <member name="T:Cake.EntityFramework.Models.EfMigrationException">
             <summary>
