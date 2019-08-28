@@ -19,11 +19,12 @@ namespace Cake.EntityFramework.Tests.Fixtures
         public IProcessRunner ProcessRunner { get; set; }
         public IRegistry Registry { get; set; }
         public IToolLocator Tools { get; set; }
+        public ICakeDataResolver Data { get; }
 
         public CakeContextFixture()
         {
             var cakeRuntime = Substitute.For<ICakeRuntime>();
-            cakeRuntime.TargetFramework.Returns(new FrameworkName(".NET Framework", new Version(4, 5, 2)));
+            cakeRuntime.BuiltFramework.Returns(new FrameworkName(".NET Framework", new Version(4, 5, 2)));
             cakeRuntime.CakeVersion.Returns(typeof(ICakeRuntime).Assembly.GetName().Version);
 
             FileSystem = Substitute.For<IFileSystem>();
@@ -36,7 +37,7 @@ namespace Cake.EntityFramework.Tests.Fixtures
             ProcessRunner = Substitute.For<IProcessRunner>();
             Registry = Substitute.For<IRegistry>();
             Tools = Substitute.For<IToolLocator>();
-
+            Data = Substitute.For<ICakeDataResolver>();
         }
 
         public void Dispose()
