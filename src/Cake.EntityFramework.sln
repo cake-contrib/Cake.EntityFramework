@@ -14,7 +14,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build", "Build", "{7F850636
 		..\appveyor.yml = ..\appveyor.yml
 		..\build.ps1 = ..\build.ps1
 		..\nuspec\nuget\Cake.EntityFramework.nuspec = ..\nuspec\nuget\Cake.EntityFramework.nuspec
-		..\setup.cake = ..\setup.cake
+		..\recipe.cake = ..\recipe.cake
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Meta", "Meta", "{5E8F4B9D-AAA7-4E77-AFB2-D3F61509C945}"

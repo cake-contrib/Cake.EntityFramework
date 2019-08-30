@@ -8,9 +8,10 @@
     <title>Cake.EntityFramework</title>
     <description>A set of Cake aliases for Entity Framework code-first migrations.</description>
     <summary>Entity Framework 6x addin for cake build.</summary>
-    <licenseUrl>https://github.com/cake-contrib/Cake.EntityFramework/blob/master/LICENSE</licenseUrl>
+    <license type="expression">MIT</license>
     <projectUrl>https://github.com/cake-contrib/Cake.EntityFramework</projectUrl>
-    <iconUrl>https://cdn.rawgit.com/cake-contrib/graphics/a5cf0f881c390650144b2243ae551d5b9f836196/png/cake-contrib-medium.png</iconUrl>
+    <repository type="git" url="https://github.com/cake-contrib/Cake.EntityFramework.git"/>
+    <iconUrl>https://cdn.jsdelivr.net/gh/cake-contrib/graphics/png/cake-contrib-medium.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <copyright>Copyright (c) Cake Contributions 2017</copyright>
     <releaseNotes></releaseNotes>
@@ -20,8 +21,8 @@
     </dependencies>
   </metadata>
   <files>
-    <file src="Cake.EntityFramework.dll" target="lib/net45" />
-    <file src="Cake.EntityFramework.pdb" target="lib/net45" />
-    <file src="Cake.EntityFramework.xml" target="lib/net45" />
+    <file src="Cake.EntityFramework.dll" target="lib/net461" />
+    <file src="Cake.EntityFramework.pdb" target="lib/net461" />
+    <file src="Cake.EntityFramework.xml" target="lib/net461" />
   </files>
 </package>
