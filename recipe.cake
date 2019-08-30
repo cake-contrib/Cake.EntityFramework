@@ -16,7 +16,8 @@ BuildParameters.SetParameters(context: Context,
                             title: "Cake.EntityFramework",
                             repositoryOwner: "cake-contrib",
                             repositoryName: "Cake.EntityFramework",
-                            appVeyorAccountName: "cakecontrib");
+                            appVeyorAccountName: "cakecontrib",
+                            shouldRunGitVersion: true);
 
 BuildParameters.PrintParameters(Context);
 
