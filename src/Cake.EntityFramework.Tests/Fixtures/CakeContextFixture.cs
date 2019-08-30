@@ -5,6 +5,7 @@ using Cake.Core.Tooling;
 using NSubstitute;
 using System;
 using System.Runtime.Versioning;
+using Cake.Core.Configuration;
 using Xunit;
 
 namespace Cake.EntityFramework.Tests.Fixtures
@@ -20,6 +21,7 @@ namespace Cake.EntityFramework.Tests.Fixtures
         public IRegistry Registry { get; set; }
         public IToolLocator Tools { get; set; }
         public ICakeDataResolver Data { get; }
+        public ICakeConfiguration Configuration { get; }
 
         public CakeContextFixture()
         {
@@ -38,6 +40,7 @@ namespace Cake.EntityFramework.Tests.Fixtures
             Registry = Substitute.For<IRegistry>();
             Tools = Substitute.For<IToolLocator>();
             Data = Substitute.For<ICakeDataResolver>();
+            Configuration = Substitute.For<ICakeConfiguration>();
         }
 
         public void Dispose()
