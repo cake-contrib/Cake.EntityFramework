@@ -6,7 +6,7 @@ build_script:
 
 # Tests
 test: off
-services: 
+services:
   - postgresql
   - mssql2016
 
@@ -26,4 +26,4 @@ branches:
 #---------------------------------#
 cache:
 - Source\packages -> Source\**\packages.config
-- tools -> setup.cake      
+- tools -> recipe.cake
