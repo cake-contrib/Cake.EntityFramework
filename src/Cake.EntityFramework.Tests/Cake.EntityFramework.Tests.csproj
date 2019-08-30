@@ -39,11 +39,11 @@
     <WarningLevel>0</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Cake.Core, Version=0.32.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Cake.Core.0.32.1\lib\net46\Cake.Core.dll</HintPath>
+    <Reference Include="Cake.Core, Version=0.33.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Cake.Core.0.33.0\lib\net46\Cake.Core.dll</HintPath>
     </Reference>
     <Reference Include="Cake.Testing">
-      <HintPath>..\packages\Cake.Testing.0.22.0\lib\net46\Cake.Testing.dll</HintPath>
+      <HintPath>..\packages\Cake.Testing.0.33.0\lib\net46\Cake.Testing.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
