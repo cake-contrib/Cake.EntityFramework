@@ -5,7 +5,7 @@
     <version>0.0.0</version>
     <authors>Silvenga,louisfischer</authors>
     <owners>Silvenga,louisfischer,cake-contrib</owners>
-    <title>Cake.EntityFramework</title>
+    <title>Cake.EntityFramework (DEPRECATED)</title>
     <description>A set of Cake aliases for Entity Framework code-first migrations.</description>
     <summary>Entity Framework 6x addin for cake build.</summary>
     <license type="expression">MIT</license>
