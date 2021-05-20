@@ -1,4 +1,9 @@
-# Cake.EntityFramework
+# Cake.EntityFramework (DEPRECATED)
+
+## DEPRECATED 
+> This library is deprecated and not being maintained anymore.  
+> Please use [Cake.EntityFramework6](https://github.com/cake-contrib/Cake.EntityFramework6) instead.
+
 
 A set of Cake aliases for Entity Framework code-first migrations.
 
